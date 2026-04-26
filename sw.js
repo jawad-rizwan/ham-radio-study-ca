@@ -1,4 +1,4 @@
-const CACHE_NAME = "ham-radio-study-ca-v1.0.0";
+const CACHE_NAME = "ham-radio-study-ca-v1.1.0";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -8,6 +8,7 @@ const APP_SHELL = [
   "./data/topics.json",
   "./data/explanations.json",
   "./data/guide.json",
+  "./data/course.json",
   "./data/reference.json",
   "./data/formulas.json",
   "./data/flashcards.json",

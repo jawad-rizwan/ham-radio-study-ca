@@ -3,6 +3,7 @@ const DATA_PATHS = {
   topics: "data/topics.json",
   explanations: "data/explanations.json",
   guide: "data/guide.json",
+  course: "data/course.json",
   reference: "data/reference.json",
   formulas: "data/formulas.json",
   flashcards: "data/flashcards.json",
@@ -10,7 +11,7 @@ const DATA_PATHS = {
 
 const PROGRESS_KEY = "hamRadioStudyProgress:v1";
 const THEME_KEY = "hamRadioStudyTheme";
-const APP_VERSION = "1.0.0";
+const APP_VERSION = "1.1.0";
 
 const app = document.querySelector("#app");
 const navLinks = [...document.querySelectorAll("[data-view]")];
@@ -29,6 +30,11 @@ const state = {
   },
   guide: {
     moduleId: "",
+  },
+  course: {
+    unitId: "",
+    activeUnitId: "",
+    activeStartedAt: 0,
   },
   reference: {
     query: "",
@@ -92,6 +98,10 @@ function defaultProgress() {
     questionStats: {},
     examHistory: [],
     guideCompletions: {},
+    courseProgress: {
+      currentUnitId: "",
+      units: {},
+    },
     formulaStats: {},
     flashcardStats: {},
     bookmarks: [],
@@ -116,9 +126,17 @@ function normalizeProgress(progress) {
     questionStats: progress?.questionStats && typeof progress.questionStats === "object" ? progress.questionStats : {},
     examHistory: Array.isArray(progress?.examHistory) ? progress.examHistory : [],
     guideCompletions: progress?.guideCompletions && typeof progress.guideCompletions === "object" ? progress.guideCompletions : {},
+    courseProgress: normalizeCourseProgress(progress?.courseProgress),
     formulaStats: progress?.formulaStats && typeof progress.formulaStats === "object" ? progress.formulaStats : {},
     flashcardStats: progress?.flashcardStats && typeof progress.flashcardStats === "object" ? progress.flashcardStats : {},
     bookmarks: Array.isArray(progress?.bookmarks) ? progress.bookmarks : [],
+  };
+}
+
+function normalizeCourseProgress(progress) {
+  return {
+    currentUnitId: typeof progress?.currentUnitId === "string" ? progress.currentUnitId : "",
+    units: progress?.units && typeof progress.units === "object" ? progress.units : {},
   };
 }
 
@@ -191,8 +209,10 @@ function formatDuration(seconds) {
 }
 
 function setView(view) {
+  settleCourseTime();
   state.view = view;
   if (view !== "guide") state.guide.moduleId = "";
+  state.course.unitId = "";
   navLinks.forEach((link) => link.classList.toggle("active", link.dataset.view === view));
   render();
   app.focus();
@@ -259,6 +279,7 @@ function getStats() {
     bestMock: mockExams.length ? Math.max(...mockExams.map((record) => record.scorePercent)) : 0,
     sectionsTouched,
     guideDone: Object.keys(state.progress.guideCompletions).length,
+    courseDone: state.data.course.units.filter((unit) => getUnitProgress(unit.id).completedAt).length,
   };
 }
 
@@ -266,8 +287,9 @@ function readinessScore() {
   const stats = getStats();
   const topicCoverage = (stats.sectionsTouched / state.data.sections.length) * 100;
   const guideCoverage = (stats.guideDone / state.data.guide.modules.length) * 100;
+  const courseCoverage = (stats.courseDone / state.data.course.units.length) * 100;
   const mockWeight = stats.mockCount ? stats.mockAverage : 0;
-  return round1((mockWeight * 0.5) + (stats.accuracy * 0.25) + (topicCoverage * 0.15) + (guideCoverage * 0.1));
+  return round1((mockWeight * 0.48) + (stats.accuracy * 0.22) + (topicCoverage * 0.14) + (guideCoverage * 0.08) + (courseCoverage * 0.08));
 }
 
 function readinessLabel(score) {
@@ -358,6 +380,7 @@ function render() {
 
   const views = {
     dashboard: renderDashboard,
+    course: renderCourse,
     guide: renderGuide,
     practice: renderPractice,
     exam: renderPractice,
@@ -365,6 +388,8 @@ function render() {
     bank: renderQuestionBank,
     flashcards: renderFlashcards,
     cram: renderCramSheets,
+    resources: renderResources,
+    nextSteps: renderNextSteps,
     progress: renderProgress,
     about: renderAbout,
   };
@@ -375,6 +400,7 @@ function renderDashboard() {
   const stats = getStats();
   const readiness = readinessScore();
   const weak = weakSections(5);
+  const currentUnit = getCurrentCourseUnit();
   return `
     ${hero("Canadian Amateur Radio Basic study workspace", "Study the official government question bank, drill weak topics, and track your path to the 70 percent pass mark and 80 percent honours threshold.", "Dashboard")}
     <section class="grid four">
@@ -393,7 +419,7 @@ function renderDashboard() {
             <div class="actions">
               <button class="btn" type="button" data-action="start-mock">Start 100-question mock</button>
               <button class="btn secondary" type="button" data-action="start-adaptive">Adaptive study</button>
-              <button class="btn ghost" type="button" data-view="guide">Open guide</button>
+              <button class="btn ghost" type="button" data-view="course">Open course</button>
             </div>
           </div>
           <div class="signal-visual" aria-hidden="true">
@@ -402,14 +428,19 @@ function renderDashboard() {
         </article>
         <section class="grid two" style="margin-top: 16px;">
           <article class="panel">
-            <h2>Study guide</h2>
-            <p class="muted">${stats.guideDone}/${state.data.guide.modules.length} guide modules marked complete.</p>
-            <button class="btn secondary" type="button" data-view="guide">Continue guide</button>
+            <h2>Course path</h2>
+            <p class="muted">${stats.courseDone}/${state.data.course.units.length} units complete${currentUnit ? ` | Next: ${currentUnit.order}. ${currentUnit.title}` : ""}.</p>
+            <button class="btn secondary" type="button" data-action="resume-course">${currentUnit ? "Resume course" : "Start course"}</button>
           </article>
           <article class="panel">
             <h2>Formula practice</h2>
             <p class="muted">Focused drills for Ohm's law, power, wavelength, dB, batteries and reactance.</p>
             <button class="btn secondary" type="button" data-view="formulas">Practice formulas</button>
+          </article>
+          <article class="panel">
+            <h2>Next steps</h2>
+            <p class="muted">Official practice exam, accredited examiner search, and exam-readiness checklist.</p>
+            <button class="btn secondary" type="button" data-view="nextSteps">Plan exam booking</button>
           </article>
         </section>
       </div>
@@ -427,6 +458,261 @@ function renderDashboard() {
           `).join("")}
         </div>
       </aside>
+    </section>
+  `;
+}
+
+function getUnitProgress(unitId) {
+  return state.progress.courseProgress.units[unitId] || {
+    elapsedSeconds: 0,
+    completedAt: "",
+    lastOpenedAt: "",
+  };
+}
+
+function currentElapsedSeconds(unitId) {
+  const progress = getUnitProgress(unitId);
+  const activeSeconds = state.course.activeUnitId === unitId && state.course.activeStartedAt
+    ? Math.floor((Date.now() - state.course.activeStartedAt) / 1000)
+    : 0;
+  return (progress.elapsedSeconds || 0) + activeSeconds;
+}
+
+function settleCourseTime() {
+  if (!state.course.activeUnitId || !state.course.activeStartedAt) return;
+  const unitId = state.course.activeUnitId;
+  const elapsed = Math.max(0, Math.floor((Date.now() - state.course.activeStartedAt) / 1000));
+  if (elapsed > 0) {
+    const progress = getUnitProgress(unitId);
+    state.progress.courseProgress.units[unitId] = {
+      ...progress,
+      elapsedSeconds: (progress.elapsedSeconds || 0) + elapsed,
+      lastOpenedAt: new Date().toISOString(),
+    };
+    saveProgress();
+  }
+  state.course.activeUnitId = "";
+  state.course.activeStartedAt = 0;
+}
+
+function resumeCourseTime() {
+  if (!state.data || state.view !== "course" || !state.course.unitId || state.course.activeUnitId) return;
+  const progress = getUnitProgress(state.course.unitId);
+  state.progress.courseProgress.units[state.course.unitId] = {
+    ...progress,
+    lastOpenedAt: new Date().toISOString(),
+  };
+  state.course.activeUnitId = state.course.unitId;
+  state.course.activeStartedAt = Date.now();
+  saveProgress();
+}
+
+function getCurrentCourseUnit() {
+  const saved = state.progress.courseProgress.currentUnitId;
+  if (saved) return state.data.course.units.find((unit) => unit.id === saved) || state.data.course.units[0];
+  return state.data.course.units.find((unit) => !getUnitProgress(unit.id).completedAt) || state.data.course.units[0];
+}
+
+function openCourseUnit(unitId) {
+  settleCourseTime();
+  const unit = state.data.course.units.find((item) => item.id === unitId);
+  if (!unit) return;
+  const progress = getUnitProgress(unitId);
+  state.progress.courseProgress.currentUnitId = unitId;
+  state.progress.courseProgress.units[unitId] = {
+    ...progress,
+    lastOpenedAt: new Date().toISOString(),
+  };
+  state.course.unitId = unitId;
+  state.course.activeUnitId = unitId;
+  state.course.activeStartedAt = Date.now();
+  saveProgress();
+  state.view = "course";
+  navLinks.forEach((link) => link.classList.toggle("active", link.dataset.view === "course"));
+  render();
+  app.focus();
+  window.location.hash = "course";
+}
+
+function completeCourseUnit(unitId) {
+  settleCourseTime();
+  const progress = getUnitProgress(unitId);
+  state.progress.courseProgress.units[unitId] = {
+    ...progress,
+    completedAt: new Date().toISOString(),
+  };
+  const next = state.data.course.units.find((unit) => unit.order > (state.data.course.units.find((item) => item.id === unitId)?.order || 0) && !getUnitProgress(unit.id).completedAt);
+  state.progress.courseProgress.currentUnitId = next?.id || unitId;
+  saveProgress();
+  render();
+}
+
+function renderCourse() {
+  if (state.course.unitId) return renderCourseUnit();
+  const completed = state.data.course.units.filter((unit) => getUnitProgress(unit.id).completedAt).length;
+  const current = getCurrentCourseUnit();
+  return `
+    ${hero("28-unit course path", "A smaller-step study route inspired by recommended Canadian Basic training sequences, mapped back to the official RIC-3 topic areas and our exact question bank.", "Course Path")}
+    <section class="panel course-overview">
+      <div>
+        <h2>${completed}/${state.data.course.units.length} units complete</h2>
+        <p class="muted">Resume at ${current.order}. ${escapeHtml(current.title)}. Time is saved locally whenever you open or leave a unit.</p>
+      </div>
+      <div class="actions">
+        <button class="btn" type="button" data-action="resume-course">Resume</button>
+        <button class="btn secondary" type="button" data-view="resources">Open resources</button>
+        <button class="btn ghost" type="button" data-view="guide">Open 8-area guide</button>
+      </div>
+    </section>
+    <section class="course-list">
+      ${state.data.course.units.map(renderCourseUnitCard).join("")}
+    </section>
+  `;
+}
+
+function renderCourseUnitCard(unit) {
+  const progress = getUnitProgress(unit.id);
+  const done = Boolean(progress.completedAt);
+  const questionCount = unit.section_ids.reduce((sum, sectionId) => sum + (state.data.questionsBySection[sectionId]?.length || 0), 0);
+  return `
+    <article class="course-card ${done ? "done" : ""}">
+      <div class="course-number">${unit.order}</div>
+      <div>
+        <h2>${escapeHtml(unit.title)}</h2>
+        <p class="muted">${escapeHtml(unit.description)}</p>
+        <div class="course-meta">
+          <span>${unit.section_ids.length} topic area(s)</span>
+          <span>${questionCount} bank question(s)</span>
+          <span>${formatDuration(progress.elapsedSeconds || 0)} studied</span>
+          ${done ? `<span class="result-good">Complete</span>` : ""}
+        </div>
+        <div class="actions">
+          <button class="btn small" type="button" data-action="open-course-unit" data-unit-id="${escapeHtml(unit.id)}">${done ? "Review" : "Open"}</button>
+          <button class="btn small secondary" type="button" data-action="practice-course-unit" data-unit-id="${escapeHtml(unit.id)}">Drill</button>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderCourseUnit() {
+  const unit = state.data.course.units.find((item) => item.id === state.course.unitId);
+  if (!unit) {
+    state.course.unitId = "";
+    return renderCourse();
+  }
+  const guideModule = state.data.guide.modules.find((module) => module.id === unit.guide_module);
+  const topics = unit.section_ids.map(getSectionById).filter(Boolean);
+  const progress = getUnitProgress(unit.id);
+  const next = state.data.course.units.find((item) => item.order === unit.order + 1);
+  return `
+    <section class="panel course-detail">
+      <div class="split-head">
+        <div>
+          <p class="eyebrow">Unit ${unit.order} of ${state.data.course.units.length}</p>
+          <h1>${escapeHtml(unit.title)}</h1>
+          <p class="muted">${escapeHtml(unit.description)}</p>
+          <p><strong>Time spent:</strong> ${formatDuration(currentElapsedSeconds(unit.id))} | <strong>Target:</strong> about ${unit.estimated_minutes}m</p>
+        </div>
+        <button class="btn ghost" type="button" data-action="back-course">Back to course</button>
+      </div>
+      <section class="guide-block">
+        <h2>Study tasks</h2>
+        <ul>${unit.study_tasks.map((task) => `<li>${escapeHtml(task)}</li>`).join("")}</ul>
+      </section>
+      ${guideModule ? `
+        <section class="guide-block">
+          <h2>Related guide module</h2>
+          <p>${escapeHtml(guideModule.description)}</p>
+          <button class="btn secondary" type="button" data-action="open-guide" data-module-id="${escapeHtml(guideModule.id)}">Open ${escapeHtml(guideModule.title)}</button>
+        </section>
+      ` : ""}
+      <section class="guide-block">
+        <h2>Official topic areas</h2>
+        <div class="topic-grid">
+          ${topics.map((topic) => `
+            <button class="topic-chip" type="button" data-action="practice-section" data-section-id="${escapeHtml(topic.id)}">
+              <strong>${escapeHtml(topic.number)}</strong>
+              <span>${escapeHtml(topic.title)}</span>
+            </button>
+          `).join("")}
+        </div>
+      </section>
+      <section class="guide-block">
+        <h2>Source links</h2>
+        <div class="resource-grid compact">
+          ${unit.sources.map((source) => `
+            <a class="resource-card" href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">
+              <strong>${escapeHtml(source.label)}</strong>
+              <span>${escapeHtml(source.url.replace(/^https?:\/\//, ""))}</span>
+            </a>
+          `).join("")}
+        </div>
+      </section>
+      <div class="actions">
+        <button class="btn" type="button" data-action="practice-course-unit" data-unit-id="${escapeHtml(unit.id)}">Drill this unit</button>
+        <button class="btn green" type="button" data-action="complete-course-unit" data-unit-id="${escapeHtml(unit.id)}">${progress.completedAt ? "Mark complete again" : "Mark complete"}</button>
+        ${next ? `<button class="btn secondary" type="button" data-action="open-course-unit" data-unit-id="${escapeHtml(next.id)}">Next unit</button>` : ""}
+      </div>
+    </section>
+  `;
+}
+
+function startCourseUnitPractice(unitId) {
+  const unit = state.data.course.units.find((item) => item.id === unitId);
+  if (!unit) return;
+  settleCourseTime();
+  const questions = unit.section_ids.flatMap((sectionId) => state.data.questionsBySection[sectionId] || []);
+  startSession({
+    title: `${unit.order}. ${unit.title}`,
+    mode: "course",
+    questions: shuffle(questions).slice(0, 30),
+    instant: true,
+  });
+}
+
+function renderResources() {
+  return `
+    ${hero("Study resources", "Official Government of Canada references plus the CLARES pages that were recommended for outside study.", "Resources")}
+    <section class="resource-grid">
+      ${state.data.course.resources.map((resource) => `
+        <a class="resource-card" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">
+          <span class="pill">${escapeHtml(resource.type)}</span>
+          <h2>${escapeHtml(resource.title)}</h2>
+          <p>${escapeHtml(resource.description)}</p>
+          <small>${escapeHtml(resource.url.replace(/^https?:\/\//, ""))}</small>
+        </a>
+      `).join("")}
+    </section>
+  `;
+}
+
+function renderNextSteps() {
+  const stats = getStats();
+  const readiness = readinessScore();
+  return `
+    ${hero("Exam next steps", "Use this checklist when your mocks are stable and you are ready to move from study mode to booking the Basic exam.", "Next Steps")}
+    <section class="grid four">
+      ${statCard("Readiness", `${readiness}%`, readinessLabel(readiness))}
+      ${statCard("Best mock", `${stats.bestMock}%`, officialExamStatus(stats.bestMock))}
+      ${statCard("Course units", `${stats.courseDone}/${state.data.course.units.length}`, "Course path")}
+      ${statCard("Weak topics", weakSections(100).filter(({ mastery }) => mastery.attempts && mastery.percent < 80).length, "Below 80%")}
+    </section>
+    <section class="grid two" style="margin-top: 16px;">
+      ${state.data.course.next_steps.map((step, index) => `
+        <article class="panel next-step-card">
+          <span class="course-number">${index + 1}</span>
+          <div>
+            <h2>${escapeHtml(step.title)}</h2>
+            <p class="muted">${escapeHtml(step.description)}</p>
+            <div class="actions">
+              ${step.action_type === "app"
+                ? `<button class="btn" type="button" data-action="${escapeHtml(step.action_target)}">${escapeHtml(step.action)}</button>`
+                : `<a class="btn secondary" href="${escapeHtml(step.action_target)}" target="_blank" rel="noopener noreferrer">${escapeHtml(step.action)}</a>`}
+            </div>
+          </div>
+        </article>
+      `).join("")}
     </section>
   `;
 }
@@ -1335,6 +1621,18 @@ document.addEventListener("click", (event) => {
   if (action === "start-custom") startCustomPractice();
   if (action === "practice-section") startSectionPractice(actionButton.dataset.sectionId);
   if (action === "practice-major") startMajorPractice(actionButton.dataset.majorId);
+  if (action === "resume-course") {
+    const unit = getCurrentCourseUnit();
+    if (unit) openCourseUnit(unit.id);
+  }
+  if (action === "open-course-unit") openCourseUnit(actionButton.dataset.unitId);
+  if (action === "back-course") {
+    settleCourseTime();
+    state.course.unitId = "";
+    render();
+  }
+  if (action === "complete-course-unit") completeCourseUnit(actionButton.dataset.unitId);
+  if (action === "practice-course-unit") startCourseUnitPractice(actionButton.dataset.unitId);
   if (action === "answer-session") answerSession(actionButton.dataset.choice);
   if (action === "submit-session") submitSession();
   if (action === "exit-session") {
@@ -1363,9 +1661,7 @@ document.addEventListener("click", (event) => {
   }
   if (action === "open-guide") {
     state.guide.moduleId = actionButton.dataset.moduleId;
-    state.view = "guide";
-    navLinks.forEach((link) => link.classList.toggle("active", link.dataset.view === "guide"));
-    render();
+    setView("guide");
   }
   if (action === "back-guide") {
     state.guide.moduleId = "";
@@ -1486,13 +1782,24 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+window.addEventListener("beforeunload", settleCourseTime);
+
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden") {
+    settleCourseTime();
+    return;
+  }
+  resumeCourseTime();
+});
+
 async function init() {
   try {
-    const [questions, topics, explanations, guide, reference, formulas, flashcards] = await Promise.all([
+    const [questions, topics, explanations, guide, course, reference, formulas, flashcards] = await Promise.all([
       fetch(DATA_PATHS.questions).then(loadJson),
       fetch(DATA_PATHS.topics).then(loadJson),
       fetch(DATA_PATHS.explanations).then(loadJson),
       fetch(DATA_PATHS.guide).then(loadJson),
+      fetch(DATA_PATHS.course).then(loadJson),
       fetch(DATA_PATHS.reference).then(loadJson),
       fetch(DATA_PATHS.formulas).then(loadJson),
       fetch(DATA_PATHS.flashcards).then(loadJson),
@@ -1513,6 +1820,7 @@ async function init() {
       questionsBySection,
       explanations: explanations.explanations,
       guide,
+      course,
       reference,
       formulas,
       flashcards,

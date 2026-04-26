@@ -1,0 +1,967 @@
+{
+  "version": "1.0",
+  "source": "Original 28-unit course path inspired by common Canadian Basic training sequences and mapped to RIC-3 topic areas.",
+  "units": [
+    {
+      "id": "unit-01-regulations-i",
+      "order": 1,
+      "title": "Regulations I",
+      "description": "Licensing authority, certificate validity, fees, address changes and eligibility.",
+      "guide_module": "regulations",
+      "section_ids": [
+        "B-001-001",
+        "B-001-002",
+        "B-001-003",
+        "B-001-004"
+      ],
+      "study_tasks": [
+        "Read the regulation guide summary.",
+        "Drill sections 1-1 through 1-4.",
+        "Bookmark every exact-value question you miss."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-02-regulations-ii",
+      "order": 2,
+      "title": "Regulations II",
+      "description": "Operation on behalf of others, apparatus standards, content restrictions and station limits.",
+      "guide_module": "regulations",
+      "section_ids": [
+        "B-001-005",
+        "B-001-006",
+        "B-001-007",
+        "B-001-008"
+      ],
+      "study_tasks": [
+        "Separate Basic privileges from Advanced privileges.",
+        "Review prohibited content and non-commercial operation.",
+        "Drill the unit until you can explain why each distractor is wrong."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "RBR-4 station operation standards",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/licences-and-certificates/regulations-reference-rbr/rbr-4-standards-operation-radio-stations-amateur-radio-service"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-03-guidelines-i",
+      "order": 3,
+      "title": "Guidelines I",
+      "description": "Visitors, interference, emergency communications and privacy/non-remuneration.",
+      "guide_module": "regulations",
+      "section_ids": [
+        "B-001-009",
+        "B-001-010",
+        "B-001-011",
+        "B-001-012"
+      ],
+      "study_tasks": [
+        "Learn the emergency exceptions.",
+        "Memorize privacy and non-remuneration limits.",
+        "Run a section drill for interference rules."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-04-guidelines-ii",
+      "order": 4,
+      "title": "Guidelines II",
+      "description": "Identification, prefixes, foreign operation, bands, bandwidth and power restrictions.",
+      "guide_module": "regulations",
+      "section_ids": [
+        "B-001-013",
+        "B-001-014",
+        "B-001-015",
+        "B-001-016",
+        "B-001-017"
+      ],
+      "study_tasks": [
+        "Review call sign prefixes.",
+        "Use the cram sheet for qualification privileges.",
+        "Drill bands and bandwidth questions."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "RBR-4 station operation standards",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/licences-and-certificates/regulations-reference-rbr/rbr-4-standards-operation-radio-stations-amateur-radio-service"
+        },
+        {
+          "label": "RIC-9 call sign policy",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/licences-and-certificates/radiocom-information-circulars-ric/ric-9-call-sign-policy-and-special-event-prefixes"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-05-policies-i",
+      "order": 5,
+      "title": "Policies I",
+      "description": "Unmodulated carriers, retransmission, AM, frequency stability and ITU rules.",
+      "guide_module": "regulations",
+      "section_ids": [
+        "B-001-018",
+        "B-001-019",
+        "B-001-020",
+        "B-001-021"
+      ],
+      "study_tasks": [
+        "Treat ITU-region and operation-outside-Canada questions as exact-rule questions.",
+        "Drill until the country/region distractors are easy to eliminate."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "RBR-4 station operation standards",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/licences-and-certificates/regulations-reference-rbr/rbr-4-standards-operation-radio-stations-amateur-radio-service"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-06-policies-ii",
+      "order": 6,
+      "title": "Policies II",
+      "description": "Exams, antenna consultation, RF exposure and interference complaint criteria.",
+      "guide_module": "regulations",
+      "section_ids": [
+        "B-001-022",
+        "B-001-023",
+        "B-001-024",
+        "B-001-025"
+      ],
+      "study_tasks": [
+        "Memorize pass and honours thresholds.",
+        "Review RF exposure and antenna consultation triggers.",
+        "Drill all remaining B-001 policy sections."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "RBR-4 station operation standards",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/licences-and-certificates/regulations-reference-rbr/rbr-4-standards-operation-radio-stations-amateur-radio-service"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-07-policies-iii",
+      "order": 7,
+      "title": "Policies III Review",
+      "description": "Cumulative regulation review with emphasis on weak and bookmarked questions.",
+      "guide_module": "regulations",
+      "section_ids": [
+        "B-001-001",
+        "B-001-002",
+        "B-001-013",
+        "B-001-017",
+        "B-001-022",
+        "B-001-024"
+      ],
+      "study_tasks": [
+        "Run adaptive study.",
+        "Review bookmarked regulation questions.",
+        "Take a custom B-001 practice set."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "RBR-4 station operation standards",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/licences-and-certificates/regulations-reference-rbr/rbr-4-standards-operation-radio-stations-amateur-radio-service"
+        },
+        {
+          "label": "RIC-9 call sign policy",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/licences-and-certificates/radiocom-information-circulars-ric/ric-9-call-sign-policy-and-special-event-prefixes"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 30
+    },
+    {
+      "id": "unit-08-routine-operations-i",
+      "order": 8,
+      "title": "Routine Operations I",
+      "description": "Repeater and voice operating procedures, phonetics, simplex and HF calling.",
+      "guide_module": "operating",
+      "section_ids": [
+        "B-002-001",
+        "B-002-002",
+        "B-002-003",
+        "B-002-004"
+      ],
+      "study_tasks": [
+        "Study call structure and phonetics.",
+        "Drill repeater/simplex questions.",
+        "Use flashcards for Q signals and operating terms."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-09-routine-operations-ii",
+      "order": 9,
+      "title": "Routine Operations II",
+      "description": "CW, RST, Q signals, emergency procedure and record keeping.",
+      "guide_module": "operating",
+      "section_ids": [
+        "B-002-005",
+        "B-002-006",
+        "B-002-007",
+        "B-002-008",
+        "B-002-009"
+      ],
+      "study_tasks": [
+        "Memorize common Q signals.",
+        "Understand RST signal reports.",
+        "Drill emergency operating questions."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-10-equipping-a-station",
+      "order": 10,
+      "title": "Equipping A Station",
+      "description": "Block diagrams for HF, FM, CW, SSB, digital systems and Yagi antennas.",
+      "guide_module": "station",
+      "section_ids": [
+        "B-003-001",
+        "B-003-002",
+        "B-003-003",
+        "B-003-004",
+        "B-003-005",
+        "B-003-006",
+        "B-003-007",
+        "B-003-009"
+      ],
+      "study_tasks": [
+        "Draw transmitter and receiver block diagrams.",
+        "Drill station assembly sections.",
+        "Explain the purpose of each major block."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-11-power-supplies",
+      "order": 11,
+      "title": "Power Supplies",
+      "description": "Regulated supplies, cells, batteries, charging, power supply fundamentals and fuse safety.",
+      "guide_module": "station",
+      "section_ids": [
+        "B-003-008",
+        "B-003-016",
+        "B-003-017",
+        "B-003-019"
+      ],
+      "study_tasks": [
+        "Practice battery series/parallel rules.",
+        "Review rectifier/filter/regulator stages.",
+        "Drill fuse and capacitor-discharge safety."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-12-antennas-i",
+      "order": 12,
+      "title": "Antennas I",
+      "description": "Antenna safety, polarization, wavelength, feedline basics and impedance.",
+      "guide_module": "antennas",
+      "section_ids": [
+        "B-003-020",
+        "B-003-021",
+        "B-006-001",
+        "B-006-002",
+        "B-006-007",
+        "B-006-008"
+      ],
+      "study_tasks": [
+        "Use the wavelength formula drill.",
+        "Review RF exposure and tower safety.",
+        "Drill feedline characteristic questions."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "RBR-4 station operation standards",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/licences-and-certificates/regulations-reference-rbr/rbr-4-standards-operation-radio-stations-amateur-radio-service"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-13-antennas-ii",
+      "order": 13,
+      "title": "Antennas II",
+      "description": "Coax, connectors, SWR, matching, gain, verticals, Yagis, wire antennas and loops.",
+      "guide_module": "antennas",
+      "section_ids": [
+        "B-006-003",
+        "B-006-004",
+        "B-006-005",
+        "B-006-006",
+        "B-006-009",
+        "B-006-010",
+        "B-006-011",
+        "B-006-012",
+        "B-006-013"
+      ],
+      "study_tasks": [
+        "Separate SWR from impedance matching.",
+        "Review line-loss patterns.",
+        "Drill antenna-type questions."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-14-digital",
+      "order": 14,
+      "title": "Digital",
+      "description": "Digital system layout, station accessories and digital-mode fundamentals.",
+      "guide_module": "station",
+      "section_ids": [
+        "B-003-007",
+        "B-003-014",
+        "B-003-015"
+      ],
+      "study_tasks": [
+        "Review where digital interfaces fit in a station.",
+        "Learn the high-level purpose of RTTY, ASCII, AMTOR and packet.",
+        "Drill all digital sections."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-15-safety",
+      "order": 15,
+      "title": "Safety",
+      "description": "Electrical hazards, grounding, capacitors, fuses, tower safety, lightning and RF exposure.",
+      "guide_module": "station",
+      "section_ids": [
+        "B-003-018",
+        "B-003-019",
+        "B-003-020",
+        "B-003-021"
+      ],
+      "study_tasks": [
+        "Read the safety cram sheet.",
+        "Memorize fuse and capacitor safety.",
+        "Drill safety questions until every hazard-control pairing is clear."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "RBR-4 station operation standards",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/licences-and-certificates/regulations-reference-rbr/rbr-4-standards-operation-radio-stations-amateur-radio-service"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-16-basic-electronics-i",
+      "order": 16,
+      "title": "Basic Electronics I",
+      "description": "Metric prefixes, current, voltage, resistance, energy, power, open/short circuits and Ohm's law.",
+      "guide_module": "theory",
+      "section_ids": [
+        "B-005-001",
+        "B-005-002",
+        "B-005-003",
+        "B-005-004",
+        "B-005-005",
+        "B-005-006"
+      ],
+      "study_tasks": [
+        "Run formula drills for Ohm's law and power.",
+        "Convert prefixes before calculating.",
+        "Drill B-005-001 through B-005-006."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-17-basic-electronics-ii",
+      "order": 17,
+      "title": "Basic Electronics II",
+      "description": "AC, frequency, decibels, inductance, capacitance, reactance, impedance, resonance and meters.",
+      "guide_module": "theory",
+      "section_ids": [
+        "B-005-007",
+        "B-005-008",
+        "B-005-009",
+        "B-005-010",
+        "B-005-011",
+        "B-005-012",
+        "B-005-013"
+      ],
+      "study_tasks": [
+        "Practice dB and reactance trend drills.",
+        "Review resonance and tuned circuits.",
+        "Drill measurement questions."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-18-active-devices",
+      "order": 18,
+      "title": "Active Devices",
+      "description": "Amplifiers, diodes, BJTs, FETs, triodes and resistor colour codes.",
+      "guide_module": "components",
+      "section_ids": [
+        "B-004-001",
+        "B-004-002",
+        "B-004-003",
+        "B-004-004",
+        "B-004-005",
+        "B-004-006"
+      ],
+      "study_tasks": [
+        "Memorize component terminals.",
+        "Review control mechanisms for BJTs and FETs.",
+        "Drill component recognition questions."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-19-interference",
+      "order": 19,
+      "title": "Interference",
+      "description": "Overload, cross-modulation, audio rectification, ferrites, intermodulation, spurious emissions, harmonics and filters.",
+      "guide_module": "interference",
+      "section_ids": [
+        "B-008-001",
+        "B-008-002",
+        "B-008-003",
+        "B-008-004",
+        "B-008-005"
+      ],
+      "study_tasks": [
+        "Use the interference troubleshooting cram sheet.",
+        "Match each symptom to a cause.",
+        "Drill all B-008 sections."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 30
+    },
+    {
+      "id": "unit-20-inductors-capacitors",
+      "order": 20,
+      "title": "Inductors And Capacitors",
+      "description": "Inductance, capacitance, reactance, impedance, transformers, resonance and tuned circuits.",
+      "guide_module": "theory",
+      "section_ids": [
+        "B-005-009",
+        "B-005-010",
+        "B-005-011",
+        "B-005-012"
+      ],
+      "study_tasks": [
+        "Memorize opposite reactance trends.",
+        "Review resonance at a concept level.",
+        "Drill inductor/capacitor sections."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-21-feed-lines-i",
+      "order": 21,
+      "title": "Feed Lines I",
+      "description": "Characteristic impedance, balanced/unbalanced lines, baluns, coax and connectors.",
+      "guide_module": "antennas",
+      "section_ids": [
+        "B-006-001",
+        "B-006-002",
+        "B-006-003"
+      ],
+      "study_tasks": [
+        "Review coax vs ladder line.",
+        "Learn what a balun does.",
+        "Drill connector/feedline questions."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-22-feed-lines-ii",
+      "order": 22,
+      "title": "Feed Lines II",
+      "description": "Line loss, SWR, matching, polarization, wavelength, gain and antenna bandwidth.",
+      "guide_module": "antennas",
+      "section_ids": [
+        "B-006-004",
+        "B-006-005",
+        "B-006-006",
+        "B-006-007",
+        "B-006-008",
+        "B-006-009"
+      ],
+      "study_tasks": [
+        "Understand what SWR can and cannot tell you.",
+        "Practice wavelength questions.",
+        "Drill feedline-loss and matching questions."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-23-propagation-i",
+      "order": 23,
+      "title": "Propagation I",
+      "description": "Line of sight, ground wave, sky wave, ionosphere, hops, skip zone and absorption.",
+      "guide_module": "propagation",
+      "section_ids": [
+        "B-007-001",
+        "B-007-002",
+        "B-007-003",
+        "B-007-004"
+      ],
+      "study_tasks": [
+        "Identify the propagation path first.",
+        "Separate D-layer absorption from E/F refraction.",
+        "Drill skip-zone questions."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-24-propagation-ii",
+      "order": 24,
+      "title": "Propagation II",
+      "description": "Solar activity, MUF, solar flux, sporadic-E, aurora, ducting and scatter.",
+      "guide_module": "propagation",
+      "section_ids": [
+        "B-007-005",
+        "B-007-006",
+        "B-007-007",
+        "B-007-008"
+      ],
+      "study_tasks": [
+        "Memorize MUF and critical frequency.",
+        "Review solar-cycle effects.",
+        "Drill VHF/UHF special propagation modes."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-25-transmitters-i",
+      "order": 25,
+      "title": "Transmitters I",
+      "description": "FM, CW and SSB transmitter layout plus carrier, keying and AM fundamentals.",
+      "guide_module": "station",
+      "section_ids": [
+        "B-003-002",
+        "B-003-004",
+        "B-003-006",
+        "B-003-011",
+        "B-003-012"
+      ],
+      "study_tasks": [
+        "Draw transmitter block paths.",
+        "Review carrier/keying/modulation terms.",
+        "Drill transmitter layout sections."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-26-transmitters-ii",
+      "order": 26,
+      "title": "Transmitters II",
+      "description": "FM/PM fundamentals, accessories, digital modes, spurious emissions, harmonics and splatter.",
+      "guide_module": "station",
+      "section_ids": [
+        "B-003-013",
+        "B-003-014",
+        "B-003-015",
+        "B-008-003",
+        "B-008-004"
+      ],
+      "study_tasks": [
+        "Review transmitter interference causes.",
+        "Separate FM, PM, SSB and digital mode concepts.",
+        "Drill transmitter adjustment questions."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-27-receivers",
+      "order": 27,
+      "title": "Receivers",
+      "description": "FM and SSB/CW receiver layout, receiver fundamentals, overload and filtering.",
+      "guide_module": "station",
+      "section_ids": [
+        "B-003-003",
+        "B-003-005",
+        "B-003-010",
+        "B-008-001",
+        "B-008-005"
+      ],
+      "study_tasks": [
+        "Review receiver block diagrams.",
+        "Match filters to receiver problems.",
+        "Drill overload and receiver-fundamentals questions."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "unit-28-ohms-law-power-law",
+      "order": 28,
+      "title": "Ohm's Law / Power Law",
+      "description": "Calculation-heavy review for Ohm's law, power law, series/parallel resistors and units.",
+      "guide_module": "theory",
+      "section_ids": [
+        "B-005-001",
+        "B-005-004",
+        "B-005-005",
+        "B-005-006"
+      ],
+      "study_tasks": [
+        "Complete every formula drill.",
+        "Redo missed B-005 calculation questions.",
+        "Take a custom electronics practice set."
+      ],
+      "sources": [
+        {
+          "label": "RIC-3 amateur radio information",
+          "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41"
+        },
+        {
+          "label": "Official Basic question bank",
+          "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions"
+        }
+      ],
+      "estimated_minutes": 30
+    }
+  ],
+  "resources": [
+    {
+      "id": "official-bank",
+      "title": "ISED official Basic question bank",
+      "type": "official",
+      "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/amateur-radio-exam-generator/print-all-basic-questions",
+      "description": "Official Government of Canada page for the Basic question bank."
+    },
+    {
+      "id": "practice-exam-help",
+      "title": "ISED practice exam help",
+      "type": "official",
+      "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/help/help-practice-exam",
+      "description": "How the official online practice exam tool works."
+    },
+    {
+      "id": "accredited-examiners",
+      "title": "Find an accredited examiner",
+      "type": "official",
+      "url": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/accredited-examiners",
+      "description": "ISED page for finding examiners and examiner services."
+    },
+    {
+      "id": "ric3",
+      "title": "RIC-3 information circular",
+      "type": "official",
+      "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/node/41",
+      "description": "ISED overview of amateur radio certification, examinations and privileges."
+    },
+    {
+      "id": "rbr4",
+      "title": "RBR-4 operation standards",
+      "type": "official",
+      "url": "https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/licences-and-certificates/regulations-reference-rbr/rbr-4-standards-operation-radio-stations-amateur-radio-service",
+      "description": "Official standards for operation of amateur radio stations."
+    },
+    {
+      "id": "clares-basic",
+      "title": "CLARES Basic course",
+      "type": "recommended",
+      "url": "https://www.clares.ca/course/basic",
+      "description": "Recommended external self-paced course with slides, videos and questions."
+    },
+    {
+      "id": "clares-videos",
+      "title": "CLARES video list",
+      "type": "video",
+      "url": "https://www.clares.ca/va6hal%20training%20basic.html",
+      "description": "External video sections for regulations, operations, antennas, electronics, propagation and more."
+    },
+    {
+      "id": "clares-basics",
+      "title": "Basic electricity and radio videos",
+      "type": "video",
+      "url": "https://www.clares.ca/va6hal%20training%20basics.html",
+      "description": "External video links for electricity, radio waves, Ohm's law, power, circuits and wavelength."
+    }
+  ],
+  "next_steps": [
+    {
+      "title": "Pass multiple 100-question mocks",
+      "description": "Aim for at least 80 percent on several fresh mock exams so you are in Basic with Honours territory, not merely pass territory.",
+      "action": "Start a mock exam",
+      "action_type": "app",
+      "action_target": "start-mock"
+    },
+    {
+      "title": "Use the official ISED practice exam",
+      "description": "After this app feels easy, run the official practice exam so the government interface is familiar.",
+      "action": "Open ISED practice exam help",
+      "action_type": "link",
+      "action_target": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/help/help-practice-exam"
+    },
+    {
+      "title": "Book with an accredited examiner",
+      "description": "Find a local or virtual accredited examiner and confirm the exam format, fee, ID requirements and scheduling.",
+      "action": "Find an examiner",
+      "action_type": "link",
+      "action_target": "https://ised-isde.canada.ca/site/amateur-radio-operator-certificate-services/en/accredited-examiners"
+    },
+    {
+      "title": "Keep studying weak areas",
+      "description": "Use adaptive study and missed-question drills until regulation details and formula questions are no longer fragile.",
+      "action": "Start adaptive study",
+      "action_type": "app",
+      "action_target": "start-adaptive"
+    }
+  ]
+}

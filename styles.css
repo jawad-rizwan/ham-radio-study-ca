@@ -83,6 +83,7 @@ code {
 .shell {
   display: grid;
   grid-template-columns: 278px minmax(0, 1fr);
+  min-width: 0;
   min-height: 100vh;
 }
 
@@ -92,6 +93,7 @@ code {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-width: 0;
   height: 100vh;
   padding: 22px;
   color: var(--sidebar-text);
@@ -142,11 +144,13 @@ h3 {
 
 .nav-link {
   width: 100%;
+  min-width: 0;
   min-height: 42px;
   padding: 10px 12px;
   border: 1px solid transparent;
   border-radius: var(--radius);
   color: var(--sidebar-muted);
+  overflow-wrap: anywhere;
   text-align: left;
   background: transparent;
 }
@@ -182,6 +186,7 @@ h3 {
 
 .content {
   width: min(1220px, 100%);
+  min-width: 0;
   padding: 30px;
 }
 
@@ -193,7 +198,9 @@ h3 {
 .module-card,
 .action-card,
 .stat-card,
-.reference-card {
+.reference-card,
+.course-card,
+.resource-card {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--panel);
@@ -264,7 +271,8 @@ small {
 .review-card,
 .module-card,
 .action-card,
-.reference-card {
+.reference-card,
+.resource-card {
   padding: 20px;
 }
 
@@ -305,12 +313,16 @@ small {
 }
 
 .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 42px;
   padding: 10px 14px;
   border: 1px solid var(--primary);
   border-radius: var(--radius);
   color: #ffffff;
   font-weight: 800;
+  text-decoration: none;
   background: var(--primary);
 }
 
@@ -439,6 +451,109 @@ small {
 
 .module-card {
   border-top: 5px solid var(--accent, var(--primary));
+}
+
+.course-overview {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.course-list,
+.resource-grid {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.course-list {
+  grid-template-columns: 1fr;
+}
+
+.course-card,
+.next-step-card {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  padding: 16px;
+}
+
+.course-card.done {
+  border-color: rgba(5, 150, 105, 0.35);
+  background: linear-gradient(90deg, rgba(5, 150, 105, 0.1), var(--panel));
+}
+
+.course-number {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-weight: 900;
+  background: var(--panel-soft);
+}
+
+.course-card h2,
+.resource-card h2,
+.next-step-card h2 {
+  margin: 0 0 8px;
+}
+
+.course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.course-meta span {
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+  background: var(--panel-soft);
+}
+
+.course-detail {
+  max-width: 1000px;
+}
+
+.resource-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.resource-grid.compact {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 8px;
+}
+
+.resource-card {
+  display: grid;
+  gap: 8px;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--panel);
+}
+
+.resource-card:hover {
+  border-color: var(--primary);
+}
+
+.resource-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.resource-card small,
+.resource-card span {
+  overflow-wrap: anywhere;
 }
 
 .split-head,
@@ -823,12 +938,22 @@ th {
 }
 
 @media (max-width: 980px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
   .shell {
     grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   .sidebar {
     position: static;
+    width: 100%;
+    max-width: 100vw;
     height: auto;
   }
 
@@ -837,6 +962,8 @@ th {
   }
 
   .content {
+    width: 100%;
+    max-width: 100vw;
     padding: 18px;
   }
 
@@ -845,9 +972,14 @@ th {
   .grid.four,
   .dashboard-layout,
   .radio-panel,
+  .course-overview,
   .formula-layout,
   .flash-layout {
     grid-template-columns: 1fr;
+  }
+
+  .course-overview {
+    display: grid;
   }
 
   .form-grid {
@@ -866,7 +998,20 @@ th {
 }
 
 @media (max-width: 620px) {
-  .nav,
+  .sidebar {
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .sidebar-note {
+    display: none;
+  }
+
   .form-grid {
     grid-template-columns: 1fr;
   }
@@ -887,6 +1032,11 @@ th {
 
   .choice-card {
     grid-template-columns: 24px minmax(0, 1fr);
+  }
+
+  .course-card,
+  .next-step-card {
+    grid-template-columns: 1fr;
   }
 }
 

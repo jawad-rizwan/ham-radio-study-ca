@@ -13,7 +13,10 @@ Live site: <https://jawad-rizwan.github.io/ham-radio-study-ca/>
 - Detailed wrong-answer explanations tied to the RIC-3 syllabus topics
 - Adaptive study mode for weak, missed, stale, and unseen questions
 - Topic drills, missed-question drills, and searchable question bank
+- 28-unit course path mapped to RIC-3 topic areas, with local resume and time tracking
 - Comprehensive study guide for the 8 major Basic syllabus areas
+- Resources page with official ISED references and the recommended CLARES training links
+- Exam next-steps checklist for mocks, the official practice exam, and finding an accredited examiner
 - Formula drills for Ohm's law, power, wavelength, dB, batteries, reactance, and metric prefixes
 - Flashcards with smart review and confidence ratings
 - Printable cram sheets
