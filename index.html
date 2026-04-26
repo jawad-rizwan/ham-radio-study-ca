@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A Canadian Amateur Radio Basic Qualification study app with the official question bank, mock exams, adaptive practice, formula drills, cram sheets, and local progress tracking."
+    >
+    <title>HAM Radio Study CA</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#dashboard" data-view="dashboard" aria-label="HAM Radio Study CA dashboard">
+          <span class="brand-mark">HR</span>
+          <span>
+            <strong>HAM Radio Study CA</strong>
+            <small>Basic Qualification prep</small>
+          </span>
+        </a>
+        <nav class="nav">
+          <button class="nav-link active" type="button" data-view="dashboard">Dashboard</button>
+          <button class="nav-link" type="button" data-view="guide">Study Guide</button>
+          <button class="nav-link" type="button" data-view="practice">Practice</button>
+          <button class="nav-link" type="button" data-view="formulas">Formula Drills</button>
+          <button class="nav-link" type="button" data-view="bank">Question Bank</button>
+          <button class="nav-link" type="button" data-view="flashcards">Flashcards</button>
+          <button class="nav-link" type="button" data-view="cram">Cram Sheets</button>
+          <button class="nav-link" type="button" data-view="progress">Progress</button>
+          <button class="nav-link" type="button" data-view="about">About</button>
+        </nav>
+        <div class="sidebar-note">
+          <strong>Private progress</strong>
+          <span>Saved locally in this browser.</span>
+        </div>
+        <button class="theme-toggle" type="button" data-action="toggle-theme">Dark</button>
+      </aside>
+
+      <main class="content" id="app" tabindex="-1">
+        <section class="loading-card">
+          <p class="eyebrow">Loading study material</p>
+          <h1>Preparing the official question bank...</h1>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

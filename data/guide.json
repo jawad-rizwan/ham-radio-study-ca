@@ -1,0 +1,379 @@
+{
+  "version": "1.0",
+  "source": "Study guide derived from RIC-3, RBR-4, RIC-9 and the official Basic question bank.",
+  "modules": [
+    {
+      "id": "regulations",
+      "title": "Regulations and Policies",
+      "description": "The legal and administrative rules behind the Basic Qualification.",
+      "major_id": "B-001",
+      "sections": [
+        {
+          "type": "text",
+          "title": "What the Basic Qualification authorizes",
+          "content": "Authority to operate in the amateur radio service is issued through the Amateur Radio Operator Certificate with Basic Qualification. The Basic exam is the entry point. A pass is 70 percent, and a score of 80 percent or higher grants Basic with Honours privileges, including access to amateur bands below 30 MHz under RBR-4."
+        },
+        {
+          "type": "key_points",
+          "title": "Exam facts",
+          "points": [
+            "The Basic examination has 100 questions.",
+            "The exam is built by drawing one question from each of the 100 RIC-3 Basic topic areas.",
+            "The pass mark is 70 percent.",
+            "A score of 80 percent or higher grants Basic with Honours privileges.",
+            "RIC-3 specifies no fixed time limit; most exams are completed within one hour and normally not more than two hours.",
+            "Examinations are closed book."
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Rules, privileges and limits",
+          "content": "Regulation questions often turn on exact wording. Know which document gives authority, who administers the Act, what must be retained or produced, when a change of address must be reported, what transmissions are prohibited, and which qualifications unlock which privileges. Basic operators have access to amateur bands above 30 MHz, may use 250 W DC input power, may assemble commercially available transmitter kits of professional design, may reprogram equipment by computer program for amateur-band operation, and may use repeaters. Advanced and Morse qualifications add further privileges."
+        },
+        {
+          "type": "table",
+          "title": "Qualification summary",
+          "columns": [
+            "Qualification",
+            "High-yield privileges"
+          ],
+          "rows": [
+            [
+              "Basic",
+              "All amateur bands above 30 MHz; 250 W DC input; commercial kit assembly; computer reprogramming for amateur bands; repeater operation."
+            ],
+            [
+              "Basic with Honours",
+              "Basic privileges plus access to all amateur bands below 30 MHz."
+            ],
+            [
+              "Morse Code with Basic",
+              "Access to all amateur bands."
+            ],
+            [
+              "Advanced",
+              "Below-30 MHz access, 1000 W DC input, build/modify transmitters, establish repeaters and club stations, remote control fixed stations."
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Call signs and identification",
+          "content": "A Canadian call sign is assigned using the prefix for the operator's Canadian address. Station identification rules, prefix areas, special-event prefixes, and foreign operation rules are frequent exam targets. For call sign questions, identify whether the question is asking about prefix area, suffix eligibility, station identification timing, special events, or operation by visitors."
+        }
+      ]
+    },
+    {
+      "id": "operating",
+      "title": "Operating and Procedures",
+      "description": "On-air procedure, repeaters, simplex, CW, signal reports, Q signals and emergencies.",
+      "major_id": "B-002",
+      "sections": [
+        {
+          "type": "text",
+          "title": "Clear operating habits",
+          "content": "Good amateur procedure is concise, identifiable and courteous. Listen before transmitting, identify correctly, use standard phonetics when spelling, keep tuneups brief, use a dummy load where possible, and choose the appropriate mode and frequency for the contact. Repeater questions often test offset, courtesy tones, time-out timers, and why a short pause between transmissions matters."
+        },
+        {
+          "type": "table",
+          "title": "Common Q signals",
+          "columns": [
+            "Signal",
+            "Meaning as a question or statement"
+          ],
+          "rows": [
+            [
+              "QRL",
+              "Is this frequency in use? / This frequency is in use."
+            ],
+            [
+              "QRM",
+              "Man-made interference."
+            ],
+            [
+              "QRN",
+              "Natural static/noise interference."
+            ],
+            [
+              "QRP",
+              "Reduce power / low power operation."
+            ],
+            [
+              "QRS",
+              "Send more slowly."
+            ],
+            [
+              "QRT",
+              "Stop sending."
+            ],
+            [
+              "QRZ",
+              "Who is calling me?"
+            ],
+            [
+              "QSL",
+              "Can you acknowledge receipt? / I acknowledge receipt."
+            ],
+            [
+              "QSY",
+              "Change frequency."
+            ],
+            [
+              "QTH",
+              "Location."
+            ]
+          ]
+        },
+        {
+          "type": "key_points",
+          "title": "Emergency priorities",
+          "points": [
+            "Emergency communications may involve non-amateur stations when immediate safety requires it.",
+            "A false or fraudulent distress signal is prohibited.",
+            "In an emergency, the communication should be brief, clear, and directed at getting assistance.",
+            "Simulated emergency tests must not mislead other stations into believing a real emergency exists."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "station",
+      "title": "Station Assembly, Practice and Safety",
+      "description": "How station blocks work and how to avoid electrical, tower and RF hazards.",
+      "major_id": "B-003",
+      "sections": [
+        {
+          "type": "text",
+          "title": "Station block diagrams",
+          "content": "Most station-layout questions ask what a stage does or where it belongs. Transmitters generate, modulate, amplify and filter RF before it reaches the antenna system. Receivers select, amplify, mix, detect/demodulate and recover audio or data. Power supplies convert AC or DC into regulated voltages, while accessories such as keyers, microphones, TNCs, filters, meters and tuners support the operating mode."
+        },
+        {
+          "type": "key_points",
+          "title": "Safety rules",
+          "points": [
+            "Disconnect power before servicing equipment.",
+            "High-voltage capacitors can remain charged after power is removed; discharge them safely.",
+            "Use the correct fuse rating. Never install a larger fuse to stop nuisance blowing.",
+            "Grounding reduces shock risk and helps control static and lightning effects.",
+            "Keep people away from energized antennas and observe RF exposure limits.",
+            "Tower and antenna work requires fall protection, safe distances from power lines, and weather awareness."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "components",
+      "title": "Circuit Components",
+      "description": "The parts used in amateur radio circuits and what they do.",
+      "major_id": "B-004",
+      "sections": [
+        {
+          "type": "text",
+          "title": "Component recognition",
+          "content": "Component questions usually test a device's purpose, terminals or behaviour. Diodes conduct mainly in one direction and are used for rectification and switching. Bipolar transistors are current-controlled devices with emitter, base and collector. Field-effect transistors are voltage-controlled devices with source, gate and drain. Vacuum tubes such as triodes use cathode, grid and plate. Amplifiers increase voltage, current or power, but can distort or oscillate if biased or driven incorrectly."
+        },
+        {
+          "type": "table",
+          "title": "Resistor colour digits",
+          "columns": [
+            "Colour",
+            "Digit"
+          ],
+          "rows": [
+            [
+              "Black",
+              "0"
+            ],
+            [
+              "Brown",
+              "1"
+            ],
+            [
+              "Red",
+              "2"
+            ],
+            [
+              "Orange",
+              "3"
+            ],
+            [
+              "Yellow",
+              "4"
+            ],
+            [
+              "Green",
+              "5"
+            ],
+            [
+              "Blue",
+              "6"
+            ],
+            [
+              "Violet",
+              "7"
+            ],
+            [
+              "Grey",
+              "8"
+            ],
+            [
+              "White",
+              "9"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theory",
+      "title": "Basic Electronics and Theory",
+      "description": "The formulas and concepts behind voltage, current, resistance, power and resonance.",
+      "major_id": "B-005",
+      "sections": [
+        {
+          "type": "text",
+          "title": "Solving calculation questions",
+          "content": "Start by identifying the unknown. Ohm's law is E = I x R, so I = E / R and R = E / I. Power can be found with P = E x I, P = I squared x R, or P = E squared / R. Keep units consistent before calculating. Many wrong answers result from mixing milliamps with amps, kilohms with ohms, or using the right formula in the wrong direction."
+        },
+        {
+          "type": "table",
+          "title": "Metric prefixes",
+          "columns": [
+            "Prefix",
+            "Symbol",
+            "Multiplier"
+          ],
+          "rows": [
+            [
+              "pico",
+              "p",
+              "0.000000000001"
+            ],
+            [
+              "micro",
+              "u",
+              "0.000001"
+            ],
+            [
+              "milli",
+              "m",
+              "0.001"
+            ],
+            [
+              "centi",
+              "c",
+              "0.01"
+            ],
+            [
+              "kilo",
+              "k",
+              "1000"
+            ],
+            [
+              "mega",
+              "M",
+              "1000000"
+            ],
+            [
+              "giga",
+              "G",
+              "1000000000"
+            ]
+          ]
+        },
+        {
+          "type": "key_points",
+          "title": "Resonance and reactance",
+          "points": [
+            "Inductive reactance rises as frequency rises.",
+            "Capacitive reactance falls as frequency rises.",
+            "Resonance occurs when inductive and capacitive reactance are equal in magnitude.",
+            "A tuned circuit can select or reject a range of frequencies."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "antennas",
+      "title": "Feedlines and Antenna Systems",
+      "description": "Transmission lines, SWR, impedance matching and common antenna types.",
+      "major_id": "B-006",
+      "sections": [
+        {
+          "type": "text",
+          "title": "Feedlines and matching",
+          "content": "A feedline transfers RF between the transmitter and antenna. Coaxial cable is unbalanced and commonly 50 ohms in amateur stations. Open-wire and ladder line are balanced. A balun connects balanced and unbalanced systems. High SWR indicates a mismatch; it does not mean power disappears, but it can increase line loss and stress equipment. An antenna tuner matches impedances so the transmitter sees a suitable load."
+        },
+        {
+          "type": "text",
+          "title": "Wavelength and antenna length",
+          "content": "Wavelength in metres is approximately 300 divided by frequency in MHz. A half-wave dipole is roughly one-half wavelength long overall, and each side is about one-quarter wavelength. Real antennas are shortened by end effects and environment, so exam answers often use approximate textbook relationships."
+        }
+      ]
+    },
+    {
+      "id": "propagation",
+      "title": "Radio Wave Propagation",
+      "description": "How radio waves move through ground, air and ionosphere.",
+      "major_id": "B-007",
+      "sections": [
+        {
+          "type": "text",
+          "title": "Choosing the propagation model",
+          "content": "Line-of-sight dominates VHF and UHF. Ground wave follows the earth but is strongest at lower frequencies. Sky wave uses the ionosphere and is central to HF. The D layer absorbs, especially during daylight. E and F layers can refract signals. Solar activity, time of day, season and frequency determine whether a band is open."
+        },
+        {
+          "type": "key_points",
+          "title": "High-yield terms",
+          "points": [
+            "Skip zone: area between the end of ground-wave coverage and the first sky-wave return.",
+            "MUF: maximum usable frequency for a path.",
+            "Critical frequency: highest frequency returned vertically by an ionospheric layer.",
+            "Sporadic-E: VHF propagation caused by dense E-layer patches.",
+            "Aurora: VHF propagation using ionized auroral regions, often distorted.",
+            "Ducting: VHF/UHF propagation through atmospheric layers."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interference",
+      "title": "Interference and Suppression",
+      "description": "How interference is created, diagnosed and reduced.",
+      "major_id": "B-008",
+      "sections": [
+        {
+          "type": "text",
+          "title": "Diagnosing interference",
+          "content": "Identify whether the unwanted signal is caused by the receiver, the transmitter, or external wiring acting as an antenna. Front-end overload and cross-modulation happen in receivers. Audio rectification happens when RF is detected in audio wiring. Harmonics and spurious emissions come from transmitters. Splatter is often caused by overmodulation or overdriven stages."
+        },
+        {
+          "type": "table",
+          "title": "Filter choices",
+          "columns": [
+            "Filter",
+            "Use"
+          ],
+          "rows": [
+            [
+              "Low-pass",
+              "Passes lower frequencies, attenuates higher frequencies; common at transmitter outputs to reduce harmonics."
+            ],
+            [
+              "High-pass",
+              "Passes higher frequencies, attenuates lower frequencies; can help protect TV receivers from HF energy."
+            ],
+            [
+              "Band-pass",
+              "Passes a selected range and rejects energy outside it."
+            ],
+            [
+              "Band-reject/notch",
+              "Rejects a selected frequency or range while passing others."
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

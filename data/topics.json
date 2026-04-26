@@ -1,0 +1,1072 @@
+{
+  "version": "1.0",
+  "source": "RIC-3, Information on the Amateur Radio Service, Issue 5, March 2022",
+  "major_topics": [
+    {
+      "id": "B-001",
+      "slug": "regulations",
+      "title": "Regulations and Policies",
+      "short_title": "Regulations",
+      "color": "#2563eb",
+      "summary": "Licensing, certificates, station identification, operating limits, interference, international operation, RF exposure, and land-use rules."
+    },
+    {
+      "id": "B-002",
+      "slug": "operating",
+      "title": "Operating and Procedures",
+      "short_title": "Operating",
+      "color": "#059669",
+      "summary": "Voice, CW, repeater, simplex, emergency, logging, signal reports, Q signals, and courteous operating procedures."
+    },
+    {
+      "id": "B-003",
+      "slug": "station",
+      "title": "Station Assembly, Practice and Safety",
+      "short_title": "Station and Safety",
+      "color": "#dc2626",
+      "summary": "Station blocks, transmitters, receivers, power supplies, digital systems, batteries, antennas, electrical safety, and RF safety."
+    },
+    {
+      "id": "B-004",
+      "slug": "components",
+      "title": "Circuit Components",
+      "short_title": "Components",
+      "color": "#7c3aed",
+      "summary": "Amplifiers, diodes, bipolar transistors, field-effect transistors, vacuum tubes, and resistor colour codes."
+    },
+    {
+      "id": "B-005",
+      "slug": "theory",
+      "title": "Basic Electronics and Theory",
+      "short_title": "Electronics",
+      "color": "#ca8a04",
+      "summary": "Metric prefixes, current, voltage, resistance, power, Ohm's law, AC, decibels, capacitance, inductance, resonance, and measurement."
+    },
+    {
+      "id": "B-006",
+      "slug": "antennas",
+      "title": "Feedlines and Antenna Systems",
+      "short_title": "Antennas",
+      "color": "#0891b2",
+      "summary": "Feedline impedance, coax, balanced lines, baluns, line loss, SWR, matching, polarization, wavelength, gain, verticals, Yagis, wires, and loops."
+    },
+    {
+      "id": "B-007",
+      "slug": "propagation",
+      "title": "Radio Wave Propagation",
+      "short_title": "Propagation",
+      "color": "#9333ea",
+      "summary": "Line-of-sight, ground wave, sky wave, ionosphere, skip, solar activity, MF/HF/VHF/UHF propagation, aurora, ducting, and scatter."
+    },
+    {
+      "id": "B-008",
+      "slug": "interference",
+      "title": "Interference and Suppression",
+      "short_title": "Interference",
+      "color": "#ea580c",
+      "summary": "Front-end overload, cross-modulation, audio rectification, ferrites, intermodulation, spurious emissions, key clicks, harmonics, splatter, and filters."
+    }
+  ],
+  "sections": [
+    {
+      "id": "B-001-001",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-1",
+      "title": "Radio licences, applicability, eligibility of licence holder",
+      "slug": "b-001-001-radio-licences-applicability-eligibility-of-licence-holder",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is radio licences, applicability, eligibility of licence holder."
+    },
+    {
+      "id": "B-001-002",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-2",
+      "title": "Licence fee, term, posting requirements, change of address",
+      "slug": "b-001-002-licence-fee-term-posting-requirements-change-of-address",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is licence fee, term, posting requirements, change of address."
+    },
+    {
+      "id": "B-001-003",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-3",
+      "title": "Licence suspension or revocation, powers of radio inspectors, offences and punishments",
+      "slug": "b-001-003-licence-suspension-or-revocation-powers-of-radio-inspectors-offences-and-punishments",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is licence suspension or revocation, powers of radio inspectors, offences and punishments."
+    },
+    {
+      "id": "B-001-004",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-4",
+      "title": "Operator certificates, applicability, eligibility, equivalents, reciprocal recognition",
+      "slug": "b-001-004-operator-certificates-applicability-eligibility-equivalents-reciprocal-recognition",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is operator certificates, applicability, eligibility, equivalents, reciprocal recognition."
+    },
+    {
+      "id": "B-001-005",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-5",
+      "title": "Operation, repair and maintenance of radio apparatus on behalf of other persons",
+      "slug": "b-001-005-operation-repair-and-maintenance-of-radio-apparatus-on-behalf-of-other-persons",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is operation, repair and maintenance of radio apparatus on behalf of other persons."
+    },
+    {
+      "id": "B-001-006",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-6",
+      "title": "Operation of radio apparatus, terms of licence, applicable standards, exempt apparatus",
+      "slug": "b-001-006-operation-of-radio-apparatus-terms-of-licence-applicable-standards-exempt-apparatus",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is operation of radio apparatus, terms of licence, applicable standards, exempt apparatus."
+    },
+    {
+      "id": "B-001-007",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-7",
+      "title": "Content restrictions: non-superfluous, profanity, secret code, music, non-commercial",
+      "slug": "b-001-007-content-restrictions-non-superfluous-profanity-secret-code-music-non-commercial",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is content restrictions: non-superfluous, profanity, secret code, music, non-commercial."
+    },
+    {
+      "id": "B-001-008",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-8",
+      "title": "Installation and operating restrictions: number of stations, repeaters, home-built, club stations",
+      "slug": "b-001-008-installation-and-operating-restrictions-number-of-stations-repeaters-home-built-club-stations",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is installation and operating restrictions: number of stations, repeaters, home-built, club stations."
+    },
+    {
+      "id": "B-001-009",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-9",
+      "title": "Participation in communications by visitors, use of station by others",
+      "slug": "b-001-009-participation-in-communications-by-visitors-use-of-station-by-others",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is participation in communications by visitors, use of station by others."
+    },
+    {
+      "id": "B-001-010",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-10",
+      "title": "Interference, determination, protection from interference",
+      "slug": "b-001-010-interference-determination-protection-from-interference",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is interference, determination, protection from interference."
+    },
+    {
+      "id": "B-001-011",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-11",
+      "title": "Emergency communications, simulated emergencies, communication with non-amateur stations",
+      "slug": "b-001-011-emergency-communications-simulated-emergencies-communication-with-non-amateur-stations",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is emergency communications, simulated emergencies, communication with non-amateur stations."
+    },
+    {
+      "id": "B-001-012",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-12",
+      "title": "Non-remuneration and privacy of communications",
+      "slug": "b-001-012-non-remuneration-and-privacy-of-communications",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is non-remuneration and privacy of communications."
+    },
+    {
+      "id": "B-001-013",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-13",
+      "title": "Station identification, call signs, prefixes",
+      "slug": "b-001-013-station-identification-call-signs-prefixes",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is station identification, call signs, prefixes."
+    },
+    {
+      "id": "B-001-014",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-14",
+      "title": "Foreign amateur operation in Canada, banned countries, third-party messages",
+      "slug": "b-001-014-foreign-amateur-operation-in-canada-banned-countries-third-party-messages",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is foreign amateur operation in canada, banned countries, third-party messages."
+    },
+    {
+      "id": "B-001-015",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-15",
+      "title": "Frequency bands and qualification requirements",
+      "slug": "b-001-015-frequency-bands-and-qualification-requirements",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is frequency bands and qualification requirements."
+    },
+    {
+      "id": "B-001-016",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-16",
+      "title": "Maximum bandwidth by frequency bands",
+      "slug": "b-001-016-maximum-bandwidth-by-frequency-bands",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is maximum bandwidth by frequency bands."
+    },
+    {
+      "id": "B-001-017",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-17",
+      "title": "Restrictions on capacity and power output by qualifications",
+      "slug": "b-001-017-restrictions-on-capacity-and-power-output-by-qualifications",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is restrictions on capacity and power output by qualifications."
+    },
+    {
+      "id": "B-001-018",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-18",
+      "title": "Unmodulated carriers and retransmission",
+      "slug": "b-001-018-unmodulated-carriers-and-retransmission",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is unmodulated carriers and retransmission."
+    },
+    {
+      "id": "B-001-019",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-19",
+      "title": "Amplitude modulation, frequency stability, measurements",
+      "slug": "b-001-019-amplitude-modulation-frequency-stability-measurements",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is amplitude modulation, frequency stability, measurements."
+    },
+    {
+      "id": "B-001-020",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-20",
+      "title": "International Telecommunication Union Radio Regulations, applicability",
+      "slug": "b-001-020-international-telecommunication-union-radio-regulations-applicability",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is international telecommunication union radio regulations, applicability."
+    },
+    {
+      "id": "B-001-021",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-21",
+      "title": "Operation outside Canada, ITU regions, reciprocal privileges, international licences",
+      "slug": "b-001-021-operation-outside-canada-itu-regions-reciprocal-privileges-international-licences",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is operation outside canada, itu regions, reciprocal privileges, international licences."
+    },
+    {
+      "id": "B-001-022",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-22",
+      "title": "Examinations, delegated examinations, disabled accommodation",
+      "slug": "b-001-022-examinations-delegated-examinations-disabled-accommodation",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is examinations, delegated examinations, disabled accommodation."
+    },
+    {
+      "id": "B-001-023",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-23",
+      "title": "Antenna structure approval, neighbour and land-use authority consultation",
+      "slug": "b-001-023-antenna-structure-approval-neighbour-and-land-use-authority-consultation",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is antenna structure approval, neighbour and land-use authority consultation."
+    },
+    {
+      "id": "B-001-024",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-24",
+      "title": "Radio frequency electromagnetic field limits",
+      "slug": "b-001-024-radio-frequency-electromagnetic-field-limits",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is radio frequency electromagnetic field limits."
+    },
+    {
+      "id": "B-001-025",
+      "major_id": "B-001",
+      "major_slug": "regulations",
+      "major_title": "Regulations and Policies",
+      "number": "1-25",
+      "title": "Criteria for resolution of radio frequency interference complaints",
+      "slug": "b-001-025-criteria-for-resolution-of-radio-frequency-interference-complaints",
+      "study_note": "For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked. This specific topic is criteria for resolution of radio frequency interference complaints."
+    },
+    {
+      "id": "B-002-001",
+      "major_id": "B-002",
+      "major_slug": "operating",
+      "major_title": "Operating and Procedures",
+      "number": "2-1",
+      "title": "Voice operating procedures: channelized VHF/UHF repeater",
+      "slug": "b-002-001-voice-operating-procedures-channelized-vhf-uhf-repeater",
+      "study_note": "For operating procedure questions, focus on standard amateur practice: concise calls, correct identification, signal reports, Q signals, repeater/simplex behaviour, and emergency priority. This specific topic is voice operating procedures: channelized vhf/uhf repeater."
+    },
+    {
+      "id": "B-002-002",
+      "major_id": "B-002",
+      "major_slug": "operating",
+      "major_title": "Operating and Procedures",
+      "number": "2-2",
+      "title": "Phonetic alphabet",
+      "slug": "b-002-002-phonetic-alphabet",
+      "study_note": "For operating procedure questions, focus on standard amateur practice: concise calls, correct identification, signal reports, Q signals, repeater/simplex behaviour, and emergency priority. This specific topic is phonetic alphabet."
+    },
+    {
+      "id": "B-002-003",
+      "major_id": "B-002",
+      "major_slug": "operating",
+      "major_title": "Operating and Procedures",
+      "number": "2-3",
+      "title": "Voice operating procedures: simplex VHF/UHF and HF",
+      "slug": "b-002-003-voice-operating-procedures-simplex-vhf-uhf-and-hf",
+      "study_note": "For operating procedure questions, focus on standard amateur practice: concise calls, correct identification, signal reports, Q signals, repeater/simplex behaviour, and emergency priority. This specific topic is voice operating procedures: simplex vhf/uhf and hf."
+    },
+    {
+      "id": "B-002-004",
+      "major_id": "B-002",
+      "major_slug": "operating",
+      "major_title": "Operating and Procedures",
+      "number": "2-4",
+      "title": "Tuneups and testing, use of dummy load, courteous operation",
+      "slug": "b-002-004-tuneups-and-testing-use-of-dummy-load-courteous-operation",
+      "study_note": "For operating procedure questions, focus on standard amateur practice: concise calls, correct identification, signal reports, Q signals, repeater/simplex behaviour, and emergency priority. This specific topic is tuneups and testing, use of dummy load, courteous operation."
+    },
+    {
+      "id": "B-002-005",
+      "major_id": "B-002",
+      "major_slug": "operating",
+      "major_title": "Operating and Procedures",
+      "number": "2-5",
+      "title": "Morse CW operating procedures, procedural signs",
+      "slug": "b-002-005-morse-cw-operating-procedures-procedural-signs",
+      "study_note": "For operating procedure questions, focus on standard amateur practice: concise calls, correct identification, signal reports, Q signals, repeater/simplex behaviour, and emergency priority. This specific topic is morse cw operating procedures, procedural signs."
+    },
+    {
+      "id": "B-002-006",
+      "major_id": "B-002",
+      "major_slug": "operating",
+      "major_title": "Operating and Procedures",
+      "number": "2-6",
+      "title": "RST system of signal reporting, use of S meter",
+      "slug": "b-002-006-rst-system-of-signal-reporting-use-of-s-meter",
+      "study_note": "For operating procedure questions, focus on standard amateur practice: concise calls, correct identification, signal reports, Q signals, repeater/simplex behaviour, and emergency priority. This specific topic is rst system of signal reporting, use of s meter."
+    },
+    {
+      "id": "B-002-007",
+      "major_id": "B-002",
+      "major_slug": "operating",
+      "major_title": "Operating and Procedures",
+      "number": "2-7",
+      "title": "Q signals",
+      "slug": "b-002-007-q-signals",
+      "study_note": "For operating procedure questions, focus on standard amateur practice: concise calls, correct identification, signal reports, Q signals, repeater/simplex behaviour, and emergency priority. This specific topic is q signals."
+    },
+    {
+      "id": "B-002-008",
+      "major_id": "B-002",
+      "major_slug": "operating",
+      "major_title": "Operating and Procedures",
+      "number": "2-8",
+      "title": "Emergency operating procedures",
+      "slug": "b-002-008-emergency-operating-procedures",
+      "study_note": "For operating procedure questions, focus on standard amateur practice: concise calls, correct identification, signal reports, Q signals, repeater/simplex behaviour, and emergency priority. This specific topic is emergency operating procedures."
+    },
+    {
+      "id": "B-002-009",
+      "major_id": "B-002",
+      "major_slug": "operating",
+      "major_title": "Operating and Procedures",
+      "number": "2-9",
+      "title": "Record keeping, confirmation practices, maps/charts, antenna orientation",
+      "slug": "b-002-009-record-keeping-confirmation-practices-maps-charts-antenna-orientation",
+      "study_note": "For operating procedure questions, focus on standard amateur practice: concise calls, correct identification, signal reports, Q signals, repeater/simplex behaviour, and emergency priority. This specific topic is record keeping, confirmation practices, maps/charts, antenna orientation."
+    },
+    {
+      "id": "B-003-001",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-1",
+      "title": "Functional layout of HF stations",
+      "slug": "b-003-001-functional-layout-of-hf-stations",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is functional layout of hf stations."
+    },
+    {
+      "id": "B-003-002",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-2",
+      "title": "Functional layout of FM transmitters",
+      "slug": "b-003-002-functional-layout-of-fm-transmitters",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is functional layout of fm transmitters."
+    },
+    {
+      "id": "B-003-003",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-3",
+      "title": "Functional layout of FM receivers",
+      "slug": "b-003-003-functional-layout-of-fm-receivers",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is functional layout of fm receivers."
+    },
+    {
+      "id": "B-003-004",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-4",
+      "title": "Functional layout of CW transmitters",
+      "slug": "b-003-004-functional-layout-of-cw-transmitters",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is functional layout of cw transmitters."
+    },
+    {
+      "id": "B-003-005",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-5",
+      "title": "Functional layout of SSB/CW receivers",
+      "slug": "b-003-005-functional-layout-of-ssb-cw-receivers",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is functional layout of ssb/cw receivers."
+    },
+    {
+      "id": "B-003-006",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-6",
+      "title": "Functional layout of SSB transmitters",
+      "slug": "b-003-006-functional-layout-of-ssb-transmitters",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is functional layout of ssb transmitters."
+    },
+    {
+      "id": "B-003-007",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-7",
+      "title": "Functional layout of digital systems",
+      "slug": "b-003-007-functional-layout-of-digital-systems",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is functional layout of digital systems."
+    },
+    {
+      "id": "B-003-008",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-8",
+      "title": "Functional layout of regulated power supplies",
+      "slug": "b-003-008-functional-layout-of-regulated-power-supplies",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is functional layout of regulated power supplies."
+    },
+    {
+      "id": "B-003-009",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-9",
+      "title": "Functional layout of Yagi-Uda antennas",
+      "slug": "b-003-009-functional-layout-of-yagi-uda-antennas",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is functional layout of yagi-uda antennas."
+    },
+    {
+      "id": "B-003-010",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-10",
+      "title": "Receiver fundamentals",
+      "slug": "b-003-010-receiver-fundamentals",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is receiver fundamentals."
+    },
+    {
+      "id": "B-003-011",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-11",
+      "title": "Transmitter, carrier, keying, and amplitude modulation fundamentals",
+      "slug": "b-003-011-transmitter-carrier-keying-and-amplitude-modulation-fundamentals",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is transmitter, carrier, keying, and amplitude modulation fundamentals."
+    },
+    {
+      "id": "B-003-012",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-12",
+      "title": "Carrier suppression and SSB fundamentals",
+      "slug": "b-003-012-carrier-suppression-and-ssb-fundamentals",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is carrier suppression and ssb fundamentals."
+    },
+    {
+      "id": "B-003-013",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-13",
+      "title": "Frequency and phase modulation fundamentals",
+      "slug": "b-003-013-frequency-and-phase-modulation-fundamentals",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is frequency and phase modulation fundamentals."
+    },
+    {
+      "id": "B-003-014",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-14",
+      "title": "Station accessories for telegraphy, radiotelephony, digital modes",
+      "slug": "b-003-014-station-accessories-for-telegraphy-radiotelephony-digital-modes",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is station accessories for telegraphy, radiotelephony, digital modes."
+    },
+    {
+      "id": "B-003-015",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-15",
+      "title": "Digital mode fundamentals: RTTY, ASCII, AMTOR, packet",
+      "slug": "b-003-015-digital-mode-fundamentals-rtty-ascii-amtor-packet",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is digital mode fundamentals: rtty, ascii, amtor, packet."
+    },
+    {
+      "id": "B-003-016",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-16",
+      "title": "Cells and batteries: types, ratings, charging",
+      "slug": "b-003-016-cells-and-batteries-types-ratings-charging",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is cells and batteries: types, ratings, charging."
+    },
+    {
+      "id": "B-003-017",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-17",
+      "title": "Power supply fundamentals",
+      "slug": "b-003-017-power-supply-fundamentals",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is power supply fundamentals."
+    },
+    {
+      "id": "B-003-018",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-18",
+      "title": "Electrical hazards, electrical safety, security",
+      "slug": "b-003-018-electrical-hazards-electrical-safety-security",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is electrical hazards, electrical safety, security."
+    },
+    {
+      "id": "B-003-019",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-19",
+      "title": "Electrical safety ground, capacitor discharge, fuse replacement",
+      "slug": "b-003-019-electrical-safety-ground-capacitor-discharge-fuse-replacement",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is electrical safety ground, capacitor discharge, fuse replacement."
+    },
+    {
+      "id": "B-003-020",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-20",
+      "title": "Antenna and tower safety, lightning protection",
+      "slug": "b-003-020-antenna-and-tower-safety-lightning-protection",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is antenna and tower safety, lightning protection."
+    },
+    {
+      "id": "B-003-021",
+      "major_id": "B-003",
+      "major_slug": "station",
+      "major_title": "Station Assembly, Practice and Safety",
+      "number": "3-21",
+      "title": "Exposure of human body to RF, safety precautions",
+      "slug": "b-003-021-exposure-of-human-body-to-rf-safety-precautions",
+      "study_note": "For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk. This specific topic is exposure of human body to rf, safety precautions."
+    },
+    {
+      "id": "B-004-001",
+      "major_id": "B-004",
+      "major_slug": "components",
+      "major_title": "Circuit Components",
+      "number": "4-1",
+      "title": "Amplifier fundamentals",
+      "slug": "b-004-001-amplifier-fundamentals",
+      "study_note": "For component questions, identify the device, the terminals, the direction or control mechanism, and the normal job of the component in a circuit. This specific topic is amplifier fundamentals."
+    },
+    {
+      "id": "B-004-002",
+      "major_id": "B-004",
+      "major_slug": "components",
+      "major_title": "Circuit Components",
+      "number": "4-2",
+      "title": "Diode fundamentals",
+      "slug": "b-004-002-diode-fundamentals",
+      "study_note": "For component questions, identify the device, the terminals, the direction or control mechanism, and the normal job of the component in a circuit. This specific topic is diode fundamentals."
+    },
+    {
+      "id": "B-004-003",
+      "major_id": "B-004",
+      "major_slug": "components",
+      "major_title": "Circuit Components",
+      "number": "4-3",
+      "title": "Bipolar transistor fundamentals",
+      "slug": "b-004-003-bipolar-transistor-fundamentals",
+      "study_note": "For component questions, identify the device, the terminals, the direction or control mechanism, and the normal job of the component in a circuit. This specific topic is bipolar transistor fundamentals."
+    },
+    {
+      "id": "B-004-004",
+      "major_id": "B-004",
+      "major_slug": "components",
+      "major_title": "Circuit Components",
+      "number": "4-4",
+      "title": "Field-effect transistor fundamentals",
+      "slug": "b-004-004-field-effect-transistor-fundamentals",
+      "study_note": "For component questions, identify the device, the terminals, the direction or control mechanism, and the normal job of the component in a circuit. This specific topic is field-effect transistor fundamentals."
+    },
+    {
+      "id": "B-004-005",
+      "major_id": "B-004",
+      "major_slug": "components",
+      "major_title": "Circuit Components",
+      "number": "4-5",
+      "title": "Triode vacuum tube fundamentals",
+      "slug": "b-004-005-triode-vacuum-tube-fundamentals",
+      "study_note": "For component questions, identify the device, the terminals, the direction or control mechanism, and the normal job of the component in a circuit. This specific topic is triode vacuum tube fundamentals."
+    },
+    {
+      "id": "B-004-006",
+      "major_id": "B-004",
+      "major_slug": "components",
+      "major_title": "Circuit Components",
+      "number": "4-6",
+      "title": "Resistor colour codes, tolerances, temperature coefficient",
+      "slug": "b-004-006-resistor-colour-codes-tolerances-temperature-coefficient",
+      "study_note": "For component questions, identify the device, the terminals, the direction or control mechanism, and the normal job of the component in a circuit. This specific topic is resistor colour codes, tolerances, temperature coefficient."
+    },
+    {
+      "id": "B-005-001",
+      "major_id": "B-005",
+      "major_slug": "theory",
+      "major_title": "Basic Electronics and Theory",
+      "number": "5-1",
+      "title": "Metric prefixes: pico, micro, milli, centi, kilo, mega, giga",
+      "slug": "b-005-001-metric-prefixes-pico-micro-milli-centi-kilo-mega-giga",
+      "study_note": "For electronics theory questions, write the relationship first, keep units straight, and check whether the question asks for voltage, current, resistance, power, frequency, ratio, or a measurement concept. This specific topic is metric prefixes: pico, micro, milli, centi, kilo, mega, giga."
+    },
+    {
+      "id": "B-005-002",
+      "major_id": "B-005",
+      "major_slug": "theory",
+      "major_title": "Basic Electronics and Theory",
+      "number": "5-2",
+      "title": "Concepts of current, voltage, conductor, insulator, resistance",
+      "slug": "b-005-002-concepts-of-current-voltage-conductor-insulator-resistance",
+      "study_note": "For electronics theory questions, write the relationship first, keep units straight, and check whether the question asks for voltage, current, resistance, power, frequency, ratio, or a measurement concept. This specific topic is concepts of current, voltage, conductor, insulator, resistance."
+    },
+    {
+      "id": "B-005-003",
+      "major_id": "B-005",
+      "major_slug": "theory",
+      "major_title": "Basic Electronics and Theory",
+      "number": "5-3",
+      "title": "Concepts of energy and power, open and short circuits",
+      "slug": "b-005-003-concepts-of-energy-and-power-open-and-short-circuits",
+      "study_note": "For electronics theory questions, write the relationship first, keep units straight, and check whether the question asks for voltage, current, resistance, power, frequency, ratio, or a measurement concept. This specific topic is concepts of energy and power, open and short circuits."
+    },
+    {
+      "id": "B-005-004",
+      "major_id": "B-005",
+      "major_slug": "theory",
+      "major_title": "Basic Electronics and Theory",
+      "number": "5-4",
+      "title": "Ohm's law: single resistors",
+      "slug": "b-005-004-ohm-s-law-single-resistors",
+      "study_note": "For electronics theory questions, write the relationship first, keep units straight, and check whether the question asks for voltage, current, resistance, power, frequency, ratio, or a measurement concept. This specific topic is ohm's law: single resistors."
+    },
+    {
+      "id": "B-005-005",
+      "major_id": "B-005",
+      "major_slug": "theory",
+      "major_title": "Basic Electronics and Theory",
+      "number": "5-5",
+      "title": "Series and parallel resistors",
+      "slug": "b-005-005-series-and-parallel-resistors",
+      "study_note": "For electronics theory questions, write the relationship first, keep units straight, and check whether the question asks for voltage, current, resistance, power, frequency, ratio, or a measurement concept. This specific topic is series and parallel resistors."
+    },
+    {
+      "id": "B-005-006",
+      "major_id": "B-005",
+      "major_slug": "theory",
+      "major_title": "Basic Electronics and Theory",
+      "number": "5-6",
+      "title": "Power law, resistor power dissipation",
+      "slug": "b-005-006-power-law-resistor-power-dissipation",
+      "study_note": "For electronics theory questions, write the relationship first, keep units straight, and check whether the question asks for voltage, current, resistance, power, frequency, ratio, or a measurement concept. This specific topic is power law, resistor power dissipation."
+    },
+    {
+      "id": "B-005-007",
+      "major_id": "B-005",
+      "major_slug": "theory",
+      "major_title": "Basic Electronics and Theory",
+      "number": "5-7",
+      "title": "AC, sinewave, frequency, frequency units",
+      "slug": "b-005-007-ac-sinewave-frequency-frequency-units",
+      "study_note": "For electronics theory questions, write the relationship first, keep units straight, and check whether the question asks for voltage, current, resistance, power, frequency, ratio, or a measurement concept. This specific topic is ac, sinewave, frequency, frequency units."
+    },
+    {
+      "id": "B-005-008",
+      "major_id": "B-005",
+      "major_slug": "theory",
+      "major_title": "Basic Electronics and Theory",
+      "number": "5-8",
+      "title": "Ratios, logarithms, decibels",
+      "slug": "b-005-008-ratios-logarithms-decibels",
+      "study_note": "For electronics theory questions, write the relationship first, keep units straight, and check whether the question asks for voltage, current, resistance, power, frequency, ratio, or a measurement concept. This specific topic is ratios, logarithms, decibels."
+    },
+    {
+      "id": "B-005-009",
+      "major_id": "B-005",
+      "major_slug": "theory",
+      "major_title": "Basic Electronics and Theory",
+      "number": "5-9",
+      "title": "Introduction to inductance and capacitance",
+      "slug": "b-005-009-introduction-to-inductance-and-capacitance",
+      "study_note": "For electronics theory questions, write the relationship first, keep units straight, and check whether the question asks for voltage, current, resistance, power, frequency, ratio, or a measurement concept. This specific topic is introduction to inductance and capacitance."
+    },
+    {
+      "id": "B-005-010",
+      "major_id": "B-005",
+      "major_slug": "theory",
+      "major_title": "Basic Electronics and Theory",
+      "number": "5-10",
+      "title": "Introduction to reactance and impedance",
+      "slug": "b-005-010-introduction-to-reactance-and-impedance",
+      "study_note": "For electronics theory questions, write the relationship first, keep units straight, and check whether the question asks for voltage, current, resistance, power, frequency, ratio, or a measurement concept. This specific topic is introduction to reactance and impedance."
+    },
+    {
+      "id": "B-005-011",
+      "major_id": "B-005",
+      "major_slug": "theory",
+      "major_title": "Basic Electronics and Theory",
+      "number": "5-11",
+      "title": "Introduction to magnetics and transformers",
+      "slug": "b-005-011-introduction-to-magnetics-and-transformers",
+      "study_note": "For electronics theory questions, write the relationship first, keep units straight, and check whether the question asks for voltage, current, resistance, power, frequency, ratio, or a measurement concept. This specific topic is introduction to magnetics and transformers."
+    },
+    {
+      "id": "B-005-012",
+      "major_id": "B-005",
+      "major_slug": "theory",
+      "major_title": "Basic Electronics and Theory",
+      "number": "5-12",
+      "title": "Introduction to resonance and tuned circuits",
+      "slug": "b-005-012-introduction-to-resonance-and-tuned-circuits",
+      "study_note": "For electronics theory questions, write the relationship first, keep units straight, and check whether the question asks for voltage, current, resistance, power, frequency, ratio, or a measurement concept. This specific topic is introduction to resonance and tuned circuits."
+    },
+    {
+      "id": "B-005-013",
+      "major_id": "B-005",
+      "major_slug": "theory",
+      "major_title": "Basic Electronics and Theory",
+      "number": "5-13",
+      "title": "Introduction to meters and measurements",
+      "slug": "b-005-013-introduction-to-meters-and-measurements",
+      "study_note": "For electronics theory questions, write the relationship first, keep units straight, and check whether the question asks for voltage, current, resistance, power, frequency, ratio, or a measurement concept. This specific topic is introduction to meters and measurements."
+    },
+    {
+      "id": "B-006-001",
+      "major_id": "B-006",
+      "major_slug": "antennas",
+      "major_title": "Feedlines and Antenna Systems",
+      "number": "6-1",
+      "title": "Feed line characteristics, characteristic impedance",
+      "slug": "b-006-001-feed-line-characteristics-characteristic-impedance",
+      "study_note": "For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate. This specific topic is feed line characteristics, characteristic impedance."
+    },
+    {
+      "id": "B-006-002",
+      "major_id": "B-006",
+      "major_slug": "antennas",
+      "major_title": "Feedlines and Antenna Systems",
+      "number": "6-2",
+      "title": "Balanced and unbalanced feed lines, baluns",
+      "slug": "b-006-002-balanced-and-unbalanced-feed-lines-baluns",
+      "study_note": "For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate. This specific topic is balanced and unbalanced feed lines, baluns."
+    },
+    {
+      "id": "B-006-003",
+      "major_id": "B-006",
+      "major_slug": "antennas",
+      "major_title": "Feedlines and Antenna Systems",
+      "number": "6-3",
+      "title": "Popular antenna feed line and coaxial connector types",
+      "slug": "b-006-003-popular-antenna-feed-line-and-coaxial-connector-types",
+      "study_note": "For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate. This specific topic is popular antenna feed line and coaxial connector types."
+    },
+    {
+      "id": "B-006-004",
+      "major_id": "B-006",
+      "major_slug": "antennas",
+      "major_title": "Feedlines and Antenna Systems",
+      "number": "6-4",
+      "title": "Line losses by line type, length and frequency",
+      "slug": "b-006-004-line-losses-by-line-type-length-and-frequency",
+      "study_note": "For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate. This specific topic is line losses by line type, length and frequency."
+    },
+    {
+      "id": "B-006-005",
+      "major_id": "B-006",
+      "major_slug": "antennas",
+      "major_title": "Feedlines and Antenna Systems",
+      "number": "6-5",
+      "title": "Standing waves, standing wave ratio meter",
+      "slug": "b-006-005-standing-waves-standing-wave-ratio-meter",
+      "study_note": "For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate. This specific topic is standing waves, standing wave ratio meter."
+    },
+    {
+      "id": "B-006-006",
+      "major_id": "B-006",
+      "major_slug": "antennas",
+      "major_title": "Feedlines and Antenna Systems",
+      "number": "6-6",
+      "title": "Concept of impedance matching",
+      "slug": "b-006-006-concept-of-impedance-matching",
+      "study_note": "For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate. This specific topic is concept of impedance matching."
+    },
+    {
+      "id": "B-006-007",
+      "major_id": "B-006",
+      "major_slug": "antennas",
+      "major_title": "Feedlines and Antenna Systems",
+      "number": "6-7",
+      "title": "Isotropic source, polarization via element orientation",
+      "slug": "b-006-007-isotropic-source-polarization-via-element-orientation",
+      "study_note": "For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate. This specific topic is isotropic source, polarization via element orientation."
+    },
+    {
+      "id": "B-006-008",
+      "major_id": "B-006",
+      "major_slug": "antennas",
+      "major_title": "Feedlines and Antenna Systems",
+      "number": "6-8",
+      "title": "Wavelength vs physical length",
+      "slug": "b-006-008-wavelength-vs-physical-length",
+      "study_note": "For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate. This specific topic is wavelength vs physical length."
+    },
+    {
+      "id": "B-006-009",
+      "major_id": "B-006",
+      "major_slug": "antennas",
+      "major_title": "Feedlines and Antenna Systems",
+      "number": "6-9",
+      "title": "Gain, directivity, radiation pattern, antenna bandwidth",
+      "slug": "b-006-009-gain-directivity-radiation-pattern-antenna-bandwidth",
+      "study_note": "For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate. This specific topic is gain, directivity, radiation pattern, antenna bandwidth."
+    },
+    {
+      "id": "B-006-010",
+      "major_id": "B-006",
+      "major_slug": "antennas",
+      "major_title": "Feedlines and Antenna Systems",
+      "number": "6-10",
+      "title": "Vertical antennas: types, dimensions, characteristics",
+      "slug": "b-006-010-vertical-antennas-types-dimensions-characteristics",
+      "study_note": "For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate. This specific topic is vertical antennas: types, dimensions, characteristics."
+    },
+    {
+      "id": "B-006-011",
+      "major_id": "B-006",
+      "major_slug": "antennas",
+      "major_title": "Feedlines and Antenna Systems",
+      "number": "6-11",
+      "title": "Yagi antennas: types, dimensions, characteristics",
+      "slug": "b-006-011-yagi-antennas-types-dimensions-characteristics",
+      "study_note": "For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate. This specific topic is yagi antennas: types, dimensions, characteristics."
+    },
+    {
+      "id": "B-006-012",
+      "major_id": "B-006",
+      "major_slug": "antennas",
+      "major_title": "Feedlines and Antenna Systems",
+      "number": "6-12",
+      "title": "Wire antennas: types, dimensions, characteristics",
+      "slug": "b-006-012-wire-antennas-types-dimensions-characteristics",
+      "study_note": "For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate. This specific topic is wire antennas: types, dimensions, characteristics."
+    },
+    {
+      "id": "B-006-013",
+      "major_id": "B-006",
+      "major_slug": "antennas",
+      "major_title": "Feedlines and Antenna Systems",
+      "number": "6-13",
+      "title": "Quad/loop antennas: types, dimensions, characteristics",
+      "slug": "b-006-013-quad-loop-antennas-types-dimensions-characteristics",
+      "study_note": "For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate. This specific topic is quad/loop antennas: types, dimensions, characteristics."
+    },
+    {
+      "id": "B-007-001",
+      "major_id": "B-007",
+      "major_slug": "propagation",
+      "major_title": "Radio Wave Propagation",
+      "number": "7-1",
+      "title": "Line of sight, ground wave, ionospheric wave",
+      "slug": "b-007-001-line-of-sight-ground-wave-ionospheric-wave",
+      "study_note": "For propagation questions, first identify the frequency range and path: line of sight, ground wave, sky wave, ionospheric layer, solar condition, or special VHF/UHF mode. This specific topic is line of sight, ground wave, ionospheric wave."
+    },
+    {
+      "id": "B-007-002",
+      "major_id": "B-007",
+      "major_slug": "propagation",
+      "major_title": "Radio Wave Propagation",
+      "number": "7-2",
+      "title": "Ionosphere and ionospheric regions",
+      "slug": "b-007-002-ionosphere-and-ionospheric-regions",
+      "study_note": "For propagation questions, first identify the frequency range and path: line of sight, ground wave, sky wave, ionospheric layer, solar condition, or special VHF/UHF mode. This specific topic is ionosphere and ionospheric regions."
+    },
+    {
+      "id": "B-007-003",
+      "major_id": "B-007",
+      "major_slug": "propagation",
+      "major_title": "Radio Wave Propagation",
+      "number": "7-3",
+      "title": "Propagation hops, skip zone, skip distance",
+      "slug": "b-007-003-propagation-hops-skip-zone-skip-distance",
+      "study_note": "For propagation questions, first identify the frequency range and path: line of sight, ground wave, sky wave, ionospheric layer, solar condition, or special VHF/UHF mode. This specific topic is propagation hops, skip zone, skip distance."
+    },
+    {
+      "id": "B-007-004",
+      "major_id": "B-007",
+      "major_slug": "propagation",
+      "major_title": "Radio Wave Propagation",
+      "number": "7-4",
+      "title": "Ionospheric absorption, causes and variation, fading, phase shift, Faraday rotation",
+      "slug": "b-007-004-ionospheric-absorption-causes-and-variation-fading-phase-shift-faraday-rotation",
+      "study_note": "For propagation questions, first identify the frequency range and path: line of sight, ground wave, sky wave, ionospheric layer, solar condition, or special VHF/UHF mode. This specific topic is ionospheric absorption, causes and variation, fading, phase shift, faraday rotation."
+    },
+    {
+      "id": "B-007-005",
+      "major_id": "B-007",
+      "major_slug": "propagation",
+      "major_title": "Radio Wave Propagation",
+      "number": "7-5",
+      "title": "Solar activity, sunspots, sunspot cycle",
+      "slug": "b-007-005-solar-activity-sunspots-sunspot-cycle",
+      "study_note": "For propagation questions, first identify the frequency range and path: line of sight, ground wave, sky wave, ionospheric layer, solar condition, or special VHF/UHF mode. This specific topic is solar activity, sunspots, sunspot cycle."
+    },
+    {
+      "id": "B-007-006",
+      "major_id": "B-007",
+      "major_slug": "propagation",
+      "major_title": "Radio Wave Propagation",
+      "number": "7-6",
+      "title": "MF and HF, critical and maximum usable frequencies, solar flux",
+      "slug": "b-007-006-mf-and-hf-critical-and-maximum-usable-frequencies-solar-flux",
+      "study_note": "For propagation questions, first identify the frequency range and path: line of sight, ground wave, sky wave, ionospheric layer, solar condition, or special VHF/UHF mode. This specific topic is mf and hf, critical and maximum usable frequencies, solar flux."
+    },
+    {
+      "id": "B-007-007",
+      "major_id": "B-007",
+      "major_slug": "propagation",
+      "major_title": "Radio Wave Propagation",
+      "number": "7-7",
+      "title": "VHF and UHF, sporadic-E, aurora, ducting",
+      "slug": "b-007-007-vhf-and-uhf-sporadic-e-aurora-ducting",
+      "study_note": "For propagation questions, first identify the frequency range and path: line of sight, ground wave, sky wave, ionospheric layer, solar condition, or special VHF/UHF mode. This specific topic is vhf and uhf, sporadic-e, aurora, ducting."
+    },
+    {
+      "id": "B-007-008",
+      "major_id": "B-007",
+      "major_slug": "propagation",
+      "major_title": "Radio Wave Propagation",
+      "number": "7-8",
+      "title": "Scatter: HF, VHF, UHF",
+      "slug": "b-007-008-scatter-hf-vhf-uhf",
+      "study_note": "For propagation questions, first identify the frequency range and path: line of sight, ground wave, sky wave, ionospheric layer, solar condition, or special VHF/UHF mode. This specific topic is scatter: hf, vhf, uhf."
+    },
+    {
+      "id": "B-008-001",
+      "major_id": "B-008",
+      "major_slug": "interference",
+      "major_title": "Interference and Suppression",
+      "number": "8-1",
+      "title": "Front-end overload, cross-modulation",
+      "slug": "b-008-001-front-end-overload-cross-modulation",
+      "study_note": "For interference questions, separate receiver overload, audio rectification, transmitter harmonics, spurious emissions, splatter, key clicks, and the filters used to reduce them. This specific topic is front-end overload, cross-modulation."
+    },
+    {
+      "id": "B-008-002",
+      "major_id": "B-008",
+      "major_slug": "interference",
+      "major_title": "Interference and Suppression",
+      "number": "8-2",
+      "title": "Audio rectification, bypass capacitors, ferrites",
+      "slug": "b-008-002-audio-rectification-bypass-capacitors-ferrites",
+      "study_note": "For interference questions, separate receiver overload, audio rectification, transmitter harmonics, spurious emissions, splatter, key clicks, and the filters used to reduce them. This specific topic is audio rectification, bypass capacitors, ferrites."
+    },
+    {
+      "id": "B-008-003",
+      "major_id": "B-008",
+      "major_slug": "interference",
+      "major_title": "Interference and Suppression",
+      "number": "8-3",
+      "title": "Intermodulation, spurious emissions, key clicks",
+      "slug": "b-008-003-intermodulation-spurious-emissions-key-clicks",
+      "study_note": "For interference questions, separate receiver overload, audio rectification, transmitter harmonics, spurious emissions, splatter, key clicks, and the filters used to reduce them. This specific topic is intermodulation, spurious emissions, key clicks."
+    },
+    {
+      "id": "B-008-004",
+      "major_id": "B-008",
+      "major_slug": "interference",
+      "major_title": "Interference and Suppression",
+      "number": "8-4",
+      "title": "Harmonics, splatter, transmitter adjustments",
+      "slug": "b-008-004-harmonics-splatter-transmitter-adjustments",
+      "study_note": "For interference questions, separate receiver overload, audio rectification, transmitter harmonics, spurious emissions, splatter, key clicks, and the filters used to reduce them. This specific topic is harmonics, splatter, transmitter adjustments."
+    },
+    {
+      "id": "B-008-005",
+      "major_id": "B-008",
+      "major_slug": "interference",
+      "major_title": "Interference and Suppression",
+      "number": "8-5",
+      "title": "Use of filters: low-pass, high-pass, band-pass, band-reject",
+      "slug": "b-008-005-use-of-filters-low-pass-high-pass-band-pass-band-reject",
+      "study_note": "For interference questions, separate receiver overload, audio rectification, transmitter harmonics, spurious emissions, splatter, key clicks, and the filters used to reduce them. This specific topic is use of filters: low-pass, high-pass, band-pass, band-reject."
+    }
+  ]
+}

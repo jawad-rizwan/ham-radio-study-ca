@@ -1,0 +1,174 @@
+{
+  "version": "1.0",
+  "source": "App-authored formula drills for Basic electronics and theory.",
+  "drills": [
+    {
+      "id": "F-001",
+      "topic": "ohms_law",
+      "title": "Ohm's law: current",
+      "question": "A 12 V source is connected across a 6 ohm resistor. What current flows?",
+      "choices": [
+        "2 A",
+        "0.5 A",
+        "18 A",
+        "72 A"
+      ],
+      "correct_index": 0,
+      "explanation": "Use I = E / R. 12 V / 6 ohms = 2 A."
+    },
+    {
+      "id": "F-002",
+      "topic": "ohms_law",
+      "title": "Ohm's law: resistance",
+      "question": "A circuit draws 0.5 A from a 12 V supply. What is the resistance?",
+      "choices": [
+        "24 ohms",
+        "6 ohms",
+        "12.5 ohms",
+        "0.041 ohms"
+      ],
+      "correct_index": 0,
+      "explanation": "Use R = E / I. 12 V / 0.5 A = 24 ohms."
+    },
+    {
+      "id": "F-003",
+      "topic": "power",
+      "title": "Power from voltage and current",
+      "question": "A device uses 13.8 V at 10 A. What is the power?",
+      "choices": [
+        "138 W",
+        "1.38 W",
+        "23.8 W",
+        "3.8 W"
+      ],
+      "correct_index": 0,
+      "explanation": "Use P = E x I. 13.8 V x 10 A = 138 W."
+    },
+    {
+      "id": "F-004",
+      "topic": "series_parallel",
+      "title": "Series resistors",
+      "question": "What is the total resistance of 10 ohms, 15 ohms and 25 ohms in series?",
+      "choices": [
+        "50 ohms",
+        "8.3 ohms",
+        "25 ohms",
+        "3750 ohms"
+      ],
+      "correct_index": 0,
+      "explanation": "Series resistors add directly: 10 + 15 + 25 = 50 ohms."
+    },
+    {
+      "id": "F-005",
+      "topic": "series_parallel",
+      "title": "Parallel resistors",
+      "question": "Two 100 ohm resistors are connected in parallel. What is the total resistance?",
+      "choices": [
+        "50 ohms",
+        "100 ohms",
+        "200 ohms",
+        "10,000 ohms"
+      ],
+      "correct_index": 0,
+      "explanation": "Two equal resistors in parallel equal half one resistor: 100 / 2 = 50 ohms."
+    },
+    {
+      "id": "F-006",
+      "topic": "wavelength",
+      "title": "Wavelength",
+      "question": "What is the approximate wavelength of a 150 MHz signal?",
+      "choices": [
+        "2 m",
+        "0.5 m",
+        "20 m",
+        "300 m"
+      ],
+      "correct_index": 0,
+      "explanation": "Wavelength in metres is approximately 300 / frequency in MHz. 300 / 150 = 2 m."
+    },
+    {
+      "id": "F-007",
+      "topic": "decibels",
+      "title": "Decibels",
+      "question": "A 3 dB increase in power is approximately what change?",
+      "choices": [
+        "Double the power",
+        "Ten times the power",
+        "Half the power",
+        "No change"
+      ],
+      "correct_index": 0,
+      "explanation": "For power ratios, +3 dB is approximately x2. -3 dB is approximately half power."
+    },
+    {
+      "id": "F-008",
+      "topic": "batteries",
+      "title": "Batteries in series",
+      "question": "Two 12 V, 20 Ah batteries are connected in series. What is the result?",
+      "choices": [
+        "24 V, 20 Ah",
+        "12 V, 40 Ah",
+        "24 V, 40 Ah",
+        "6 V, 20 Ah"
+      ],
+      "correct_index": 0,
+      "explanation": "In series, voltage adds and amp-hour capacity stays the same: 12 + 12 = 24 V, still 20 Ah."
+    },
+    {
+      "id": "F-009",
+      "topic": "batteries",
+      "title": "Batteries in parallel",
+      "question": "Two 12 V, 20 Ah batteries are connected in parallel. What is the result?",
+      "choices": [
+        "12 V, 40 Ah",
+        "24 V, 20 Ah",
+        "24 V, 40 Ah",
+        "6 V, 20 Ah"
+      ],
+      "correct_index": 0,
+      "explanation": "In parallel, voltage stays the same and amp-hour capacity adds: 12 V, 20 + 20 = 40 Ah."
+    },
+    {
+      "id": "F-010",
+      "topic": "reactance",
+      "title": "Reactance trend",
+      "question": "As frequency increases, what happens to inductive reactance?",
+      "choices": [
+        "It increases",
+        "It decreases",
+        "It becomes zero",
+        "It is unrelated to frequency"
+      ],
+      "correct_index": 0,
+      "explanation": "Inductive reactance increases with frequency. Capacitive reactance moves the opposite way."
+    },
+    {
+      "id": "F-011",
+      "topic": "reactance",
+      "title": "Capacitive reactance trend",
+      "question": "As frequency increases, what happens to capacitive reactance?",
+      "choices": [
+        "It decreases",
+        "It increases",
+        "It becomes infinite",
+        "It is unrelated to frequency"
+      ],
+      "correct_index": 0,
+      "explanation": "Capacitive reactance decreases as frequency increases."
+    },
+    {
+      "id": "F-012",
+      "topic": "prefixes",
+      "title": "Metric prefixes",
+      "question": "What multiplier does the prefix kilo represent?",
+      "choices": [
+        "1000",
+        "1000000",
+        "0.001",
+        "0.000001"
+      ],
+      "correct_index": 0,
+      "explanation": "Kilo means 1000. Mega means 1,000,000; milli means 0.001; micro means 0.000001."
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "version": "1.0",
+  "source": "App-authored flashcards derived from official syllabus areas.",
+  "decks": [
+    {
+      "deck_id": "regulation_must_know",
+      "title": "Regulation Must-Know",
+      "topic": "regulations",
+      "cards": [
+        {
+          "id": "REG-01",
+          "front": "Basic exam pass mark",
+          "back": "70 percent."
+        },
+        {
+          "id": "REG-02",
+          "front": "Basic with Honours mark",
+          "back": "80 percent or higher."
+        },
+        {
+          "id": "REG-03",
+          "front": "Number of Basic exam questions",
+          "back": "100 questions, one from each RIC-3 Basic topic area."
+        },
+        {
+          "id": "REG-04",
+          "front": "Basic access",
+          "back": "All amateur bands above 30 MHz."
+        },
+        {
+          "id": "REG-05",
+          "front": "Basic with Honours access",
+          "back": "Basic privileges plus amateur bands below 30 MHz."
+        },
+        {
+          "id": "REG-06",
+          "front": "Address change",
+          "back": "Notify ISED within 30 days of a mailing address change."
+        },
+        {
+          "id": "REG-07",
+          "front": "First Amateur Radio Operator Certificate fee",
+          "back": "Free."
+        },
+        {
+          "id": "REG-08",
+          "front": "Certificate validity",
+          "back": "Valid for life."
+        }
+      ]
+    },
+    {
+      "deck_id": "operating_signals",
+      "title": "Operating Signals",
+      "topic": "operating",
+      "cards": [
+        {
+          "id": "OP-01",
+          "front": "QRM",
+          "back": "Man-made interference."
+        },
+        {
+          "id": "OP-02",
+          "front": "QRN",
+          "back": "Natural static/noise."
+        },
+        {
+          "id": "OP-03",
+          "front": "QRP",
+          "back": "Reduce power / low-power operation."
+        },
+        {
+          "id": "OP-04",
+          "front": "QSL",
+          "back": "Acknowledgement / confirmation."
+        },
+        {
+          "id": "OP-05",
+          "front": "QTH",
+          "back": "Location."
+        },
+        {
+          "id": "OP-06",
+          "front": "RST report",
+          "back": "Readability, Strength, Tone."
+        },
+        {
+          "id": "OP-07",
+          "front": "CQ",
+          "back": "General call to any station."
+        },
+        {
+          "id": "OP-08",
+          "front": "Dummy load",
+          "back": "A non-radiating load used for testing and tuneups."
+        }
+      ]
+    },
+    {
+      "deck_id": "formulas",
+      "title": "Formulas",
+      "topic": "theory",
+      "cards": [
+        {
+          "id": "FOR-01",
+          "front": "Ohm's law",
+          "back": "E = I x R."
+        },
+        {
+          "id": "FOR-02",
+          "front": "Power from voltage and current",
+          "back": "P = E x I."
+        },
+        {
+          "id": "FOR-03",
+          "front": "Power from current and resistance",
+          "back": "P = I^2 x R."
+        },
+        {
+          "id": "FOR-04",
+          "front": "Power from voltage and resistance",
+          "back": "P = E^2 / R."
+        },
+        {
+          "id": "FOR-05",
+          "front": "Wavelength in metres",
+          "back": "300 / frequency in MHz."
+        },
+        {
+          "id": "FOR-06",
+          "front": "+3 dB power",
+          "back": "Approximately double power."
+        },
+        {
+          "id": "FOR-07",
+          "front": "+10 dB power",
+          "back": "Ten times power."
+        },
+        {
+          "id": "FOR-08",
+          "front": "Two equal resistors in parallel",
+          "back": "Total is half one resistor."
+        }
+      ]
+    },
+    {
+      "deck_id": "antennas_propagation",
+      "title": "Antennas and Propagation",
+      "topic": "antennas",
+      "cards": [
+        {
+          "id": "AP-01",
+          "front": "Coaxial cable",
+          "back": "Unbalanced feedline, commonly 50 ohms in amateur stations."
+        },
+        {
+          "id": "AP-02",
+          "front": "Balun",
+          "back": "Connects balanced and unbalanced systems."
+        },
+        {
+          "id": "AP-03",
+          "front": "High SWR",
+          "back": "Indicates impedance mismatch and can increase line loss and equipment stress."
+        },
+        {
+          "id": "AP-04",
+          "front": "Line of sight",
+          "back": "Dominant VHF/UHF propagation mode."
+        },
+        {
+          "id": "AP-05",
+          "front": "Sky wave",
+          "back": "Ionospheric propagation, central to HF communication."
+        },
+        {
+          "id": "AP-06",
+          "front": "Skip zone",
+          "back": "Area between ground-wave coverage and first sky-wave return."
+        },
+        {
+          "id": "AP-07",
+          "front": "MUF",
+          "back": "Maximum usable frequency for a radio path."
+        },
+        {
+          "id": "AP-08",
+          "front": "D layer",
+          "back": "Absorbs HF, especially during daylight."
+        }
+      ]
+    },
+    {
+      "deck_id": "interference_safety",
+      "title": "Interference and Safety",
+      "topic": "interference",
+      "cards": [
+        {
+          "id": "IS-01",
+          "front": "Harmonics",
+          "back": "Unwanted signals at multiples of the operating frequency."
+        },
+        {
+          "id": "IS-02",
+          "front": "Splatter",
+          "back": "Adjacent-channel interference often caused by overmodulation or overdrive."
+        },
+        {
+          "id": "IS-03",
+          "front": "Low-pass filter",
+          "back": "Passes low frequencies and attenuates higher frequencies."
+        },
+        {
+          "id": "IS-04",
+          "front": "Ferrite choke",
+          "back": "Can reduce RF pickup on leads and cables."
+        },
+        {
+          "id": "IS-05",
+          "front": "Fuse replacement",
+          "back": "Use the correct type and rating."
+        },
+        {
+          "id": "IS-06",
+          "front": "Capacitor safety",
+          "back": "High-voltage capacitors can retain charge after power is off."
+        },
+        {
+          "id": "IS-07",
+          "front": "Tower safety",
+          "back": "Keep clear of power lines and use proper climbing/fall protection."
+        },
+        {
+          "id": "IS-08",
+          "front": "RF exposure",
+          "back": "Observe limits and keep people away from energized antennas."
+        }
+      ]
+    }
+  ]
+}

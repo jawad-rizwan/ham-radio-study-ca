@@ -1,0 +1,236 @@
+{
+  "version": "1.0",
+  "source": "Reference sheets derived from official study documents.",
+  "sections": [
+    {
+      "id": "exam_rules",
+      "title": "Basic Exam Rules",
+      "topic": "regulations",
+      "type": "table",
+      "columns": [
+        "Item",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Questions",
+          "100, one from each RIC-3 Basic topic area"
+        ],
+        [
+          "Pass mark",
+          "70 percent"
+        ],
+        [
+          "Honours",
+          "80 percent or higher"
+        ],
+        [
+          "Time limit",
+          "No fixed time limit specified in RIC-3"
+        ],
+        [
+          "Reference material",
+          "Closed book"
+        ]
+      ]
+    },
+    {
+      "id": "privileges",
+      "title": "Qualification Privileges",
+      "topic": "regulations",
+      "type": "table",
+      "columns": [
+        "Qualification",
+        "Main privileges"
+      ],
+      "rows": [
+        [
+          "Basic",
+          "Amateur bands above 30 MHz; 250 W DC input; commercial kit assembly; repeater use."
+        ],
+        [
+          "Basic with Honours",
+          "Basic plus amateur bands below 30 MHz."
+        ],
+        [
+          "Basic plus Morse",
+          "Access to all amateur bands."
+        ],
+        [
+          "Advanced",
+          "1000 W DC input; build/modify transmitters; establish repeaters and club stations; remote control fixed stations."
+        ]
+      ]
+    },
+    {
+      "id": "call_prefixes",
+      "title": "Canadian Amateur Call Sign Prefixes",
+      "topic": "regulations",
+      "type": "table",
+      "columns": [
+        "Prefix",
+        "Area"
+      ],
+      "rows": [
+        [
+          "VE1 / VA1",
+          "Nova Scotia"
+        ],
+        [
+          "VE2 / VA2",
+          "Quebec"
+        ],
+        [
+          "VE3 / VA3",
+          "Ontario"
+        ],
+        [
+          "VE4 / VA4",
+          "Manitoba"
+        ],
+        [
+          "VE5 / VA5",
+          "Saskatchewan"
+        ],
+        [
+          "VE6 / VA6",
+          "Alberta"
+        ],
+        [
+          "VE7 / VA7",
+          "British Columbia"
+        ],
+        [
+          "VE8",
+          "Northwest Territories"
+        ],
+        [
+          "VE9",
+          "New Brunswick"
+        ],
+        [
+          "VE0",
+          "International waters, vessel use"
+        ],
+        [
+          "VO1",
+          "Newfoundland"
+        ],
+        [
+          "VO2",
+          "Labrador"
+        ],
+        [
+          "VY1",
+          "Yukon"
+        ],
+        [
+          "VY2",
+          "Prince Edward Island"
+        ],
+        [
+          "VY0",
+          "Nunavut"
+        ]
+      ]
+    },
+    {
+      "id": "formula_sheet",
+      "title": "Formula Sheet",
+      "topic": "theory",
+      "type": "table",
+      "columns": [
+        "Concept",
+        "Formula or rule"
+      ],
+      "rows": [
+        [
+          "Ohm's law",
+          "E = I x R; I = E / R; R = E / I"
+        ],
+        [
+          "Power",
+          "P = E x I; P = I^2 x R; P = E^2 / R"
+        ],
+        [
+          "Wavelength",
+          "metres = 300 / frequency in MHz"
+        ],
+        [
+          "Series resistors",
+          "Add directly"
+        ],
+        [
+          "Parallel resistors",
+          "1/Rtotal = 1/R1 + 1/R2 + ..."
+        ],
+        [
+          "Battery series",
+          "Voltage adds, amp-hour capacity stays the same"
+        ],
+        [
+          "Battery parallel",
+          "Voltage stays the same, amp-hour capacity adds"
+        ],
+        [
+          "3 dB",
+          "About double or half power"
+        ],
+        [
+          "10 dB",
+          "Ten times or one-tenth power"
+        ]
+      ]
+    },
+    {
+      "id": "safety_sheet",
+      "title": "Safety Cram Sheet",
+      "topic": "station",
+      "type": "ordered_list",
+      "items": [
+        "Disconnect power before service.",
+        "Discharge capacitors before touching high-voltage circuits.",
+        "Replace fuses with the correct type and rating.",
+        "Keep antennas and towers clear of power lines.",
+        "Use proper grounding and lightning protection.",
+        "Respect RF exposure limits and prevent people from contacting energized antennas."
+      ]
+    },
+    {
+      "id": "interference_sheet",
+      "title": "Interference Troubleshooting",
+      "topic": "interference",
+      "type": "table",
+      "columns": [
+        "Symptom",
+        "Likely concept"
+      ],
+      "rows": [
+        [
+          "TV or receiver overload from a strong nearby signal",
+          "Front-end overload"
+        ],
+        [
+          "Voice heard in audio equipment",
+          "Audio rectification / RF pickup"
+        ],
+        [
+          "Signals on multiples of your transmit frequency",
+          "Harmonics"
+        ],
+        [
+          "Wide adjacent-channel interference on voice",
+          "Splatter / overmodulation"
+        ],
+        [
+          "Unwanted signals generated by nonlinear mixing",
+          "Intermodulation"
+        ],
+        [
+          "CW clicks heard near the signal",
+          "Poor keying waveform / key clicks"
+        ]
+      ]
+    }
+  ]
+}
