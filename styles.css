@@ -314,10 +314,6 @@ small {
   background: var(--primary);
 }
 
-:root[data-theme="dark"] .btn {
-  color: #06111f;
-}
-
 .btn:hover {
   background: var(--primary-strong);
 }

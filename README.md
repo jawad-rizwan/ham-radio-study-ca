@@ -61,6 +61,14 @@ The script expects the official bank at:
 /mnt/c/Users/jawad/Desktop/HAM Radio Exam Information/amat_basic_quest/amat_basic_quest_delim.txt
 ```
 
+To verify that the PDF bank and delimited TXT bank contain the same material:
+
+```bash
+python3 tools/compare_pdf_bank.py
+```
+
+The verifier compares all question IDs, question text, correct answers, and answer-choice sets. It writes a report to `data/bank-comparison-report.json`.
+
 ## Official Content Source
 
 Question text and official answers are parsed from:
