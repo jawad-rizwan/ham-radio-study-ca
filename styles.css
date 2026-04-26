@@ -480,6 +480,78 @@ small {
   padding: 16px;
 }
 
+.start-panel {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quick-path {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.quick-step {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.quick-step h2 {
+  margin: 0 0 8px;
+}
+
+.clean-list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.clean-list li {
+  margin: 10px 0;
+  line-height: 1.55;
+}
+
+.use-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 10px;
+}
+
+.use-card {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  min-height: 108px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  text-align: left;
+  background: var(--panel-soft);
+}
+
+.use-card:hover {
+  border-color: var(--primary);
+}
+
+.use-card strong,
+.use-card span {
+  display: block;
+}
+
+.use-card span {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
 .course-card.done {
   border-color: rgba(5, 150, 105, 0.35);
   background: linear-gradient(90deg, rgba(5, 150, 105, 0.1), var(--panel));
@@ -973,12 +1045,14 @@ th {
   .dashboard-layout,
   .radio-panel,
   .course-overview,
+  .start-panel,
   .formula-layout,
   .flash-layout {
     grid-template-columns: 1fr;
   }
 
-  .course-overview {
+  .course-overview,
+  .start-panel {
     display: grid;
   }
 
@@ -1035,7 +1109,8 @@ th {
   }
 
   .course-card,
-  .next-step-card {
+  .next-step-card,
+  .quick-step {
     grid-template-columns: 1fr;
   }
 }

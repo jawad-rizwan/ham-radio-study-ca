@@ -11,7 +11,7 @@ const DATA_PATHS = {
 
 const PROGRESS_KEY = "hamRadioStudyProgress:v1";
 const THEME_KEY = "hamRadioStudyTheme";
-const APP_VERSION = "1.1.0";
+const APP_VERSION = "1.2.0";
 
 const app = document.querySelector("#app");
 const navLinks = [...document.querySelectorAll("[data-view]")];
@@ -380,6 +380,7 @@ function render() {
 
   const views = {
     dashboard: renderDashboard,
+    quickStart: renderQuickStart,
     course: renderCourse,
     guide: renderGuide,
     practice: renderPractice,
@@ -417,7 +418,8 @@ function renderDashboard() {
             <h2>984 questions from the Government of Canada bank</h2>
             <p class="muted">Mock exams draw one question from each of the 100 Basic topic areas, matching the RIC-3 exam structure.</p>
             <div class="actions">
-              <button class="btn" type="button" data-action="start-mock">Start 100-question mock</button>
+              <button class="btn" type="button" data-view="quickStart">Start here</button>
+              <button class="btn secondary" type="button" data-action="start-mock">Start 100-question mock</button>
               <button class="btn secondary" type="button" data-action="start-adaptive">Adaptive study</button>
               <button class="btn ghost" type="button" data-view="course">Open course</button>
             </div>
@@ -459,6 +461,86 @@ function renderDashboard() {
         </div>
       </aside>
     </section>
+  `;
+}
+
+function renderQuickStart() {
+  const stats = getStats();
+  const currentUnit = getCurrentCourseUnit();
+  return `
+    ${hero("Start here", "A simple order for using the site without getting lost. Follow this path first, then use the extra tools only when they help.", "Quick Start")}
+    <section class="panel start-panel">
+      <div>
+        <p class="eyebrow">Recommended routine</p>
+        <h2>Do one course unit, then drill it</h2>
+        <p class="muted">Most sessions should be simple: open the next course unit, read the tasks, review the related guide notes, drill the official questions, then mark the unit complete.</p>
+      </div>
+      <div class="actions">
+        <button class="btn" type="button" data-action="resume-course">${currentUnit ? `Continue unit ${currentUnit.order}` : "Start course"}</button>
+        <button class="btn secondary" type="button" data-view="progress">Check progress</button>
+      </div>
+    </section>
+    <section class="quick-path">
+      ${renderQuickStep("1", "Get oriented", "Open this page when you feel lost. The site is built around the Course Path; everything else supports it.", "Dashboard, Start Here", `<button class="btn small secondary" type="button" data-view="dashboard">Open dashboard</button>`)}
+      ${renderQuickStep("2", "Work through Course Path in order", "Use the 28 units as your main study plan. Each unit maps to official topic areas and exact question-bank sections.", `${stats.courseDone}/${state.data.course.units.length} units complete`, `<button class="btn small" type="button" data-action="resume-course">Continue course</button>`)}
+      ${renderQuickStep("3", "Read only what supports the current unit", "Use the Study Guide when a course unit points you there. Avoid trying to read the entire site at once.", "Study Guide", `<button class="btn small secondary" type="button" data-view="guide">Open guide</button>`)}
+      ${renderQuickStep("4", "Drill immediately after studying", "After each unit, use its Drill button. Wrong answers show detailed explanations, and those misses feed adaptive review.", "Practice", `<button class="btn small secondary" type="button" data-view="practice">Open practice</button>`)}
+      ${renderQuickStep("5", "Use Formula Drills and Flashcards as side tools", "Do formula drills for math-heavy units. Use flashcards for callsigns, Q signals, privileges, safety facts and definitions.", "Formulas, Flashcards", `<button class="btn small secondary" type="button" data-view="formulas">Formula drills</button><button class="btn small ghost" type="button" data-view="flashcards">Flashcards</button>`)}
+      ${renderQuickStep("6", "Switch to adaptive review after you have attempts", "Once you have answered a few hundred questions, adaptive study becomes useful because it targets weak, missed, stale and unseen questions.", `${stats.attempts} attempts`, `<button class="btn small secondary" type="button" data-action="start-adaptive">Adaptive study</button>`)}
+      ${renderQuickStep("7", "Take mocks when you are ready to measure", "Use 100-question mock exams after you have covered a good chunk of the course. Aim for repeated 80%+ scores before booking.", `${stats.mockCount} mocks taken`, `<button class="btn small secondary" type="button" data-action="start-mock">Start mock</button>`)}
+      ${renderQuickStep("8", "Use Next Steps near the end", "When mocks are stable, use the official ISED practice exam and examiner links to move from studying to booking.", "Exam prep", `<button class="btn small secondary" type="button" data-view="nextSteps">Open next steps</button>`)}
+    </section>
+    <section class="grid two" style="margin-top: 16px;">
+      <article class="panel">
+        <h2>What to do in a 30-minute session</h2>
+        <ol class="clean-list">
+          <li>Spend 10 minutes reading the next course unit and related guide notes.</li>
+          <li>Spend 15 minutes drilling that unit's official questions.</li>
+          <li>Spend 5 minutes reviewing explanations for anything wrong and bookmarking fragile facts.</li>
+        </ol>
+      </article>
+      <article class="panel">
+        <h2>What to ignore at first</h2>
+        <p class="muted">Do not start by browsing all 984 questions or taking repeated mocks cold. Those tools are useful later, but the Course Path gives you the clean structure.</p>
+        <p class="muted">Use Cram Sheets and Resources as references, not as your main daily workflow.</p>
+      </article>
+    </section>
+    <section class="panel" style="margin-top: 16px;">
+      <h2>Which page does what?</h2>
+      <div class="use-grid">
+        ${renderUseCard("Course Path", "Main study plan. Use this most days.", "course")}
+        ${renderUseCard("Study Guide", "Explanations and concepts behind the official topics.", "guide")}
+        ${renderUseCard("Practice", "Mock exams, adaptive review, missed questions and custom drills.", "practice")}
+        ${renderUseCard("Question Bank", "Search or inspect exact official questions.", "bank")}
+        ${renderUseCard("Formula Drills", "Math practice for Ohm's law, power, wavelength, dB and reactance.", "formulas")}
+        ${renderUseCard("Flashcards", "Fast memory review for rules, terms and facts.", "flashcards")}
+        ${renderUseCard("Cram Sheets", "Printable last-pass summaries.", "cram")}
+        ${renderUseCard("Progress", "Accuracy, weak areas, backups and reset.", "progress")}
+      </div>
+    </section>
+  `;
+}
+
+function renderQuickStep(number, title, body, detail, actionHtml) {
+  return `
+    <article class="quick-step">
+      <span class="course-number">${escapeHtml(number)}</span>
+      <div>
+        <h2>${escapeHtml(title)}</h2>
+        <p class="muted">${escapeHtml(body)}</p>
+        <div class="course-meta"><span>${escapeHtml(detail)}</span></div>
+        <div class="actions">${actionHtml}</div>
+      </div>
+    </article>
+  `;
+}
+
+function renderUseCard(title, body, view) {
+  return `
+    <button class="use-card" type="button" data-view="${escapeHtml(view)}">
+      <strong>${escapeHtml(title)}</strong>
+      <span>${escapeHtml(body)}</span>
+    </button>
   `;
 }
 
