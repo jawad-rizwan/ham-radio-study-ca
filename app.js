@@ -11,7 +11,7 @@ const DATA_PATHS = {
 
 const PROGRESS_KEY = "hamRadioStudyProgress:v1";
 const THEME_KEY = "hamRadioStudyTheme";
-const APP_VERSION = "2.2.0";
+const APP_VERSION = "2.2.1";
 
 const app = document.querySelector("#app");
 const navLinks = [...document.querySelectorAll("[data-view]")];
@@ -615,7 +615,6 @@ function renderStudyPath() {
 
 function renderFinalMockPanel(completed, stats) {
   const coverageDone = stats.bankSeen === stats.bankTotal;
-  const locked = completed < state.data.majorTopics.length || !coverageDone;
   return `
     <section class="panel final-exam-panel">
       <div class="chapter-index">9</div>
@@ -627,11 +626,11 @@ function renderFinalMockPanel(completed, stats) {
           <span>${stats.mockCount} mock${stats.mockCount === 1 ? "" : "s"} completed</span>
           <span>${stats.mockCount ? `Best score ${stats.bestMock}%` : "70% pass, 80% honours"}</span>
           <span>${stats.bankSeen}/${stats.bankTotal} bank questions seen</span>
-          <span>${locked ? `${completed}/8 chapters complete` : "Ready for final practice"}</span>
+          <span>${coverageDone ? "Coverage complete" : `${completed}/8 chapters complete`}</span>
         </div>
       </div>
       <div class="actions">
-        <button class="btn ${locked ? "secondary" : ""}" type="button" data-action="start-mock" ${locked ? "disabled" : ""}>Start mock exam</button>
+        <button class="btn ${coverageDone ? "" : "secondary"}" type="button" data-action="start-mock">Start mock exam</button>
         <button class="btn ghost" type="button" data-view="mockExams">Mock page</button>
       </div>
     </section>
@@ -938,10 +937,10 @@ function renderMockExams() {
       <div>
         <p class="eyebrow">Full exam practice</p>
         <h2>Take a 100-question mock exam</h2>
-        <p class="muted">${coverageDone ? "Mocks do not show instant feedback. Submit when finished, then review explanations and weak areas." : `Finish Study Path coverage first: ${stats.bankSeen}/${stats.bankTotal} official questions seen.`}</p>
+        <p class="muted">${coverageDone ? "Mocks do not show instant feedback. Submit when finished, then review explanations and weak areas." : `Recommended after coverage, but available anytime. Current coverage: ${stats.bankSeen}/${stats.bankTotal} official questions seen.`}</p>
       </div>
       <div class="actions">
-        <button class="btn" type="button" data-action="start-mock" ${coverageDone ? "" : "disabled"}>Start mock exam</button>
+        <button class="btn" type="button" data-action="start-mock">Start mock exam</button>
         <button class="btn secondary" type="button" data-view="studyPath">Back to study path</button>
       </div>
     </section>
@@ -1503,12 +1502,6 @@ function startSession({ title, mode, questions, instant = false }) {
 }
 
 function startMockExam() {
-  const stats = getStats();
-  if (stats.bankSeen < stats.bankTotal) {
-    alert(`Finish bank coverage before mock exams. You have seen ${stats.bankSeen} of ${stats.bankTotal} official questions.`);
-    setView("studyPath");
-    return;
-  }
   const questions = state.data.sections
     .map((section) => shuffle(state.data.questionsBySection[section.id] || [])[0])
     .filter(Boolean);

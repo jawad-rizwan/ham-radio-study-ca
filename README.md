@@ -12,6 +12,7 @@ Live site: <https://jawad-rizwan.github.io/ham-radio-study-ca/>
 - Beginner teaching lessons, core concept notes, and topic-level study points before practice
 - Final Study Path mock exam step with 100 questions, one from each RIC-3 Basic topic area
 - Chapter coverage drills that walk through every official bank question before mock exams
+- Mock exams remain available anytime for a diagnostic run
 - Dedicated Mock Exams section for full-exam practice and mock history
 - Pass and honours scoring: 70% pass, 80% Basic with Honours range
 - Detailed wrong-answer explanations tied to the RIC-3 syllabus topics
