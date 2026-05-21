@@ -706,6 +706,13 @@ small {
   justify-content: space-between;
 }
 
+.mock-start-panel {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .quick-path {
   display: grid;
   gap: 12px;
@@ -1271,6 +1278,7 @@ th {
   .radio-panel,
   .course-overview,
   .start-panel,
+  .mock-start-panel,
   .finish-panel,
   .final-exam-panel,
   .review-columns,
@@ -1282,6 +1290,7 @@ th {
 
   .course-overview,
   .start-panel,
+  .mock-start-panel,
   .finish-panel,
   .final-exam-panel {
     display: grid;

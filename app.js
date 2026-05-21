@@ -11,7 +11,7 @@ const DATA_PATHS = {
 
 const PROGRESS_KEY = "hamRadioStudyProgress:v1";
 const THEME_KEY = "hamRadioStudyTheme";
-const APP_VERSION = "2.1.0";
+const APP_VERSION = "2.1.1";
 
 const app = document.querySelector("#app");
 const navLinks = [...document.querySelectorAll("[data-view]")];
@@ -238,11 +238,12 @@ function setView(view) {
 
 function normalizeView(view) {
   if (["", "dashboard", "quickStart", "course"].includes(view)) return "studyPath";
+  if (view === "exam") return "mockExams";
   return view;
 }
 
 function activeNavView(view) {
-  return ["studyPath", "progress", "advanced", "about"].includes(view) ? view : "advanced";
+  return ["progress", "studyPath", "mockExams", "advanced", "about"].includes(view) ? view : "advanced";
 }
 
 function getQuestionById(id) {
@@ -419,6 +420,7 @@ function render() {
     cram: renderCramSheets,
     resources: renderResources,
     nextSteps: renderNextSteps,
+    mockExams: renderMockExams,
     advanced: renderAdvanced,
     progress: renderProgress,
     about: renderAbout,
@@ -601,6 +603,7 @@ function renderFinalMockPanel(completed, stats) {
       </div>
       <div class="actions">
         <button class="btn ${locked ? "secondary" : ""}" type="button" data-action="start-mock">Start mock exam</button>
+        <button class="btn ghost" type="button" data-view="mockExams">Mock page</button>
       </div>
     </section>
   `;
@@ -872,7 +875,6 @@ function renderAdvanced() {
   return `
     ${hero("Advanced tools", "Use these when you need them. The normal study flow is still the Study Path.", "Advanced")}
     <section class="tool-grid">
-      ${renderToolCard("Mock exam", "A full 100-question official-style mock exam.", `<button class="btn small" type="button" data-action="start-mock">Start mock</button>`)}
       ${renderToolCard("Adaptive study", "Weak, missed, stale and unseen questions.", `<button class="btn small secondary" type="button" data-action="start-adaptive">Start adaptive</button>`)}
       ${renderToolCard("Mistakes", "Only questions you previously missed.", `<button class="btn small red" type="button" data-action="start-mistakes" ${mistakeCount() ? "" : "disabled"}>Drill mistakes</button>`)}
       ${renderToolCard("Question bank", "Search the exact official bank.", `<button class="btn small secondary" type="button" data-view="bank">Open bank</button>`)}
@@ -882,6 +884,57 @@ function renderAdvanced() {
       ${renderToolCard("Resources and exam booking", "Official links and next steps.", `<button class="btn small secondary" type="button" data-view="resources">Resources</button><button class="btn small ghost" type="button" data-view="nextSteps">Next steps</button>`)}
     </section>
   `;
+}
+
+function renderMockExams() {
+  if (state.session) return renderActiveSession();
+  const stats = getStats();
+  const mocks = state.progress.examHistory.filter((record) => record.mode === "mock").reverse();
+  const recent = mocks.slice(0, 3);
+  const average = recent.length
+    ? round1(recent.reduce((sum, record) => sum + record.scorePercent, 0) / recent.length)
+    : 0;
+  return `
+    ${hero("Mock Exams", "Use this after studying the chapters. A mock exam is 100 questions, with one official question from each RIC-3 topic area.", "Final Practice")}
+    <section class="panel mock-start-panel">
+      <div>
+        <p class="eyebrow">Full exam practice</p>
+        <h2>Take a 100-question mock exam</h2>
+        <p class="muted">Mocks do not show instant feedback. Submit when finished, then review explanations and weak areas.</p>
+      </div>
+      <div class="actions">
+        <button class="btn" type="button" data-action="start-mock">Start mock exam</button>
+        <button class="btn secondary" type="button" data-view="studyPath">Back to study path</button>
+      </div>
+    </section>
+    <section class="grid four" style="margin-top: 16px;">
+      ${statCard("Mocks", stats.mockCount, stats.mockCount ? "Completed" : "None yet")}
+      ${statCard("Best", `${stats.bestMock}%`, stats.mockCount ? officialExamStatus(stats.bestMock) : "70% pass")}
+      ${statCard("Recent average", `${average}%`, recent.length ? `${recent.length} latest mock${recent.length === 1 ? "" : "s"}` : "No recent mocks")}
+      ${statCard("Target", "80%+", "Honours range")}
+    </section>
+    <section class="panel" style="margin-top: 16px;">
+      <h2>Mock history</h2>
+      ${renderMockHistory(mocks)}
+    </section>
+    ${state.reviewSession?.record?.mode === "mock" ? renderSessionReview(state.reviewSession) : ""}
+  `;
+}
+
+function renderMockHistory(mocks) {
+  if (!mocks.length) return `<p class="muted">No mock exams completed yet.</p>`;
+  return mocks.slice(0, 12).map((record) => {
+    const resultClass = record.scorePercent >= 80 ? "result-good" : record.scorePercent >= 70 ? "result-mid" : "result-bad";
+    return `
+      <article class="mini-row history-row">
+        <div>
+          <strong>${escapeHtml(record.title)}</strong>
+          <small>${new Date(record.timestamp).toLocaleString()} | ${formatDuration(record.timeTakenSeconds)} | ${escapeHtml(record.status)}</small>
+        </div>
+        <span class="pill ${resultClass}">${record.correct}/${record.totalQuestions} (${record.scorePercent}%)</span>
+      </article>
+    `;
+  }).join("");
 }
 
 function renderToolCard(title, body, actions) {
@@ -1408,7 +1461,7 @@ function startSession({ title, mode, questions, instant = false }) {
     startTime: Date.now(),
   };
   state.reviewSession = null;
-  setView("practice");
+  setView(mode === "mock" ? "mockExams" : "practice");
 }
 
 function startMockExam() {
@@ -1554,7 +1607,7 @@ function renderPractice() {
         <button class="btn green" type="button" data-action="start-custom">Start custom practice</button>
       </div>
     </section>
-    ${state.reviewSession ? renderSessionReview(state.reviewSession) : ""}
+    ${state.reviewSession && state.reviewSession.record?.mode !== "mock" ? renderSessionReview(state.reviewSession) : ""}
   `;
 }
 
@@ -1687,7 +1740,7 @@ function submitSession() {
   state.reviewSession = { ...session, record };
   state.session = null;
   saveProgress();
-  setView("practice");
+  setView(session.mode === "mock" ? "mockExams" : "practice");
 }
 
 function recordSession(session) {
