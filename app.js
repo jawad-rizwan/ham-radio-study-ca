@@ -11,7 +11,7 @@ const DATA_PATHS = {
 
 const PROGRESS_KEY = "hamRadioStudyProgress:v1";
 const THEME_KEY = "hamRadioStudyTheme";
-const APP_VERSION = "2.0.0";
+const APP_VERSION = "2.1.0";
 
 const app = document.querySelector("#app");
 const navLinks = [...document.querySelectorAll("[data-view]")];
@@ -484,9 +484,10 @@ function chapterStatus(majorId) {
 }
 
 function currentChapter() {
+  const nextIncomplete = state.data.majorTopics.find((major) => !getChapterProgress(major.id).completedAt);
   const saved = state.progress.chapterProgress.currentMajorId;
-  if (saved && getChapter(saved)) return getChapter(saved);
-  return state.data.majorTopics.find((major) => !getChapterProgress(major.id).completedAt) || state.data.majorTopics[0];
+  if (saved && getChapter(saved) && !getChapterProgress(saved).completedAt) return getChapter(saved);
+  return nextIncomplete || null;
 }
 
 function openChapter(majorId) {
@@ -515,11 +516,14 @@ function completeChapter(majorId) {
     lastOpenedAt: new Date().toISOString(),
   };
   const next = state.data.majorTopics.find((major) => !getChapterProgress(major.id).completedAt && major.id !== chapter.id);
-  state.progress.chapterProgress.currentMajorId = next?.id || chapter.id;
+  state.progress.chapterProgress.currentMajorId = next?.id || "";
   saveProgress();
   if (next) {
     state.chapter.majorId = next.id;
     window.location.hash = `chapter-${next.id}`;
+  } else {
+    state.chapter.majorId = "";
+    window.location.hash = "studyPath";
   }
   render();
 }
@@ -548,15 +552,22 @@ function renderStudyPath() {
   const stats = getStats();
   const completed = state.data.majorTopics.filter((major) => getChapterProgress(major.id).completedAt).length;
   return `
-    ${hero("Study Path", "Follow one chapter at a time. Each chapter teaches the topic first, then gives you a short official-question drill and review.", "Guided Course")}
+    ${hero("Study Path", "Follow one chapter at a time. Learn the concepts, practice that chapter, then finish with a full 100-question mock exam.", "Guided Course")}
     <section class="panel start-panel">
       <div>
         <p class="eyebrow">Next recommended step</p>
-        <h2>${escapeHtml(current.id)} ${escapeHtml(current.short_title)}</h2>
-        <p class="muted">Start with the lesson, then do a 15-question drill. You can open any chapter, but this is the clean path to follow.</p>
+        ${current ? `
+          <h2>${escapeHtml(current.id)} ${escapeHtml(current.short_title)}</h2>
+          <p class="muted">Read the lesson, then do a 15-question drill. You can open any chapter, but this is the clean path to follow.</p>
+        ` : `
+          <h2>Final mock exam</h2>
+          <p class="muted">All chapters are marked complete. Take the full 100-question mock exam next and use the results to review weak areas.</p>
+        `}
       </div>
       <div class="actions">
-        <button class="btn" type="button" data-action="open-chapter" data-major-id="${escapeHtml(current.id)}">Continue</button>
+        ${current
+          ? `<button class="btn" type="button" data-action="open-chapter" data-major-id="${escapeHtml(current.id)}">Continue</button>`
+          : `<button class="btn" type="button" data-action="start-mock">Start mock exam</button>`}
         <button class="btn secondary" type="button" data-view="advanced">Advanced tools</button>
       </div>
     </section>
@@ -568,6 +579,29 @@ function renderStudyPath() {
     </section>
     <section class="chapter-list">
       ${state.data.majorTopics.map(renderChapterCard).join("")}
+    </section>
+    ${renderFinalMockPanel(completed, stats)}
+  `;
+}
+
+function renderFinalMockPanel(completed, stats) {
+  const locked = completed < state.data.majorTopics.length;
+  return `
+    <section class="panel final-exam-panel">
+      <div class="chapter-index">9</div>
+      <div>
+        <p class="eyebrow">Final step</p>
+        <h2>Full 100-question mock exam</h2>
+        <p class="muted">After the 8 chapters, take a full mock exam. It draws one official question from each of the 100 RIC-3 topic areas, like the real Basic exam structure.</p>
+        <div class="course-meta">
+          <span>${stats.mockCount} mock${stats.mockCount === 1 ? "" : "s"} completed</span>
+          <span>${stats.mockCount ? `Best score ${stats.bestMock}%` : "70% pass, 80% honours"}</span>
+          <span>${locked ? `${completed}/8 chapters complete` : "Ready for final practice"}</span>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn ${locked ? "secondary" : ""}" type="button" data-action="start-mock">Start mock exam</button>
+      </div>
     </section>
   `;
 }
@@ -655,6 +689,7 @@ function renderChapterLearn(chapter, guide, units) {
           <p><strong>Example:</strong> ${escapeHtml(lessons.fundamentals.example)}</p>
           <p><strong>Common trap:</strong> ${escapeHtml(lessons.fundamentals.trap)}</p>
         </article>
+        ${renderChapterCoreLesson(guide)}
         <div class="lesson-list">
           ${lessons.topic_lessons.map((lesson, index) => renderTopicLesson(lesson, index < 2)).join("")}
         </div>
@@ -669,14 +704,78 @@ function renderChapterLearn(chapter, guide, units) {
   `;
 }
 
+function renderChapterCoreLesson(guide) {
+  if (!guide?.sections?.length) return "";
+  return `
+    <div class="core-lesson">
+      <div class="split-head compact">
+        <div>
+          <p class="eyebrow">Core lesson</p>
+          <h3>Understand this before drilling questions</h3>
+        </div>
+      </div>
+      <div class="core-lesson-grid">
+        ${guide.sections.map(renderGuideStudySection).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function renderGuideStudySection(section) {
+  if (section.type === "text") {
+    return `
+      <article class="study-note">
+        <h4>${escapeHtml(section.title)}</h4>
+        <p>${escapeHtml(section.content)}</p>
+      </article>
+    `;
+  }
+  if (section.type === "key_points") {
+    return `
+      <article class="study-note">
+        <h4>${escapeHtml(section.title)}</h4>
+        <ul>
+          ${section.points.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}
+        </ul>
+      </article>
+    `;
+  }
+  if (section.type === "table") {
+    return `
+      <article class="study-note wide">
+        <h4>${escapeHtml(section.title)}</h4>
+        <div class="mini-table-wrap">
+          <table class="mini-table">
+            <thead>
+              <tr>${section.columns.map((column) => `<th>${escapeHtml(column)}</th>`).join("")}</tr>
+            </thead>
+            <tbody>
+              ${section.rows.map((row) => `<tr>${row.map((cell) => `<td>${escapeHtml(cell)}</td>`).join("")}</tr>`).join("")}
+            </tbody>
+          </table>
+        </div>
+      </article>
+    `;
+  }
+  return "";
+}
+
 function renderTopicLesson(lesson, open = false) {
   return `
     <details class="topic-lesson" ${open ? "open" : ""}>
       <summary><span>${escapeHtml(lesson.number)}</span> ${escapeHtml(lesson.title)}</summary>
       <div class="lesson-body">
         <p>${escapeHtml(lesson.plain_language)}</p>
+        ${lesson.study_points?.length ? `
+          <div class="study-points">
+            <strong>Study this</strong>
+            <ul>
+              ${lesson.study_points.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}
+            </ul>
+          </div>
+        ` : ""}
         <div class="lesson-grid">
-          <article><strong>Memorize</strong><p>${escapeHtml(lesson.memorize)}</p></article>
+          <article><strong>Remember</strong><p>${escapeHtml(lesson.memorize)}</p></article>
           <article><strong>Example</strong><p>${escapeHtml(lesson.example)}</p></article>
           <article><strong>Common trap</strong><p>${escapeHtml(lesson.trap)}</p></article>
           <article><strong>Quick check</strong><p>${escapeHtml(lesson.check)}</p></article>

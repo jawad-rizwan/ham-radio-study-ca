@@ -615,6 +615,82 @@ small {
   justify-content: space-between;
 }
 
+.final-exam-panel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  margin-top: 16px;
+  border-left: 5px solid var(--green);
+}
+
+.core-lesson {
+  margin-top: 14px;
+}
+
+.core-lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.study-note {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.study-note.wide {
+  grid-column: 1 / -1;
+}
+
+.study-note h4 {
+  margin: 0 0 8px;
+}
+
+.study-note p,
+.study-note li,
+.study-points li {
+  line-height: 1.6;
+}
+
+.study-note ul,
+.study-points ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.mini-table-wrap {
+  overflow-x: auto;
+}
+
+.mini-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+.mini-table th,
+.mini-table td {
+  padding: 10px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.mini-table th {
+  background: var(--panel-soft);
+}
+
+.study-points {
+  margin: 12px 0;
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel-soft);
+}
+
 .tool-grid {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
@@ -1196,7 +1272,9 @@ th {
   .course-overview,
   .start-panel,
   .finish-panel,
+  .final-exam-panel,
   .review-columns,
+  .core-lesson-grid,
   .formula-layout,
   .flash-layout {
     grid-template-columns: 1fr;
@@ -1204,7 +1282,8 @@ th {
 
   .course-overview,
   .start-panel,
-  .finish-panel {
+  .finish-panel,
+  .final-exam-panel {
     display: grid;
   }
 

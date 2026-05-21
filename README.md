@@ -9,8 +9,8 @@ Live site: <https://jawad-rizwan.github.io/ham-radio-study-ca/>
 - Official English Basic Qualification question bank from the Government of Canada
 - 984 exact official questions and answer choices
 - Guided Study Path split into the 8 official Basic exam chapters
-- Beginner teaching lessons for every official topic area before practice
-- 100-question mock exams, one question from each RIC-3 Basic topic area
+- Beginner teaching lessons, core concept notes, and topic-level study points before practice
+- Final Study Path mock exam step with 100 questions, one from each RIC-3 Basic topic area
 - Pass and honours scoring: 70% pass, 80% Basic with Honours range
 - Detailed wrong-answer explanations tied to the RIC-3 syllabus topics
 - Adaptive study mode for weak, missed, stale, and unseen questions

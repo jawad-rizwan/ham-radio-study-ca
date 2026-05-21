@@ -306,6 +306,321 @@ def build_explanations(questions, topics):
     }
 
 
+def teaching_points(major_id, lowered):
+    defaults = {
+        "B-001": [
+            "Separate the operator certificate from station equipment: the certificate gives the person authority to operate.",
+            "Basic, Basic with Honours, Morse, and Advanced privileges are different, especially for HF access and transmitter building.",
+            "Amateur radio is for self-training and intercommunication, not broadcasting, encryption for secrecy, music, business, or paid traffic.",
+        ],
+        "B-002": [
+            "A good contact starts by listening, identifying clearly, choosing the right frequency or repeater, and keeping transmissions concise.",
+            "Repeaters are shared systems; pauses, offsets, time-out timers, and courtesy tones exist so more than one station can use them cleanly.",
+            "Emergency traffic has priority, but false distress signals and misleading drills are prohibited.",
+        ],
+        "B-003": [
+            "Think of a station as blocks: power supply, transmitter, receiver, control/audio/data accessories, feedline, and antenna.",
+            "Transmitters generate and shape RF; receivers select and recover information from RF.",
+            "Safety questions usually ask which hazard exists: shock, stored charge, excessive current, falls, power lines, lightning, or RF exposure.",
+        ],
+        "B-004": [
+            "A component question usually tests the part's job, its terminals, or what controls current through it.",
+            "Diodes mainly conduct one way; transistors and tubes control current and can amplify signals.",
+            "Colour codes, terminal names, and device symbols are memory-heavy, so learn them directly.",
+        ],
+        "B-005": [
+            "Voltage pushes current, current is charge flow, and resistance opposes current.",
+            "Write the formula before calculating, then convert prefixes such as milli, kilo, and mega.",
+            "AC concepts depend on frequency: inductors, capacitors, resonance, and impedance change with frequency.",
+        ],
+        "B-006": [
+            "The transmitter, feedline, matching system, and antenna form one RF path, but each part has a different job.",
+            "SWR is about impedance mismatch; line loss is about wasted power in the feedline; gain is about directionality.",
+            "Wavelength controls antenna size, and polarization follows the orientation of the radiating element.",
+        ],
+        "B-007": [
+            "Propagation is the path the signal takes: line-of-sight, ground wave, sky wave, scatter, ducting, aurora, or sporadic-E.",
+            "HF often depends on the ionosphere, while ordinary VHF/UHF is mostly line-of-sight.",
+            "Solar activity, time of day, season, and frequency decide which bands are open.",
+        ],
+        "B-008": [
+            "First decide whether the problem is in the transmitter, the receiver, or connected wiring that is picking up RF.",
+            "Receiver overload and cross-modulation are receiver problems; harmonics, spurious emissions, key clicks, and splatter are transmitter problems.",
+            "Filters, ferrites, bypass capacitors, shielding, grounding, and proper adjustment solve different causes.",
+        ],
+    }
+    points = list(defaults[major_id])
+
+    if major_id == "B-001":
+        if "licence" in lowered or "certificate" in lowered:
+            points = [
+                "In Canada, the Amateur Radio Operator Certificate is the operator's credential; the station equipment itself is not what proves competence.",
+                "Administrative questions often ask who is eligible, who issues the authority, what must be posted or retained, and when address information must be updated.",
+                "Inspectors and the regulator have authority over compliance, so answers that ignore inspection or suspension powers are usually wrong.",
+            ]
+        elif "content" in lowered or "privacy" in lowered or "non-remuneration" in lowered:
+            points = [
+                "Amateur transmissions must relate to amateur purposes such as self-training, technical investigation, and intercommunication.",
+                "Do not transmit music, secret-code messages intended to obscure meaning, commercial traffic, or communications for payment.",
+                "Assume radio is public: privacy rules restrict divulging or using communications not intended for you.",
+            ]
+        elif "emergency" in lowered:
+            points = [
+                "Real emergency communication is allowed when it protects life or property and normal rules would prevent getting help.",
+                "A simulated emergency must be clearly a drill and must not deceive other stations.",
+                "A false distress signal is prohibited even if no one is harmed.",
+            ]
+        elif "frequency" in lowered or "band" in lowered or "power" in lowered or "bandwidth" in lowered:
+            points = [
+                "Basic gives access above 30 MHz; Basic with Honours or Morse opens the bands below 30 MHz.",
+                "Basic power is more limited than Advanced power, and the exam often tests that boundary.",
+                "Bandwidth limits depend on frequency range, so choose the answer tied to the band named in the question.",
+            ]
+        elif "identification" in lowered or "call sign" in lowered:
+            points = [
+                "A call sign identifies the station and uses Canadian prefix rules tied to region and authorization.",
+                "Identification questions often test when and how the call sign must be transmitted.",
+                "Special-event prefixes and foreign operation rules are exceptions, not the default rule.",
+            ]
+        elif "antenna" in lowered or "land-use" in lowered or "rf" in lowered:
+            points = [
+                "Antenna structures involve more than radio performance: safety, land-use consultation, and RF exposure limits matter.",
+                "RF exposure questions are about keeping people outside fields that exceed Safety Code 6 limits.",
+                "Interference complaints are handled by finding the cause and applying the resolution criteria, not by assuming one party is automatically at fault.",
+            ]
+    elif major_id == "B-002":
+        if "phonetic" in lowered:
+            points = [
+                "The phonetic alphabet replaces letters with standard words so weak or noisy signals are less ambiguous.",
+                "Use standard phonetics for call signs, names, locations, and anything that must be copied exactly.",
+                "The purpose is accuracy, not style, so made-up words are worse exam answers.",
+            ]
+        elif "q signals" in lowered:
+            points = [
+                "Q signals are three-letter shortcuts that came from Morse but are still used in voice and digital contacts.",
+                "QRM means man-made interference, QRN means natural noise, QSY means change frequency, and QSL means acknowledge receipt.",
+                "Read whether the question uses the Q signal as a question or a statement.",
+            ]
+        elif "repeater" in lowered:
+            points = [
+                "A repeater receives on one frequency and retransmits on another; the difference is the offset.",
+                "A time-out timer limits long transmissions so the repeater is not locked up.",
+                "Pause after someone stops transmitting so other stations can break in and the repeater can reset.",
+            ]
+        elif "simplex" in lowered or "hf" in lowered:
+            points = [
+                "Simplex means stations communicate directly on one frequency instead of through a repeater.",
+                "On HF, conditions and band plans matter more because signals can travel far and the band is shared internationally.",
+                "Listening first prevents accidental interference to an existing contact.",
+            ]
+        elif "emergency" in lowered:
+            points = [
+                "Emergency traffic should identify who is calling, where the emergency is, what happened, and what help is needed.",
+                "Keep emergency messages short enough that others can relay them accurately.",
+                "Give emergency traffic priority even if you were using the frequency first.",
+            ]
+    elif major_id == "B-003":
+        if "receiver" in lowered:
+            points = [
+                "A receiver filters or selects the wanted signal, amplifies it, converts it if needed, then demodulates it into audio or data.",
+                "Selectivity is the ability to separate nearby signals; sensitivity is the ability to hear weak signals.",
+                "Detectors and demodulators recover the information that was placed on the carrier.",
+            ]
+        elif "transmitter" in lowered or "carrier" in lowered or "modulation" in lowered:
+            points = [
+                "A transmitter creates an RF carrier or RF signal, adds information by modulation or keying, amplifies it, then filters unwanted output.",
+                "AM changes amplitude, FM changes frequency, PM changes phase, CW keys the carrier, and SSB transmits one sideband with the carrier suppressed.",
+                "Overdriving stages can create distortion, splatter, and unwanted emissions.",
+            ]
+        elif "power supply" in lowered or "battery" in lowered or "cells" in lowered:
+            points = [
+                "A regulated power supply converts input power into a steady voltage suitable for radio equipment.",
+                "Rectifiers change AC to pulsating DC, filters smooth it, and regulators hold the voltage steady.",
+                "Series batteries add voltage; parallel batteries add current capacity or amp-hour capacity while keeping voltage the same.",
+            ]
+        elif "safety" in lowered or "hazards" in lowered or "ground" in lowered or "tower" in lowered or "rf" in lowered:
+            points = [
+                "Shock risk comes from voltage and current through the body; disconnect power before servicing equipment.",
+                "Capacitors can store energy after power is removed, so high-voltage circuits must be discharged safely.",
+                "Use correct fuse ratings, keep antennas away from power lines, ground equipment properly, and respect RF exposure limits.",
+            ]
+    elif major_id == "B-004":
+        if "diode" in lowered:
+            points = [
+                "A diode has an anode and cathode and conducts much more easily in the forward direction.",
+                "Rectifier diodes convert AC to DC; Zener diodes can be used for voltage reference or regulation.",
+                "Reverse voltage beyond the rating can damage an ordinary diode.",
+            ]
+        elif "bipolar" in lowered:
+            points = [
+                "A bipolar transistor has emitter, base, and collector terminals.",
+                "A small base current controls a larger collector current, so a BJT can amplify.",
+                "NPN and PNP devices use opposite polarities.",
+            ]
+        elif "field-effect" in lowered:
+            points = [
+                "A field-effect transistor has source, gate, and drain terminals.",
+                "Gate voltage controls channel current, so the input current is very small compared with a BJT.",
+                "FETs are common in high-input-impedance and RF circuits.",
+            ]
+        elif "vacuum" in lowered or "triode" in lowered:
+            points = [
+                "A triode has cathode, control grid, and plate.",
+                "The grid controls electron flow from cathode to plate, allowing amplification.",
+                "Tube circuits can use dangerous high voltages even after power is switched off.",
+            ]
+        elif "resistor" in lowered:
+            points = [
+                "The first colour bands give digits, the next band is the multiplier, and the tolerance band gives allowed variation.",
+                "Digit order is black 0, brown 1, red 2, orange 3, yellow 4, green 5, blue 6, violet 7, grey 8, white 9.",
+                "Gold and silver are commonly used for tolerance or multiplier positions, not normal digit bands.",
+            ]
+    elif major_id == "B-005":
+        if "ohm" in lowered or "current" in lowered or "voltage" in lowered or "resistance" in lowered:
+            points = [
+                "Ohm's law is E = I x R: voltage equals current times resistance.",
+                "To find current, use I = E / R; to find resistance, use R = E / I.",
+                "Open circuits stop current; short circuits create very low resistance and can cause excessive current.",
+            ]
+        elif "power" in lowered or "energy" in lowered:
+            points = [
+                "Power is the rate of energy use and is measured in watts.",
+                "For basic DC problems, P = E x I; with Ohm's law, P = I squared x R or P = E squared / R.",
+                "A resistor must be rated to dissipate the heat created by the power in it.",
+            ]
+        elif "series" in lowered or "parallel" in lowered:
+            points = [
+                "Series resistors add directly because current has one path through all of them.",
+                "Parallel resistors create multiple current paths, so total resistance is lower than the smallest branch.",
+                "Equal resistors in parallel divide by the number of resistors.",
+            ]
+        elif "decibel" in lowered or "logarithm" in lowered:
+            points = [
+                "A decibel expresses a ratio, not an absolute amount unless a reference such as dBm is named.",
+                "+3 dB is about double power, -3 dB is about half, +10 dB is ten times, and -10 dB is one tenth.",
+                "Antenna gain, feedline loss, and amplifier gain can be combined by adding dB values.",
+            ]
+        elif "capacitance" in lowered or "inductance" in lowered or "reactance" in lowered or "resonance" in lowered:
+            points = [
+                "Capacitors store energy in an electric field; inductors store energy in a magnetic field.",
+                "Inductive reactance increases with frequency, while capacitive reactance decreases with frequency.",
+                "At resonance, inductive and capacitive reactance cancel, making tuned circuits useful for selecting frequencies.",
+            ]
+        elif "meter" in lowered or "measurement" in lowered:
+            points = [
+                "Voltmeters are connected in parallel with the circuit point being measured.",
+                "Ammeters are connected in series so the measured current flows through the meter.",
+                "Ohmmeters are used on unpowered circuits because they apply their own test current.",
+            ]
+        elif "prefix" in lowered:
+            points = [
+                "Metric prefixes are powers of ten: milli is 0.001, micro is 0.000001, kilo is 1000, mega is 1000000.",
+                "Convert before calculating: 500 mA is 0.5 A, and 4.7 k ohms is 4700 ohms.",
+                "The prefix belongs to the unit, so 3 MHz means 3000000 Hz.",
+            ]
+    elif major_id == "B-006":
+        if "feed line" in lowered or "coaxial" in lowered or "connector" in lowered:
+            points = [
+                "A feedline carries RF between the transmitter and antenna and has a characteristic impedance.",
+                "Coaxial cable is unbalanced and commonly 50 ohms in amateur stations; ladder line and open-wire line are balanced.",
+                "Feedline loss increases with length and frequency, and poor connectors can add loss or mismatch.",
+            ]
+        elif "balanced" in lowered or "balun" in lowered:
+            points = [
+                "Balanced lines carry equal and opposite currents on two conductors.",
+                "Coax is unbalanced because the shield is normally tied to station ground.",
+                "A balun helps connect balanced antennas or lines to unbalanced coax while reducing unwanted feedline radiation.",
+            ]
+        elif "swr" in lowered or "standing wave" in lowered or "matching" in lowered:
+            points = [
+                "SWR appears when the antenna/load impedance does not match the feedline impedance.",
+                "A high SWR can increase feedline loss and may cause transmitters to reduce power.",
+                "An antenna tuner transforms impedance at the transmitter end; it does not remove all line loss.",
+            ]
+        elif "wavelength" in lowered or "physical length" in lowered:
+            points = [
+                "Wavelength in metres is approximately 300 divided by frequency in MHz.",
+                "A half-wave dipole is about one-half wavelength overall, with each side about one-quarter wavelength.",
+                "Real antennas are often slightly shorter than the simple math because of end effects and surroundings.",
+            ]
+        elif "gain" in lowered or "directivity" in lowered or "pattern" in lowered or "yagi" in lowered:
+            points = [
+                "Antenna gain comes from concentrating radiation in some directions, not from creating extra transmitter power.",
+                "A radiation pattern shows where the antenna sends or receives strongest.",
+                "A Yagi uses a driven element plus parasitic reflector/director elements to create directionality.",
+            ]
+        elif "vertical" in lowered or "wire" in lowered or "loop" in lowered:
+            points = [
+                "Vertical antennas are often vertically polarized and usually need a ground plane or radial system.",
+                "Wire antennas such as dipoles are common on HF and can be built for specific wavelength fractions.",
+                "Loops and quads use closed conductors and can have useful directional or bandwidth characteristics.",
+            ]
+    elif major_id == "B-007":
+        if "line of sight" in lowered or "ground wave" in lowered:
+            points = [
+                "Line-of-sight means the radio path is mostly direct between antennas and is common at VHF/UHF.",
+                "Higher antennas extend the radio horizon.",
+                "Ground wave follows the earth and works best at lower frequencies.",
+            ]
+        elif "ionosphere" in lowered or "hops" in lowered or "skip" in lowered:
+            points = [
+                "The ionosphere can refract HF signals back toward earth, creating sky-wave contacts beyond the horizon.",
+                "A hop is one ionospheric return path; multiple hops can carry signals farther.",
+                "The skip zone is the area not reached by ground wave or the first sky-wave return.",
+            ]
+        elif "absorption" in lowered or "fading" in lowered or "faraday" in lowered:
+            points = [
+                "The D layer absorbs HF, especially during daylight, which can weaken lower HF bands.",
+                "Fading happens when signal paths change or multiple paths arrive with different phase.",
+                "Faraday rotation changes polarization as signals pass through the ionosphere.",
+            ]
+        elif "solar" in lowered or "muf" in lowered or "critical" in lowered:
+            points = [
+                "Sunspots and solar flux affect ionization, which affects HF propagation.",
+                "The MUF is the highest frequency likely to work over a given path at a given time.",
+                "The critical frequency is measured for vertical return from an ionospheric layer.",
+            ]
+        elif "vhf" in lowered or "uhf" in lowered or "aurora" in lowered or "ducting" in lowered or "scatter" in lowered:
+            points = [
+                "VHF/UHF is usually local line-of-sight, but special conditions can extend range.",
+                "Sporadic-E, aurora, ducting, and scatter are special propagation modes with recognizable exam symptoms.",
+                "Auroral signals are often distorted; ducting is caused by atmospheric layers.",
+            ]
+    elif major_id == "B-008":
+        if "front-end" in lowered or "cross-modulation" in lowered:
+            points = [
+                "Front-end overload happens when a receiver input stage is driven by signals that are too strong.",
+                "Cross-modulation makes modulation from one strong signal appear on another signal inside the receiver.",
+                "Attenuation, filtering, improved receiver selectivity, or more distance from the transmitter can reduce overload.",
+            ]
+        elif "audio rectification" in lowered or "ferrite" in lowered:
+            points = [
+                "Audio rectification happens when RF enters audio wiring and a junction acts like a detector.",
+                "Ferrite chokes reduce RF current on cables without affecting normal audio much.",
+                "Bypass capacitors provide an RF path to ground so unwanted RF does not enter audio stages.",
+            ]
+        elif "intermodulation" in lowered or "spurious" in lowered or "key clicks" in lowered:
+            points = [
+                "Intermodulation creates new unwanted frequencies from mixing two or more strong signals in a nonlinear device.",
+                "Spurious emissions are unwanted outputs outside the intended signal.",
+                "Key clicks are wide, sharp transients from poor CW keying waveform shaping.",
+            ]
+        elif "harmonic" in lowered or "splatter" in lowered or "adjustments" in lowered:
+            points = [
+                "Harmonics are whole-number multiples of the intended transmit frequency.",
+                "Splatter is unwanted energy outside the intended bandwidth, often caused by overdrive or overmodulation.",
+                "Correct transmitter adjustment and filtering reduce unwanted emissions.",
+            ]
+        elif "filter" in lowered:
+            points = [
+                "A low-pass filter passes lower frequencies and reduces higher harmonics.",
+                "A high-pass filter passes higher frequencies and blocks lower-frequency energy.",
+                "Band-pass filters pass a selected range; band-reject or notch filters reduce a selected range.",
+            ]
+
+    return points
+
+
 CHAPTER_FUNDAMENTALS = {
     "B-001": {
         "heading": "How to think about regulation questions",
@@ -557,6 +872,7 @@ def topic_lesson(major_id, number, title):
             lesson["example"] = "A band-reject or notch filter can reduce one troublesome frequency range."
             lesson["trap"] = "Pick the filter by what it passes or rejects, not by its name alone."
 
+    lesson["study_points"] = teaching_points(major_id, lowered)
     return lesson
 
 
@@ -821,7 +1137,7 @@ def build_guide():
     ]
     for module in modules:
         module["lessons"] = build_chapter_lessons(module["major_id"])
-    return {"version": "1.1", "source": "Study guide derived from RIC-3, RBR-4, RIC-9 and the official Basic question bank.", "modules": modules}
+    return {"version": "1.2", "source": "Study guide derived from RIC-3, RBR-4, RIC-9 and the official Basic question bank.", "modules": modules}
 
 
 def build_course():
