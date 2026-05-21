@@ -598,6 +598,25 @@ small {
   gap: 16px;
 }
 
+.coverage-panel {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0;
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel-soft);
+}
+
+.coverage-panel strong,
+.coverage-panel small {
+  display: block;
+}
+
+.coverage-panel small {
+  color: var(--muted);
+}
+
 .memory-stack {
   display: grid;
   gap: 10px;

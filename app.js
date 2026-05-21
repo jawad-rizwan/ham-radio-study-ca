@@ -11,7 +11,7 @@ const DATA_PATHS = {
 
 const PROGRESS_KEY = "hamRadioStudyProgress:v1";
 const THEME_KEY = "hamRadioStudyTheme";
-const APP_VERSION = "2.1.1";
+const APP_VERSION = "2.2.0";
 
 const app = document.querySelector("#app");
 const navLinks = [...document.querySelectorAll("[data-view]")];
@@ -287,6 +287,8 @@ function getStats() {
   const questionStats = Object.values(state.progress.questionStats);
   const attempts = questionStats.reduce((sum, item) => sum + (item.attempts || 0), 0);
   const correct = questionStats.reduce((sum, item) => sum + (item.correct || 0), 0);
+  const bankSeen = state.data.questions.filter((question) => state.progress.questionStats[question.id]?.attempts).length;
+  const bankTotal = state.data.questions.length;
   const mockExams = state.progress.examHistory.filter((record) => record.mode === "mock");
   const recentMocks = mockExams.slice(-3);
   const mockAverage = recentMocks.length
@@ -301,12 +303,18 @@ function getStats() {
     attempts,
     correct,
     accuracy: attempts ? round1((correct / attempts) * 100) : 0,
+    bankSeen,
+    bankTotal,
+    bankCoveragePercent: bankTotal ? round1((bankSeen / bankTotal) * 100) : 0,
     mockCount: mockExams.length,
     mockAverage: round1(mockAverage),
     bestMock: mockExams.length ? Math.max(...mockExams.map((record) => record.scorePercent)) : 0,
     sectionsTouched,
     guideDone: Object.keys(state.progress.guideCompletions).length,
-    chapterDone: state.data.majorTopics.filter((major) => getChapterProgress(major.id).completedAt).length,
+    chapterDone: state.data.majorTopics.filter((major) => {
+      const stats = chapterStats(major.id);
+      return getChapterProgress(major.id).completedAt && stats.seen === stats.total;
+    }).length,
     courseDone: state.data.course.units.filter((unit) => getUnitProgress(unit.id).completedAt).length,
   };
 }
@@ -480,15 +488,17 @@ function chapterStats(majorId) {
 function chapterStatus(majorId) {
   const stats = chapterStats(majorId);
   if (stats.complete) return "Complete";
+  if (stats.seen === stats.total) return "Coverage done";
   if (stats.attempts) return "Practicing";
   if (getChapterProgress(majorId).lastOpenedAt) return "Studying";
   return "Not started";
 }
 
 function currentChapter() {
-  const nextIncomplete = state.data.majorTopics.find((major) => !getChapterProgress(major.id).completedAt);
+  const needsWork = (major) => !getChapterProgress(major.id).completedAt || chapterStats(major.id).seen < chapterStats(major.id).total;
+  const nextIncomplete = state.data.majorTopics.find(needsWork);
   const saved = state.progress.chapterProgress.currentMajorId;
-  if (saved && getChapter(saved) && !getChapterProgress(saved).completedAt) return getChapter(saved);
+  if (saved && getChapter(saved) && needsWork(getChapter(saved))) return getChapter(saved);
   return nextIncomplete || null;
 }
 
@@ -512,12 +522,20 @@ function openChapter(majorId) {
 function completeChapter(majorId) {
   const chapter = getChapter(majorId);
   if (!chapter) return;
+  const stats = chapterStats(chapter.id);
+  if (stats.seen < stats.total) {
+    alert(`Finish this chapter's official question coverage first. You have seen ${stats.seen} of ${stats.total} questions.`);
+    return;
+  }
   state.progress.chapterProgress.chapters[chapter.id] = {
     ...getChapterProgress(chapter.id),
     completedAt: new Date().toISOString(),
     lastOpenedAt: new Date().toISOString(),
   };
-  const next = state.data.majorTopics.find((major) => !getChapterProgress(major.id).completedAt && major.id !== chapter.id);
+  const next = state.data.majorTopics.find((major) => {
+    const nextStats = chapterStats(major.id);
+    return major.id !== chapter.id && (!getChapterProgress(major.id).completedAt || nextStats.seen < nextStats.total);
+  });
   state.progress.chapterProgress.currentMajorId = next?.id || "";
   saveProgress();
   if (next) {
@@ -530,20 +548,29 @@ function completeChapter(majorId) {
   render();
 }
 
-function startChapterPractice(majorId, onlyMistakes = false) {
+function startChapterPractice(majorId, mode = "sample") {
   const chapter = getChapter(majorId);
   if (!chapter) return;
   let questions = chapterQuestions(chapter.id);
-  if (onlyMistakes) {
+  if (mode === "mistakes") {
     questions = questions.filter((question) => {
       const stats = state.progress.questionStats[question.id];
       return stats && (stats.wrong || 0) > 0 && (stats.correct || 0) < (stats.attempts || 0);
     });
   }
+  if (mode === "unseen") {
+    questions = questions.filter((question) => !state.progress.questionStats[question.id]?.attempts);
+  }
+  const limit = mode === "sample" ? 15 : 25;
+  const title = {
+    sample: `${chapter.short_title} chapter practice`,
+    unseen: `${chapter.short_title} unseen coverage`,
+    mistakes: `${chapter.short_title} missed questions`,
+  }[mode] || `${chapter.short_title} chapter practice`;
   startSession({
-    title: `${chapter.short_title} ${onlyMistakes ? "missed questions" : "chapter practice"}`,
-    mode: onlyMistakes ? "chapter-mistakes" : "chapter",
-    questions: shuffle(questions).slice(0, 15),
+    title,
+    mode: mode === "mistakes" ? "chapter-mistakes" : `chapter-${mode}`,
+    questions: shuffle(questions).slice(0, limit),
     instant: true,
   });
 }
@@ -552,18 +579,18 @@ function renderStudyPath() {
   if (state.chapter.majorId) return renderChapter();
   const current = currentChapter();
   const stats = getStats();
-  const completed = state.data.majorTopics.filter((major) => getChapterProgress(major.id).completedAt).length;
+  const completed = state.data.majorTopics.filter((major) => getChapterProgress(major.id).completedAt && chapterStats(major.id).seen === chapterStats(major.id).total).length;
   return `
-    ${hero("Study Path", "Follow one chapter at a time. Learn the concepts, practice that chapter, then finish with a full 100-question mock exam.", "Guided Course")}
+    ${hero("Study Path", "Follow one chapter at a time. Learn the concepts, encounter every official bank question in that chapter, then finish with a full mock exam.", "Guided Course")}
     <section class="panel start-panel">
       <div>
         <p class="eyebrow">Next recommended step</p>
         ${current ? `
           <h2>${escapeHtml(current.id)} ${escapeHtml(current.short_title)}</h2>
-          <p class="muted">Read the lesson, then do a 15-question drill. You can open any chapter, but this is the clean path to follow.</p>
+          <p class="muted">Read the lesson, do a short drill, then use the coverage drill until every official question in the chapter has been seen.</p>
         ` : `
           <h2>Final mock exam</h2>
-          <p class="muted">All chapters are marked complete. Take the full 100-question mock exam next and use the results to review weak areas.</p>
+          <p class="muted">All official bank questions have been encountered. Take the full 100-question mock exam next and use the results to review weak areas.</p>
         `}
       </div>
       <div class="actions">
@@ -575,8 +602,8 @@ function renderStudyPath() {
     </section>
     <section class="grid four" style="margin-top: 16px;">
       ${statCard("Chapters", `${completed}/8`, "Marked complete")}
+      ${statCard("Bank coverage", `${stats.bankSeen}/${stats.bankTotal}`, `${stats.bankCoveragePercent}% seen`)}
       ${statCard("Readiness", `${readinessScore()}%`, readinessLabel(readinessScore()))}
-      ${statCard("Practice", `${stats.attempts}`, `${stats.accuracy}% correct`)}
       ${statCard("Mocks", stats.mockCount, stats.mockCount ? `Best ${stats.bestMock}%` : "Use later")}
     </section>
     <section class="chapter-list">
@@ -587,22 +614,24 @@ function renderStudyPath() {
 }
 
 function renderFinalMockPanel(completed, stats) {
-  const locked = completed < state.data.majorTopics.length;
+  const coverageDone = stats.bankSeen === stats.bankTotal;
+  const locked = completed < state.data.majorTopics.length || !coverageDone;
   return `
     <section class="panel final-exam-panel">
       <div class="chapter-index">9</div>
       <div>
         <p class="eyebrow">Final step</p>
         <h2>Full 100-question mock exam</h2>
-        <p class="muted">After the 8 chapters, take a full mock exam. It draws one official question from each of the 100 RIC-3 topic areas, like the real Basic exam structure.</p>
+        <p class="muted">After all 984 official bank questions have been encountered, take a full mock exam. It draws one official question from each of the 100 RIC-3 topic areas, like the real Basic exam structure.</p>
         <div class="course-meta">
           <span>${stats.mockCount} mock${stats.mockCount === 1 ? "" : "s"} completed</span>
           <span>${stats.mockCount ? `Best score ${stats.bestMock}%` : "70% pass, 80% honours"}</span>
+          <span>${stats.bankSeen}/${stats.bankTotal} bank questions seen</span>
           <span>${locked ? `${completed}/8 chapters complete` : "Ready for final practice"}</span>
         </div>
       </div>
       <div class="actions">
-        <button class="btn ${locked ? "secondary" : ""}" type="button" data-action="start-mock">Start mock exam</button>
+        <button class="btn ${locked ? "secondary" : ""}" type="button" data-action="start-mock" ${locked ? "disabled" : ""}>Start mock exam</button>
         <button class="btn ghost" type="button" data-view="mockExams">Mock page</button>
       </div>
     </section>
@@ -627,7 +656,7 @@ function renderChapterCard(chapter) {
         <p class="muted">${escapeHtml(chapter.summary)}</p>
         <div class="course-meta">
           <span>${chapterSections(chapter.id).length} official topic areas</span>
-          <span>${stats.total} official questions</span>
+          <span>${stats.seen}/${stats.total} official questions seen</span>
           <span>${stats.attempts ? `${stats.accuracy}% practice accuracy` : "No practice yet"}</span>
         </div>
         <div class="progress-line thin"><span style="width:${clamp(percent, 0, 100)}%; background:${escapeHtml(chapter.color)}"></span></div>
@@ -669,10 +698,10 @@ function renderChapter() {
         <div>
           <p class="eyebrow">Step 4</p>
           <h2>Finish this chapter</h2>
-          <p class="muted">Mark it complete when the lesson makes sense and you have done at least one short drill. You can still come back later.</p>
+          <p class="muted">Mark it complete after you have encountered every official question in this chapter. You can still come back later for weak review.</p>
         </div>
         <div class="actions">
-          <button class="btn green" type="button" data-action="complete-chapter" data-major-id="${escapeHtml(chapter.id)}">${stats.complete ? "Completed - continue" : "Mark chapter complete"}</button>
+          <button class="btn green" type="button" data-action="complete-chapter" data-major-id="${escapeHtml(chapter.id)}" ${stats.seen < stats.total ? "disabled" : ""}>${stats.complete ? "Completed - continue" : "Mark chapter complete"}</button>
         </div>
       </section>
     </section>
@@ -789,14 +818,22 @@ function renderTopicLesson(lesson, open = false) {
 }
 
 function renderChapterPractice(chapter, stats) {
+  const unseen = Math.max(0, stats.total - stats.seen);
   return `
     <section class="panel">
       <p class="eyebrow">Step 2</p>
-      <h2>Practice this chapter</h2>
-      <p class="muted">This starts a short 15-question drill using only official questions from ${escapeHtml(chapter.short_title)}. Explanations appear right after each answer.</p>
+      <h2>Practice and cover every official question</h2>
+      <p class="muted">Start with a short drill, then use the coverage drill until this chapter shows ${stats.total}/${stats.total} questions seen. Explanations appear right after each answer.</p>
+      <div class="coverage-panel">
+        <div>
+          <strong>${stats.seen}/${stats.total} official questions seen</strong>
+          <small>${unseen ? `${unseen} not seen yet` : "Coverage complete for this chapter"}</small>
+        </div>
+        <div class="progress-line thin"><span style="width:${clamp(stats.total ? (stats.seen / stats.total) * 100 : 0, 0, 100)}%; background:${escapeHtml(chapter.color)}"></span></div>
+      </div>
       <div class="actions">
         <button class="btn" type="button" data-action="practice-chapter" data-major-id="${escapeHtml(chapter.id)}">Start 15-question drill</button>
-        <button class="btn secondary" type="button" data-action="practice-major" data-major-id="${escapeHtml(chapter.id)}">Longer drill</button>
+        <button class="btn secondary" type="button" data-action="practice-chapter-unseen" data-major-id="${escapeHtml(chapter.id)}" ${unseen ? "" : "disabled"}>Cover next ${Math.min(25, unseen)} unseen</button>
         <button class="btn red" type="button" data-action="practice-chapter-mistakes" data-major-id="${escapeHtml(chapter.id)}" ${stats.wrong ? "" : "disabled"}>Review ${stats.wrong} weak</button>
       </div>
     </section>
@@ -889,29 +926,30 @@ function renderAdvanced() {
 function renderMockExams() {
   if (state.session) return renderActiveSession();
   const stats = getStats();
+  const coverageDone = stats.bankSeen === stats.bankTotal;
   const mocks = state.progress.examHistory.filter((record) => record.mode === "mock").reverse();
   const recent = mocks.slice(0, 3);
   const average = recent.length
     ? round1(recent.reduce((sum, record) => sum + record.scorePercent, 0) / recent.length)
     : 0;
   return `
-    ${hero("Mock Exams", "Use this after studying the chapters. A mock exam is 100 questions, with one official question from each RIC-3 topic area.", "Final Practice")}
+    ${hero("Mock Exams", "Use this after studying the chapters and encountering the full official bank. A mock exam is 100 questions, with one official question from each RIC-3 topic area.", "Final Practice")}
     <section class="panel mock-start-panel">
       <div>
         <p class="eyebrow">Full exam practice</p>
         <h2>Take a 100-question mock exam</h2>
-        <p class="muted">Mocks do not show instant feedback. Submit when finished, then review explanations and weak areas.</p>
+        <p class="muted">${coverageDone ? "Mocks do not show instant feedback. Submit when finished, then review explanations and weak areas." : `Finish Study Path coverage first: ${stats.bankSeen}/${stats.bankTotal} official questions seen.`}</p>
       </div>
       <div class="actions">
-        <button class="btn" type="button" data-action="start-mock">Start mock exam</button>
+        <button class="btn" type="button" data-action="start-mock" ${coverageDone ? "" : "disabled"}>Start mock exam</button>
         <button class="btn secondary" type="button" data-view="studyPath">Back to study path</button>
       </div>
     </section>
     <section class="grid four" style="margin-top: 16px;">
+      ${statCard("Bank coverage", `${stats.bankSeen}/${stats.bankTotal}`, `${stats.bankCoveragePercent}% seen`)}
       ${statCard("Mocks", stats.mockCount, stats.mockCount ? "Completed" : "None yet")}
       ${statCard("Best", `${stats.bestMock}%`, stats.mockCount ? officialExamStatus(stats.bestMock) : "70% pass")}
       ${statCard("Recent average", `${average}%`, recent.length ? `${recent.length} latest mock${recent.length === 1 ? "" : "s"}` : "No recent mocks")}
-      ${statCard("Target", "80%+", "Honours range")}
     </section>
     <section class="panel" style="margin-top: 16px;">
       <h2>Mock history</h2>
@@ -1465,6 +1503,12 @@ function startSession({ title, mode, questions, instant = false }) {
 }
 
 function startMockExam() {
+  const stats = getStats();
+  if (stats.bankSeen < stats.bankTotal) {
+    alert(`Finish bank coverage before mock exams. You have seen ${stats.bankSeen} of ${stats.bankTotal} official questions.`);
+    setView("studyPath");
+    return;
+  }
   const questions = state.data.sections
     .map((section) => shuffle(state.data.questionsBySection[section.id] || [])[0])
     .filter(Boolean);
@@ -2152,7 +2196,7 @@ function renderProgress() {
       ${statCard("Readiness", `${readiness}%`, readinessLabel(readiness))}
       ${statCard("Attempts", stats.attempts, `${stats.accuracy}% correct`)}
       ${statCard("Chapters", `${stats.chapterDone}/8`, "Marked complete")}
-      ${statCard("Bookmarks", state.progress.bookmarks.length, "Saved questions")}
+      ${statCard("Bank coverage", `${stats.bankSeen}/${stats.bankTotal}`, `${stats.bankCoveragePercent}% seen`)}
     </section>
     <section class="panel" style="margin-top: 16px;">
       <h2>Major area mastery</h2>
@@ -2260,8 +2304,9 @@ document.addEventListener("click", (event) => {
     window.location.hash = "studyPath";
   }
   if (action === "complete-chapter") completeChapter(actionButton.dataset.majorId);
-  if (action === "practice-chapter") startChapterPractice(actionButton.dataset.majorId, false);
-  if (action === "practice-chapter-mistakes") startChapterPractice(actionButton.dataset.majorId, true);
+  if (action === "practice-chapter") startChapterPractice(actionButton.dataset.majorId, "sample");
+  if (action === "practice-chapter-unseen") startChapterPractice(actionButton.dataset.majorId, "unseen");
+  if (action === "practice-chapter-mistakes") startChapterPractice(actionButton.dataset.majorId, "mistakes");
   if (action === "resume-course") {
     const unit = getCurrentCourseUnit();
     if (unit) openCourseUnit(unit.id);
