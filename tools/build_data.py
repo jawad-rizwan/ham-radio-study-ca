@@ -306,6 +306,271 @@ def build_explanations(questions, topics):
     }
 
 
+CHAPTER_FUNDAMENTALS = {
+    "B-001": {
+        "heading": "How to think about regulation questions",
+        "body": (
+            "Regulation questions are not trying to test radio theory. They test whether you know who is allowed "
+            "to do what, under which qualification, and with which limits. Read these questions like legal rules: "
+            "find the actor, the permission or prohibition, and the exact condition. If two answers sound technically "
+            "reasonable, choose the one that matches the certificate privilege or rule being asked."
+        ),
+        "example": "If a question asks about operating below 30 MHz, the key distinction is Basic versus Basic with Honours, Morse, or Advanced.",
+        "trap": "Do not choose an answer just because it is a real amateur radio term. Regulation distractors often use real terms in the wrong rule.",
+    },
+    "B-002": {
+        "heading": "How to think about operating procedure",
+        "body": (
+            "Operating procedure is about being clear, identifiable, brief, and courteous on the air. Most answers "
+            "follow from that idea. Listen first, identify properly, keep tests short, use standard phonetics and "
+            "signal reports, and give emergency traffic priority. When a question mentions a repeater, think about "
+            "offsets, time-out timers, courtesy pauses, and sharing the channel."
+        ),
+        "example": "A short pause before replying on a repeater lets others break in and helps avoid time-out timer problems.",
+        "trap": "Do not treat ham radio like a private phone call. Identification and shared-channel courtesy matter.",
+    },
+    "B-003": {
+        "heading": "How to think about station and safety questions",
+        "body": (
+            "Station questions become easier when you picture signal flow. A transmitter creates and modulates RF, "
+            "amplifies it, filters it, and sends it to the antenna. A receiver selects a signal, converts or detects "
+            "it, then recovers audio or data. Safety questions ask what hazard exists and what action removes the "
+            "risk: disconnect power, discharge capacitors, use correct fuses, ground properly, stay away from power "
+            "lines, and respect RF exposure limits."
+        ),
+        "example": "A regulated power supply normally rectifies AC, filters it, then regulates the output voltage.",
+        "trap": "Never solve a fuse problem by installing a larger fuse. The fuse protects wiring and equipment from excess current.",
+    },
+    "B-004": {
+        "heading": "How to think about components",
+        "body": (
+            "Component questions usually ask what a part does, how it is controlled, or what its terminals are called. "
+            "A diode mainly conducts one way. A bipolar transistor is current-controlled. A field-effect transistor is "
+            "voltage-controlled. A triode vacuum tube uses a grid to control current. Resistor colour questions are "
+            "memorization plus careful place value."
+        ),
+        "example": "For a BJT, remember emitter, base, collector. For an FET, remember source, gate, drain.",
+        "trap": "Do not mix transistor terminal names. The exam often uses terminal names as distractors.",
+    },
+    "B-005": {
+        "heading": "How to think about electronics theory",
+        "body": (
+            "Theory questions are easiest if you slow down and write the relationship first. Ohm's law is E = I x R. "
+            "Power is P = E x I, and related formulas can be derived from Ohm's law. Convert units before calculating: "
+            "milliamps to amps, kilohms to ohms, and megahertz to hertz only when needed. For AC concepts, focus on "
+            "directional relationships: inductive reactance rises with frequency, capacitive reactance falls with frequency."
+        ),
+        "example": "If E = 12 V and R = 6 ohms, I = E / R = 2 A. The units tell you whether the answer is plausible.",
+        "trap": "A correct-looking number can be wrong if you forgot a metric prefix such as milli, kilo, or mega.",
+    },
+    "B-006": {
+        "heading": "How to think about antennas and feedlines",
+        "body": (
+            "Antennas and feedlines are about moving RF efficiently from the transmitter into space. Keep the ideas "
+            "separate: feedline type, characteristic impedance, line loss, SWR, matching, polarization, wavelength, "
+            "gain, and radiation pattern are related but not identical. SWR describes mismatch; it does not by itself "
+            "tell you the antenna is good or bad in every way."
+        ),
+        "example": "Wavelength in metres is approximately 300 divided by frequency in MHz. A half-wave antenna is about half of that length.",
+        "trap": "A tuner can make the transmitter see a better load, but it does not remove all feedline loss or magically fix the antenna.",
+    },
+    "B-007": {
+        "heading": "How to think about propagation",
+        "body": (
+            "Propagation questions ask how a signal gets from one station to another. First identify the frequency "
+            "range and path. VHF/UHF is usually line-of-sight unless a special mode is named. HF often uses sky wave "
+            "and the ionosphere. The D layer mainly absorbs, while E and F layers can refract signals. Solar activity, "
+            "time of day, season, and frequency decide which paths are open."
+        ),
+        "example": "A skip zone is the area beyond ground-wave coverage but before the first sky-wave signal returns to earth.",
+        "trap": "Do not use one propagation rule for every band. HF, VHF, and UHF behave differently.",
+    },
+    "B-008": {
+        "heading": "How to think about interference",
+        "body": (
+            "Interference questions are troubleshooting questions. Decide whether the problem is caused by the "
+            "transmitter, the receiver, or nearby wiring acting like an antenna. Receiver overload and cross-modulation "
+            "happen in receivers. Audio rectification happens when RF is detected in audio wiring. Harmonics, spurious "
+            "emissions, key clicks, and splatter come from transmitter or signal-quality problems."
+        ),
+        "example": "A low-pass filter at a transmitter output is a common way to reduce harmonic energy above the desired signal.",
+        "trap": "Do not assume every interference problem is caused by transmitter harmonics. Receiver overload and audio rectification are common exam distinctions.",
+    },
+}
+
+
+def topic_lesson(major_id, number, title):
+    lowered = title.lower()
+    base = MAJOR_REVIEW_NOTES[major_id]
+    lesson = {
+        "number": number,
+        "title": title,
+        "plain_language": f"This topic focuses on {lowered}. {base}",
+        "memorize": "Know the exact words in the topic title and connect them to the rule, procedure, formula, component, or symptom being tested.",
+        "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+        "trap": "Distractors often sound familiar but answer a different topic.",
+        "check": f"Can you explain {lowered} without looking at the answer choices?",
+    }
+
+    if major_id == "B-001":
+        lesson["memorize"] = "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold."
+        if "licence" in lowered or "certificate" in lowered:
+            lesson["plain_language"] = "This is about permission to operate. In Canada, the operator certificate is the key credential for amateur operation. Know who issues it, who must hold it, when information must be updated, and what inspectors can require."
+            lesson["example"] = "If the question asks about a change of address, look for the answer that matches the administrative duty, not a technical operating answer."
+            lesson["trap"] = "Do not confuse a station authorization concept with the operator certificate."
+        elif "content" in lowered or "privacy" in lowered or "non-remuneration" in lowered:
+            lesson["plain_language"] = "Amateur radio is for self-training, intercommunication, and technical investigation, not broadcasting, secret messages, music, business traffic, or paid communications."
+            lesson["example"] = "A message can be technically possible to send and still be prohibited because of its content or purpose."
+            lesson["trap"] = "The exam often offers an answer that sounds polite or useful but is still not allowed in amateur service."
+        elif "emergency" in lowered:
+            lesson["plain_language"] = "Emergency rules allow communication needed for immediate safety, but they do not allow false distress signals or careless simulated emergencies."
+            lesson["example"] = "In a real emergency, the goal is clear, brief communication that gets help."
+            lesson["trap"] = "Emergency exceptions are not permission for casual third-party or commercial traffic."
+        elif "frequency" in lowered or "band" in lowered or "power" in lowered or "bandwidth" in lowered:
+            lesson["plain_language"] = "Band, power, and bandwidth questions test privileges. Basic, Basic with Honours, Morse, and Advanced do not all grant the same operating authority."
+            lesson["example"] = "Basic with Honours is the important threshold for access below 30 MHz."
+            lesson["trap"] = "Do not give Advanced privileges to a Basic-only operator."
+    elif major_id == "B-002":
+        lesson["memorize"] = "Know the standard operating habit: listen first, identify, be brief, use correct reports, and give emergency traffic priority."
+        if "phonetic" in lowered:
+            lesson["plain_language"] = "The phonetic alphabet prevents confusion when spelling call signs, names, or locations under noisy conditions."
+            lesson["example"] = "Use standard words such as Alpha, Bravo, Charlie rather than making up words."
+            lesson["trap"] = "Similar-sounding letters are exactly why phonetics are used."
+        elif "q signals" in lowered:
+            lesson["plain_language"] = "Q signals are short codes from CW tradition that are still used in voice and text. Treat them as vocabulary."
+            lesson["example"] = "QRM is man-made interference; QRN is natural noise."
+            lesson["trap"] = "QRM and QRN are easy to swap."
+        elif "emergency" in lowered:
+            lesson["plain_language"] = "Emergency operating is about priority, clarity, and getting assistance. Keep the message short and do not create confusion."
+            lesson["example"] = "A distress or emergency call should identify the station, location, problem, and assistance needed."
+            lesson["trap"] = "Practice drills must not sound like real emergencies to uninvolved listeners."
+    elif major_id == "B-003":
+        lesson["memorize"] = "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action."
+        if "receiver" in lowered:
+            lesson["plain_language"] = "A receiver selects the wanted signal, amplifies it, converts or detects it, then produces audio or data."
+            lesson["example"] = "A detector or demodulator recovers information from the RF signal."
+            lesson["trap"] = "Receiver stages are often confused with transmitter stages."
+        elif "transmitter" in lowered or "carrier" in lowered or "modulation" in lowered:
+            lesson["plain_language"] = "A transmitter generates an RF signal, adds information by modulation or keying, amplifies it, and filters unwanted output."
+            lesson["example"] = "SSB suppresses the carrier and one sideband so power is concentrated in the wanted sideband."
+            lesson["trap"] = "Do not mix AM, FM, PM, CW, and SSB terms."
+        elif "safety" in lowered or "hazards" in lowered or "ground" in lowered or "rf" in lowered or "tower" in lowered:
+            lesson["plain_language"] = "Safety questions ask what can hurt people or damage equipment: shock, stored capacitor charge, wrong fuses, lightning, falls, power lines, or RF exposure."
+            lesson["example"] = "Capacitors can hold a dangerous charge after power is off, so they must be discharged safely."
+            lesson["trap"] = "Turning equipment off is not always enough if stored energy remains."
+        elif "battery" in lowered or "power supply" in lowered:
+            lesson["plain_language"] = "Power systems provide the correct voltage and current. Batteries have voltage and amp-hour ratings; supplies rectify, filter, and regulate."
+            lesson["example"] = "Batteries in series add voltage; batteries in parallel keep voltage the same and add capacity."
+            lesson["trap"] = "Series and parallel battery rules are common calculation traps."
+    elif major_id == "B-004":
+        lesson["memorize"] = "Memorize each component's job, terminals, and control method."
+        if "diode" in lowered:
+            lesson["plain_language"] = "A diode mainly conducts in one direction, so it is useful for rectification, switching, and protection."
+            lesson["example"] = "Rectifiers use diodes to turn AC into pulsating DC."
+            lesson["trap"] = "A diode is not a gain device like a transistor."
+        elif "transistor" in lowered or "field-effect" in lowered:
+            lesson["plain_language"] = "Transistors control a larger current using a smaller input signal. BJTs use base current; FETs use gate voltage."
+            lesson["example"] = "BJT terminals: emitter, base, collector. FET terminals: source, gate, drain."
+            lesson["trap"] = "The exam often tests terminal names directly."
+        elif "resistor" in lowered:
+            lesson["plain_language"] = "Resistor colour codes are a compact way to print resistance value and tolerance on the part."
+            lesson["example"] = "Black is 0, brown 1, red 2, orange 3, yellow 4, green 5, blue 6, violet 7, grey 8, white 9."
+            lesson["trap"] = "Do not confuse digit bands with multiplier or tolerance bands."
+    elif major_id == "B-005":
+        lesson["memorize"] = "Memorize formulas, unit prefixes, and how quantities move when frequency or circuit values change."
+        if "ohm" in lowered or "current" in lowered or "voltage" in lowered or "resistance" in lowered:
+            lesson["plain_language"] = "Voltage is electrical pressure, current is flow, and resistance opposes flow. Ohm's law connects them: E = I x R."
+            lesson["example"] = "If E = 12 V and R = 6 ohms, I = 12 / 6 = 2 A."
+            lesson["trap"] = "Convert milliamps to amps before using the formula."
+        elif "power" in lowered or "energy" in lowered:
+            lesson["plain_language"] = "Power is the rate of using or delivering energy. In DC exam problems, P = E x I is the most direct formula."
+            lesson["example"] = "13.8 V at 10 A is 138 W."
+            lesson["trap"] = "Power and energy are related but not the same thing."
+        elif "series" in lowered or "parallel" in lowered:
+            lesson["plain_language"] = "Series resistors add directly. Parallel resistance is less than the smallest branch, and equal resistors in parallel divide by the number of branches."
+            lesson["example"] = "Two 100 ohm resistors in parallel equal 50 ohms."
+            lesson["trap"] = "Do not add parallel resistors as if they were in series."
+        elif "decibel" in lowered or "logarithm" in lowered:
+            lesson["plain_language"] = "Decibels compare ratios. For power, +3 dB is about double, -3 dB is about half, +10 dB is ten times, and -10 dB is one tenth."
+            lesson["example"] = "A 50 W signal increased by 3 dB is about 100 W."
+            lesson["trap"] = "dB is a ratio, not a direct watt value by itself."
+        elif "reactance" in lowered or "inductance" in lowered or "capacitance" in lowered or "resonance" in lowered:
+            lesson["plain_language"] = "Inductors and capacitors oppose AC in frequency-dependent ways. Inductive reactance rises with frequency; capacitive reactance falls with frequency. Resonance occurs when they balance."
+            lesson["example"] = "Increasing frequency makes an inductor oppose current more, but a capacitor oppose current less."
+            lesson["trap"] = "Inductive and capacitive reactance move in opposite directions."
+        elif "prefix" in lowered:
+            lesson["plain_language"] = "Metric prefixes move the decimal point. Kilo is thousand, mega is million, milli is thousandth, and micro is millionth."
+            lesson["example"] = "4.7 k ohms is 4700 ohms; 500 mA is 0.5 A."
+            lesson["trap"] = "Most wrong calculation answers come from prefix conversion errors."
+    elif major_id == "B-006":
+        lesson["memorize"] = "Keep feedline, matching, wavelength, polarization, gain, and antenna type separate."
+        if "wavelength" in lowered or "physical length" in lowered:
+            lesson["plain_language"] = "Wavelength is the physical length of one RF cycle. In metres, approximate wavelength is 300 divided by frequency in MHz."
+            lesson["example"] = "At 150 MHz, wavelength is about 300 / 150 = 2 m."
+            lesson["trap"] = "A half-wave antenna is half the wavelength overall, not the full wavelength."
+        elif "swr" in lowered or "standing wave" in lowered or "matching" in lowered:
+            lesson["plain_language"] = "SWR indicates mismatch between feedline and load. Matching makes the transmitter see a suitable impedance."
+            lesson["example"] = "A tuner can reduce the SWR seen by the transmitter."
+            lesson["trap"] = "A low SWR reading does not prove the antenna radiates efficiently."
+        elif "balanced" in lowered or "unbalanced" in lowered or "balun" in lowered:
+            lesson["plain_language"] = "Balanced lines have equal and opposite conductors. Coax is unbalanced. A balun helps connect balanced and unbalanced systems."
+            lesson["example"] = "A dipole fed with coax often uses a balun at the feed point."
+            lesson["trap"] = "Do not call every feedline coaxial cable."
+        elif "gain" in lowered or "directivity" in lowered or "pattern" in lowered or "yagi" in lowered:
+            lesson["plain_language"] = "Gain and directivity describe where energy is concentrated. A directional antenna sends and receives better in some directions."
+            lesson["example"] = "A Yagi has a driven element plus parasitic elements that shape the pattern."
+            lesson["trap"] = "Gain does not create power; it concentrates radiation."
+    elif major_id == "B-007":
+        lesson["memorize"] = "Identify frequency range, path type, ionospheric layer, and solar condition."
+        if "line of sight" in lowered or "ground wave" in lowered:
+            lesson["plain_language"] = "Line-of-sight signals travel mostly directly and are common at VHF/UHF. Ground wave follows the earth and is strongest at lower frequencies."
+            lesson["example"] = "A local VHF repeater contact is usually line-of-sight or near line-of-sight."
+            lesson["trap"] = "Do not expect ordinary VHF/UHF to behave like HF sky wave."
+        elif "ionosphere" in lowered or "hops" in lowered or "skip" in lowered:
+            lesson["plain_language"] = "HF signals can refract from ionospheric layers and return to earth. One return is a hop; the skip zone is the area before the first return."
+            lesson["example"] = "The D layer tends to absorb HF, especially by day; E and F layers can return signals."
+            lesson["trap"] = "Absorption and refraction are different effects."
+        elif "solar" in lowered or "muf" in lowered or "critical" in lowered:
+            lesson["plain_language"] = "Solar activity changes ionization, which changes what frequencies can travel by sky wave. MUF is the maximum usable frequency for a path."
+            lesson["example"] = "Higher solar activity can improve higher-frequency HF propagation."
+            lesson["trap"] = "MUF is path-dependent, not a fixed value for everyone everywhere."
+        elif "vhf" in lowered or "uhf" in lowered or "aurora" in lowered or "ducting" in lowered or "scatter" in lowered:
+            lesson["plain_language"] = "Special VHF/UHF propagation modes include sporadic-E, aurora, ducting, and scatter. They are exceptions to normal line-of-sight expectations."
+            lesson["example"] = "Ducting can carry VHF/UHF signals farther than normal through atmospheric layers."
+            lesson["trap"] = "The special mode named in the question usually points directly to the answer."
+    elif major_id == "B-008":
+        lesson["memorize"] = "Diagnose the source first, then choose the cure: receiver overload, audio rectification, transmitter emissions, or filtering."
+        if "front-end" in lowered or "cross-modulation" in lowered:
+            lesson["plain_language"] = "Front-end overload happens when strong signals overwhelm receiver input stages. Cross-modulation is unwanted modulation transferred from one signal to another in an overloaded receiver."
+            lesson["example"] = "Adding attenuation or filtering before the receiver can help overload."
+            lesson["trap"] = "This is a receiver problem, not always a transmitter harmonic problem."
+        elif "audio rectification" in lowered or "ferrite" in lowered:
+            lesson["plain_language"] = "Audio rectification happens when RF gets into audio wiring and is detected like a crude radio receiver. Bypass capacitors and ferrites can reduce RF on leads."
+            lesson["example"] = "A telephone or speaker picking up RF can be an audio rectification symptom."
+            lesson["trap"] = "The transmitter may be clean even when nearby audio gear is poorly immune."
+        elif "harmonic" in lowered or "spurious" in lowered or "splatter" in lowered or "key clicks" in lowered:
+            lesson["plain_language"] = "These are unwanted transmitter outputs or signal defects. Harmonics are multiples of the wanted frequency. Splatter often comes from overdriving or overmodulation."
+            lesson["example"] = "A low-pass filter helps reduce harmonics above the intended signal."
+            lesson["trap"] = "Do not use a receiver-overload cure for a dirty transmitter signal."
+        elif "filter" in lowered:
+            lesson["plain_language"] = "Filters pass wanted frequencies and reduce unwanted ones. Low-pass passes low frequencies, high-pass passes high frequencies, band-pass passes a range, and notch rejects a range."
+            lesson["example"] = "A band-reject or notch filter can reduce one troublesome frequency range."
+            lesson["trap"] = "Pick the filter by what it passes or rejects, not by its name alone."
+
+    return lesson
+
+
+def build_chapter_lessons(major_id):
+    fundamentals = CHAPTER_FUNDAMENTALS[major_id]
+    lessons = []
+    for index, title in enumerate(TOPIC_NAMES[major_id], start=1):
+        lessons.append(topic_lesson(major_id, f"{int(major_id.split('-')[1])}-{index}", title))
+    return {
+        "fundamentals": fundamentals,
+        "topic_lessons": lessons,
+    }
+
+
 def build_guide():
     modules = [
         {
@@ -554,7 +819,9 @@ def build_guide():
             ],
         },
     ]
-    return {"version": "1.0", "source": "Study guide derived from RIC-3, RBR-4, RIC-9 and the official Basic question bank.", "modules": modules}
+    for module in modules:
+        module["lessons"] = build_chapter_lessons(module["major_id"])
+    return {"version": "1.1", "source": "Study guide derived from RIC-3, RBR-4, RIC-9 and the official Basic question bank.", "modules": modules}
 
 
 def build_course():

@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "source": "Study guide derived from RIC-3, RBR-4, RIC-9 and the official Basic question bank.",
   "modules": [
     {
@@ -61,7 +61,242 @@
           "title": "Call signs and identification",
           "content": "A Canadian call sign is assigned using the prefix for the operator's Canadian address. Station identification rules, prefix areas, special-event prefixes, and foreign operation rules are frequent exam targets. For call sign questions, identify whether the question is asking about prefix area, suffix eligibility, station identification timing, special events, or operation by visitors."
         }
-      ]
+      ],
+      "lessons": {
+        "fundamentals": {
+          "heading": "How to think about regulation questions",
+          "body": "Regulation questions are not trying to test radio theory. They test whether you know who is allowed to do what, under which qualification, and with which limits. Read these questions like legal rules: find the actor, the permission or prohibition, and the exact condition. If two answers sound technically reasonable, choose the one that matches the certificate privilege or rule being asked.",
+          "example": "If a question asks about operating below 30 MHz, the key distinction is Basic versus Basic with Honours, Morse, or Advanced.",
+          "trap": "Do not choose an answer just because it is a real amateur radio term. Regulation distractors often use real terms in the wrong rule."
+        },
+        "topic_lessons": [
+          {
+            "number": "1-1",
+            "title": "Radio licences, applicability, eligibility of licence holder",
+            "plain_language": "This is about permission to operate. In Canada, the operator certificate is the key credential for amateur operation. Know who issues it, who must hold it, when information must be updated, and what inspectors can require.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "If the question asks about a change of address, look for the answer that matches the administrative duty, not a technical operating answer.",
+            "trap": "Do not confuse a station authorization concept with the operator certificate.",
+            "check": "Can you explain radio licences, applicability, eligibility of licence holder without looking at the answer choices?"
+          },
+          {
+            "number": "1-2",
+            "title": "Licence fee, term, posting requirements, change of address",
+            "plain_language": "This is about permission to operate. In Canada, the operator certificate is the key credential for amateur operation. Know who issues it, who must hold it, when information must be updated, and what inspectors can require.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "If the question asks about a change of address, look for the answer that matches the administrative duty, not a technical operating answer.",
+            "trap": "Do not confuse a station authorization concept with the operator certificate.",
+            "check": "Can you explain licence fee, term, posting requirements, change of address without looking at the answer choices?"
+          },
+          {
+            "number": "1-3",
+            "title": "Licence suspension or revocation, powers of radio inspectors, offences and punishments",
+            "plain_language": "This is about permission to operate. In Canada, the operator certificate is the key credential for amateur operation. Know who issues it, who must hold it, when information must be updated, and what inspectors can require.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "If the question asks about a change of address, look for the answer that matches the administrative duty, not a technical operating answer.",
+            "trap": "Do not confuse a station authorization concept with the operator certificate.",
+            "check": "Can you explain licence suspension or revocation, powers of radio inspectors, offences and punishments without looking at the answer choices?"
+          },
+          {
+            "number": "1-4",
+            "title": "Operator certificates, applicability, eligibility, equivalents, reciprocal recognition",
+            "plain_language": "This is about permission to operate. In Canada, the operator certificate is the key credential for amateur operation. Know who issues it, who must hold it, when information must be updated, and what inspectors can require.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "If the question asks about a change of address, look for the answer that matches the administrative duty, not a technical operating answer.",
+            "trap": "Do not confuse a station authorization concept with the operator certificate.",
+            "check": "Can you explain operator certificates, applicability, eligibility, equivalents, reciprocal recognition without looking at the answer choices?"
+          },
+          {
+            "number": "1-5",
+            "title": "Operation, repair and maintenance of radio apparatus on behalf of other persons",
+            "plain_language": "This topic focuses on operation, repair and maintenance of radio apparatus on behalf of other persons. For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain operation, repair and maintenance of radio apparatus on behalf of other persons without looking at the answer choices?"
+          },
+          {
+            "number": "1-6",
+            "title": "Operation of radio apparatus, terms of licence, applicable standards, exempt apparatus",
+            "plain_language": "This is about permission to operate. In Canada, the operator certificate is the key credential for amateur operation. Know who issues it, who must hold it, when information must be updated, and what inspectors can require.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "If the question asks about a change of address, look for the answer that matches the administrative duty, not a technical operating answer.",
+            "trap": "Do not confuse a station authorization concept with the operator certificate.",
+            "check": "Can you explain operation of radio apparatus, terms of licence, applicable standards, exempt apparatus without looking at the answer choices?"
+          },
+          {
+            "number": "1-7",
+            "title": "Content restrictions: non-superfluous, profanity, secret code, music, non-commercial",
+            "plain_language": "Amateur radio is for self-training, intercommunication, and technical investigation, not broadcasting, secret messages, music, business traffic, or paid communications.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "A message can be technically possible to send and still be prohibited because of its content or purpose.",
+            "trap": "The exam often offers an answer that sounds polite or useful but is still not allowed in amateur service.",
+            "check": "Can you explain content restrictions: non-superfluous, profanity, secret code, music, non-commercial without looking at the answer choices?"
+          },
+          {
+            "number": "1-8",
+            "title": "Installation and operating restrictions: number of stations, repeaters, home-built, club stations",
+            "plain_language": "This topic focuses on installation and operating restrictions: number of stations, repeaters, home-built, club stations. For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain installation and operating restrictions: number of stations, repeaters, home-built, club stations without looking at the answer choices?"
+          },
+          {
+            "number": "1-9",
+            "title": "Participation in communications by visitors, use of station by others",
+            "plain_language": "This topic focuses on participation in communications by visitors, use of station by others. For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain participation in communications by visitors, use of station by others without looking at the answer choices?"
+          },
+          {
+            "number": "1-10",
+            "title": "Interference, determination, protection from interference",
+            "plain_language": "This topic focuses on interference, determination, protection from interference. For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain interference, determination, protection from interference without looking at the answer choices?"
+          },
+          {
+            "number": "1-11",
+            "title": "Emergency communications, simulated emergencies, communication with non-amateur stations",
+            "plain_language": "Emergency rules allow communication needed for immediate safety, but they do not allow false distress signals or careless simulated emergencies.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "In a real emergency, the goal is clear, brief communication that gets help.",
+            "trap": "Emergency exceptions are not permission for casual third-party or commercial traffic.",
+            "check": "Can you explain emergency communications, simulated emergencies, communication with non-amateur stations without looking at the answer choices?"
+          },
+          {
+            "number": "1-12",
+            "title": "Non-remuneration and privacy of communications",
+            "plain_language": "Amateur radio is for self-training, intercommunication, and technical investigation, not broadcasting, secret messages, music, business traffic, or paid communications.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "A message can be technically possible to send and still be prohibited because of its content or purpose.",
+            "trap": "The exam often offers an answer that sounds polite or useful but is still not allowed in amateur service.",
+            "check": "Can you explain non-remuneration and privacy of communications without looking at the answer choices?"
+          },
+          {
+            "number": "1-13",
+            "title": "Station identification, call signs, prefixes",
+            "plain_language": "This topic focuses on station identification, call signs, prefixes. For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain station identification, call signs, prefixes without looking at the answer choices?"
+          },
+          {
+            "number": "1-14",
+            "title": "Foreign amateur operation in Canada, banned countries, third-party messages",
+            "plain_language": "This topic focuses on foreign amateur operation in canada, banned countries, third-party messages. For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain foreign amateur operation in canada, banned countries, third-party messages without looking at the answer choices?"
+          },
+          {
+            "number": "1-15",
+            "title": "Frequency bands and qualification requirements",
+            "plain_language": "Band, power, and bandwidth questions test privileges. Basic, Basic with Honours, Morse, and Advanced do not all grant the same operating authority.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "Basic with Honours is the important threshold for access below 30 MHz.",
+            "trap": "Do not give Advanced privileges to a Basic-only operator.",
+            "check": "Can you explain frequency bands and qualification requirements without looking at the answer choices?"
+          },
+          {
+            "number": "1-16",
+            "title": "Maximum bandwidth by frequency bands",
+            "plain_language": "Band, power, and bandwidth questions test privileges. Basic, Basic with Honours, Morse, and Advanced do not all grant the same operating authority.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "Basic with Honours is the important threshold for access below 30 MHz.",
+            "trap": "Do not give Advanced privileges to a Basic-only operator.",
+            "check": "Can you explain maximum bandwidth by frequency bands without looking at the answer choices?"
+          },
+          {
+            "number": "1-17",
+            "title": "Restrictions on capacity and power output by qualifications",
+            "plain_language": "Band, power, and bandwidth questions test privileges. Basic, Basic with Honours, Morse, and Advanced do not all grant the same operating authority.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "Basic with Honours is the important threshold for access below 30 MHz.",
+            "trap": "Do not give Advanced privileges to a Basic-only operator.",
+            "check": "Can you explain restrictions on capacity and power output by qualifications without looking at the answer choices?"
+          },
+          {
+            "number": "1-18",
+            "title": "Unmodulated carriers and retransmission",
+            "plain_language": "This topic focuses on unmodulated carriers and retransmission. For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain unmodulated carriers and retransmission without looking at the answer choices?"
+          },
+          {
+            "number": "1-19",
+            "title": "Amplitude modulation, frequency stability, measurements",
+            "plain_language": "Band, power, and bandwidth questions test privileges. Basic, Basic with Honours, Morse, and Advanced do not all grant the same operating authority.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "Basic with Honours is the important threshold for access below 30 MHz.",
+            "trap": "Do not give Advanced privileges to a Basic-only operator.",
+            "check": "Can you explain amplitude modulation, frequency stability, measurements without looking at the answer choices?"
+          },
+          {
+            "number": "1-20",
+            "title": "International Telecommunication Union Radio Regulations, applicability",
+            "plain_language": "This topic focuses on international telecommunication union radio regulations, applicability. For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain international telecommunication union radio regulations, applicability without looking at the answer choices?"
+          },
+          {
+            "number": "1-21",
+            "title": "Operation outside Canada, ITU regions, reciprocal privileges, international licences",
+            "plain_language": "This is about permission to operate. In Canada, the operator certificate is the key credential for amateur operation. Know who issues it, who must hold it, when information must be updated, and what inspectors can require.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "If the question asks about a change of address, look for the answer that matches the administrative duty, not a technical operating answer.",
+            "trap": "Do not confuse a station authorization concept with the operator certificate.",
+            "check": "Can you explain operation outside canada, itu regions, reciprocal privileges, international licences without looking at the answer choices?"
+          },
+          {
+            "number": "1-22",
+            "title": "Examinations, delegated examinations, disabled accommodation",
+            "plain_language": "This topic focuses on examinations, delegated examinations, disabled accommodation. For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain examinations, delegated examinations, disabled accommodation without looking at the answer choices?"
+          },
+          {
+            "number": "1-23",
+            "title": "Antenna structure approval, neighbour and land-use authority consultation",
+            "plain_language": "This topic focuses on antenna structure approval, neighbour and land-use authority consultation. For regulation questions, memorize exact legal documents, powers, prohibitions, privileges, limits, and time/frequency values. Many distractors are plausible because they name a real radio concept but not the rule asked.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain antenna structure approval, neighbour and land-use authority consultation without looking at the answer choices?"
+          },
+          {
+            "number": "1-24",
+            "title": "Radio frequency electromagnetic field limits",
+            "plain_language": "Band, power, and bandwidth questions test privileges. Basic, Basic with Honours, Morse, and Advanced do not all grant the same operating authority.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "Basic with Honours is the important threshold for access below 30 MHz.",
+            "trap": "Do not give Advanced privileges to a Basic-only operator.",
+            "check": "Can you explain radio frequency electromagnetic field limits without looking at the answer choices?"
+          },
+          {
+            "number": "1-25",
+            "title": "Criteria for resolution of radio frequency interference complaints",
+            "plain_language": "Band, power, and bandwidth questions test privileges. Basic, Basic with Honours, Morse, and Advanced do not all grant the same operating authority.",
+            "memorize": "Memorize who has authority, what the certificate permits, what is prohibited, and any exact time, power, frequency, bandwidth, or qualification threshold.",
+            "example": "Basic with Honours is the important threshold for access below 30 MHz.",
+            "trap": "Do not give Advanced privileges to a Basic-only operator.",
+            "check": "Can you explain criteria for resolution of radio frequency interference complaints without looking at the answer choices?"
+          }
+        ]
+      }
     },
     {
       "id": "operating",
@@ -134,7 +369,98 @@
             "Simulated emergency tests must not mislead other stations into believing a real emergency exists."
           ]
         }
-      ]
+      ],
+      "lessons": {
+        "fundamentals": {
+          "heading": "How to think about operating procedure",
+          "body": "Operating procedure is about being clear, identifiable, brief, and courteous on the air. Most answers follow from that idea. Listen first, identify properly, keep tests short, use standard phonetics and signal reports, and give emergency traffic priority. When a question mentions a repeater, think about offsets, time-out timers, courtesy pauses, and sharing the channel.",
+          "example": "A short pause before replying on a repeater lets others break in and helps avoid time-out timer problems.",
+          "trap": "Do not treat ham radio like a private phone call. Identification and shared-channel courtesy matter."
+        },
+        "topic_lessons": [
+          {
+            "number": "2-1",
+            "title": "Voice operating procedures: channelized VHF/UHF repeater",
+            "plain_language": "This topic focuses on voice operating procedures: channelized vhf/uhf repeater. For operating procedure questions, focus on standard amateur practice: concise calls, correct identification, signal reports, Q signals, repeater/simplex behaviour, and emergency priority.",
+            "memorize": "Know the standard operating habit: listen first, identify, be brief, use correct reports, and give emergency traffic priority.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain voice operating procedures: channelized vhf/uhf repeater without looking at the answer choices?"
+          },
+          {
+            "number": "2-2",
+            "title": "Phonetic alphabet",
+            "plain_language": "The phonetic alphabet prevents confusion when spelling call signs, names, or locations under noisy conditions.",
+            "memorize": "Know the standard operating habit: listen first, identify, be brief, use correct reports, and give emergency traffic priority.",
+            "example": "Use standard words such as Alpha, Bravo, Charlie rather than making up words.",
+            "trap": "Similar-sounding letters are exactly why phonetics are used.",
+            "check": "Can you explain phonetic alphabet without looking at the answer choices?"
+          },
+          {
+            "number": "2-3",
+            "title": "Voice operating procedures: simplex VHF/UHF and HF",
+            "plain_language": "This topic focuses on voice operating procedures: simplex vhf/uhf and hf. For operating procedure questions, focus on standard amateur practice: concise calls, correct identification, signal reports, Q signals, repeater/simplex behaviour, and emergency priority.",
+            "memorize": "Know the standard operating habit: listen first, identify, be brief, use correct reports, and give emergency traffic priority.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain voice operating procedures: simplex vhf/uhf and hf without looking at the answer choices?"
+          },
+          {
+            "number": "2-4",
+            "title": "Tuneups and testing, use of dummy load, courteous operation",
+            "plain_language": "This topic focuses on tuneups and testing, use of dummy load, courteous operation. For operating procedure questions, focus on standard amateur practice: concise calls, correct identification, signal reports, Q signals, repeater/simplex behaviour, and emergency priority.",
+            "memorize": "Know the standard operating habit: listen first, identify, be brief, use correct reports, and give emergency traffic priority.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain tuneups and testing, use of dummy load, courteous operation without looking at the answer choices?"
+          },
+          {
+            "number": "2-5",
+            "title": "Morse CW operating procedures, procedural signs",
+            "plain_language": "This topic focuses on morse cw operating procedures, procedural signs. For operating procedure questions, focus on standard amateur practice: concise calls, correct identification, signal reports, Q signals, repeater/simplex behaviour, and emergency priority.",
+            "memorize": "Know the standard operating habit: listen first, identify, be brief, use correct reports, and give emergency traffic priority.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain morse cw operating procedures, procedural signs without looking at the answer choices?"
+          },
+          {
+            "number": "2-6",
+            "title": "RST system of signal reporting, use of S meter",
+            "plain_language": "This topic focuses on rst system of signal reporting, use of s meter. For operating procedure questions, focus on standard amateur practice: concise calls, correct identification, signal reports, Q signals, repeater/simplex behaviour, and emergency priority.",
+            "memorize": "Know the standard operating habit: listen first, identify, be brief, use correct reports, and give emergency traffic priority.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain rst system of signal reporting, use of s meter without looking at the answer choices?"
+          },
+          {
+            "number": "2-7",
+            "title": "Q signals",
+            "plain_language": "Q signals are short codes from CW tradition that are still used in voice and text. Treat them as vocabulary.",
+            "memorize": "Know the standard operating habit: listen first, identify, be brief, use correct reports, and give emergency traffic priority.",
+            "example": "QRM is man-made interference; QRN is natural noise.",
+            "trap": "QRM and QRN are easy to swap.",
+            "check": "Can you explain q signals without looking at the answer choices?"
+          },
+          {
+            "number": "2-8",
+            "title": "Emergency operating procedures",
+            "plain_language": "Emergency operating is about priority, clarity, and getting assistance. Keep the message short and do not create confusion.",
+            "memorize": "Know the standard operating habit: listen first, identify, be brief, use correct reports, and give emergency traffic priority.",
+            "example": "A distress or emergency call should identify the station, location, problem, and assistance needed.",
+            "trap": "Practice drills must not sound like real emergencies to uninvolved listeners.",
+            "check": "Can you explain emergency operating procedures without looking at the answer choices?"
+          },
+          {
+            "number": "2-9",
+            "title": "Record keeping, confirmation practices, maps/charts, antenna orientation",
+            "plain_language": "This topic focuses on record keeping, confirmation practices, maps/charts, antenna orientation. For operating procedure questions, focus on standard amateur practice: concise calls, correct identification, signal reports, Q signals, repeater/simplex behaviour, and emergency priority.",
+            "memorize": "Know the standard operating habit: listen first, identify, be brief, use correct reports, and give emergency traffic priority.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain record keeping, confirmation practices, maps/charts, antenna orientation without looking at the answer choices?"
+          }
+        ]
+      }
     },
     {
       "id": "station",
@@ -159,7 +485,206 @@
             "Tower and antenna work requires fall protection, safe distances from power lines, and weather awareness."
           ]
         }
-      ]
+      ],
+      "lessons": {
+        "fundamentals": {
+          "heading": "How to think about station and safety questions",
+          "body": "Station questions become easier when you picture signal flow. A transmitter creates and modulates RF, amplifies it, filters it, and sends it to the antenna. A receiver selects a signal, converts or detects it, then recovers audio or data. Safety questions ask what hazard exists and what action removes the risk: disconnect power, discharge capacitors, use correct fuses, ground properly, stay away from power lines, and respect RF exposure limits.",
+          "example": "A regulated power supply normally rectifies AC, filters it, then regulates the output voltage.",
+          "trap": "Never solve a fuse problem by installing a larger fuse. The fuse protects wiring and equipment from excess current."
+        },
+        "topic_lessons": [
+          {
+            "number": "3-1",
+            "title": "Functional layout of HF stations",
+            "plain_language": "This topic focuses on functional layout of hf stations. For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain functional layout of hf stations without looking at the answer choices?"
+          },
+          {
+            "number": "3-2",
+            "title": "Functional layout of FM transmitters",
+            "plain_language": "A transmitter generates an RF signal, adds information by modulation or keying, amplifies it, and filters unwanted output.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "SSB suppresses the carrier and one sideband so power is concentrated in the wanted sideband.",
+            "trap": "Do not mix AM, FM, PM, CW, and SSB terms.",
+            "check": "Can you explain functional layout of fm transmitters without looking at the answer choices?"
+          },
+          {
+            "number": "3-3",
+            "title": "Functional layout of FM receivers",
+            "plain_language": "A receiver selects the wanted signal, amplifies it, converts or detects it, then produces audio or data.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "A detector or demodulator recovers information from the RF signal.",
+            "trap": "Receiver stages are often confused with transmitter stages.",
+            "check": "Can you explain functional layout of fm receivers without looking at the answer choices?"
+          },
+          {
+            "number": "3-4",
+            "title": "Functional layout of CW transmitters",
+            "plain_language": "A transmitter generates an RF signal, adds information by modulation or keying, amplifies it, and filters unwanted output.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "SSB suppresses the carrier and one sideband so power is concentrated in the wanted sideband.",
+            "trap": "Do not mix AM, FM, PM, CW, and SSB terms.",
+            "check": "Can you explain functional layout of cw transmitters without looking at the answer choices?"
+          },
+          {
+            "number": "3-5",
+            "title": "Functional layout of SSB/CW receivers",
+            "plain_language": "A receiver selects the wanted signal, amplifies it, converts or detects it, then produces audio or data.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "A detector or demodulator recovers information from the RF signal.",
+            "trap": "Receiver stages are often confused with transmitter stages.",
+            "check": "Can you explain functional layout of ssb/cw receivers without looking at the answer choices?"
+          },
+          {
+            "number": "3-6",
+            "title": "Functional layout of SSB transmitters",
+            "plain_language": "A transmitter generates an RF signal, adds information by modulation or keying, amplifies it, and filters unwanted output.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "SSB suppresses the carrier and one sideband so power is concentrated in the wanted sideband.",
+            "trap": "Do not mix AM, FM, PM, CW, and SSB terms.",
+            "check": "Can you explain functional layout of ssb transmitters without looking at the answer choices?"
+          },
+          {
+            "number": "3-7",
+            "title": "Functional layout of digital systems",
+            "plain_language": "This topic focuses on functional layout of digital systems. For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain functional layout of digital systems without looking at the answer choices?"
+          },
+          {
+            "number": "3-8",
+            "title": "Functional layout of regulated power supplies",
+            "plain_language": "This topic focuses on functional layout of regulated power supplies. For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain functional layout of regulated power supplies without looking at the answer choices?"
+          },
+          {
+            "number": "3-9",
+            "title": "Functional layout of Yagi-Uda antennas",
+            "plain_language": "This topic focuses on functional layout of yagi-uda antennas. For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain functional layout of yagi-uda antennas without looking at the answer choices?"
+          },
+          {
+            "number": "3-10",
+            "title": "Receiver fundamentals",
+            "plain_language": "A receiver selects the wanted signal, amplifies it, converts or detects it, then produces audio or data.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "A detector or demodulator recovers information from the RF signal.",
+            "trap": "Receiver stages are often confused with transmitter stages.",
+            "check": "Can you explain receiver fundamentals without looking at the answer choices?"
+          },
+          {
+            "number": "3-11",
+            "title": "Transmitter, carrier, keying, and amplitude modulation fundamentals",
+            "plain_language": "A transmitter generates an RF signal, adds information by modulation or keying, amplifies it, and filters unwanted output.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "SSB suppresses the carrier and one sideband so power is concentrated in the wanted sideband.",
+            "trap": "Do not mix AM, FM, PM, CW, and SSB terms.",
+            "check": "Can you explain transmitter, carrier, keying, and amplitude modulation fundamentals without looking at the answer choices?"
+          },
+          {
+            "number": "3-12",
+            "title": "Carrier suppression and SSB fundamentals",
+            "plain_language": "A transmitter generates an RF signal, adds information by modulation or keying, amplifies it, and filters unwanted output.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "SSB suppresses the carrier and one sideband so power is concentrated in the wanted sideband.",
+            "trap": "Do not mix AM, FM, PM, CW, and SSB terms.",
+            "check": "Can you explain carrier suppression and ssb fundamentals without looking at the answer choices?"
+          },
+          {
+            "number": "3-13",
+            "title": "Frequency and phase modulation fundamentals",
+            "plain_language": "A transmitter generates an RF signal, adds information by modulation or keying, amplifies it, and filters unwanted output.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "SSB suppresses the carrier and one sideband so power is concentrated in the wanted sideband.",
+            "trap": "Do not mix AM, FM, PM, CW, and SSB terms.",
+            "check": "Can you explain frequency and phase modulation fundamentals without looking at the answer choices?"
+          },
+          {
+            "number": "3-14",
+            "title": "Station accessories for telegraphy, radiotelephony, digital modes",
+            "plain_language": "This topic focuses on station accessories for telegraphy, radiotelephony, digital modes. For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain station accessories for telegraphy, radiotelephony, digital modes without looking at the answer choices?"
+          },
+          {
+            "number": "3-15",
+            "title": "Digital mode fundamentals: RTTY, ASCII, AMTOR, packet",
+            "plain_language": "This topic focuses on digital mode fundamentals: rtty, ascii, amtor, packet. For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain digital mode fundamentals: rtty, ascii, amtor, packet without looking at the answer choices?"
+          },
+          {
+            "number": "3-16",
+            "title": "Cells and batteries: types, ratings, charging",
+            "plain_language": "This topic focuses on cells and batteries: types, ratings, charging. For station and safety questions, think in block diagrams and hazards. Identify what each stage does, what failure mode is dangerous, and which safety practice removes the risk.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain cells and batteries: types, ratings, charging without looking at the answer choices?"
+          },
+          {
+            "number": "3-17",
+            "title": "Power supply fundamentals",
+            "plain_language": "Power systems provide the correct voltage and current. Batteries have voltage and amp-hour ratings; supplies rectify, filter, and regulate.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "Batteries in series add voltage; batteries in parallel keep voltage the same and add capacity.",
+            "trap": "Series and parallel battery rules are common calculation traps.",
+            "check": "Can you explain power supply fundamentals without looking at the answer choices?"
+          },
+          {
+            "number": "3-18",
+            "title": "Electrical hazards, electrical safety, security",
+            "plain_language": "Safety questions ask what can hurt people or damage equipment: shock, stored capacitor charge, wrong fuses, lightning, falls, power lines, or RF exposure.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "Capacitors can hold a dangerous charge after power is off, so they must be discharged safely.",
+            "trap": "Turning equipment off is not always enough if stored energy remains.",
+            "check": "Can you explain electrical hazards, electrical safety, security without looking at the answer choices?"
+          },
+          {
+            "number": "3-19",
+            "title": "Electrical safety ground, capacitor discharge, fuse replacement",
+            "plain_language": "Safety questions ask what can hurt people or damage equipment: shock, stored capacitor charge, wrong fuses, lightning, falls, power lines, or RF exposure.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "Capacitors can hold a dangerous charge after power is off, so they must be discharged safely.",
+            "trap": "Turning equipment off is not always enough if stored energy remains.",
+            "check": "Can you explain electrical safety ground, capacitor discharge, fuse replacement without looking at the answer choices?"
+          },
+          {
+            "number": "3-20",
+            "title": "Antenna and tower safety, lightning protection",
+            "plain_language": "Safety questions ask what can hurt people or damage equipment: shock, stored capacitor charge, wrong fuses, lightning, falls, power lines, or RF exposure.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "Capacitors can hold a dangerous charge after power is off, so they must be discharged safely.",
+            "trap": "Turning equipment off is not always enough if stored energy remains.",
+            "check": "Can you explain antenna and tower safety, lightning protection without looking at the answer choices?"
+          },
+          {
+            "number": "3-21",
+            "title": "Exposure of human body to RF, safety precautions",
+            "plain_language": "Safety questions ask what can hurt people or damage equipment: shock, stored capacitor charge, wrong fuses, lightning, falls, power lines, or RF exposure.",
+            "memorize": "For station layouts, memorize signal flow. For safety, memorize the hazard and the safe action.",
+            "example": "Capacitors can hold a dangerous charge after power is off, so they must be discharged safely.",
+            "trap": "Turning equipment off is not always enough if stored energy remains.",
+            "check": "Can you explain exposure of human body to rf, safety precautions without looking at the answer choices?"
+          }
+        ]
+      }
     },
     {
       "id": "components",
@@ -222,7 +747,71 @@
             ]
           ]
         }
-      ]
+      ],
+      "lessons": {
+        "fundamentals": {
+          "heading": "How to think about components",
+          "body": "Component questions usually ask what a part does, how it is controlled, or what its terminals are called. A diode mainly conducts one way. A bipolar transistor is current-controlled. A field-effect transistor is voltage-controlled. A triode vacuum tube uses a grid to control current. Resistor colour questions are memorization plus careful place value.",
+          "example": "For a BJT, remember emitter, base, collector. For an FET, remember source, gate, drain.",
+          "trap": "Do not mix transistor terminal names. The exam often uses terminal names as distractors."
+        },
+        "topic_lessons": [
+          {
+            "number": "4-1",
+            "title": "Amplifier fundamentals",
+            "plain_language": "This topic focuses on amplifier fundamentals. For component questions, identify the device, the terminals, the direction or control mechanism, and the normal job of the component in a circuit.",
+            "memorize": "Memorize each component's job, terminals, and control method.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain amplifier fundamentals without looking at the answer choices?"
+          },
+          {
+            "number": "4-2",
+            "title": "Diode fundamentals",
+            "plain_language": "A diode mainly conducts in one direction, so it is useful for rectification, switching, and protection.",
+            "memorize": "Memorize each component's job, terminals, and control method.",
+            "example": "Rectifiers use diodes to turn AC into pulsating DC.",
+            "trap": "A diode is not a gain device like a transistor.",
+            "check": "Can you explain diode fundamentals without looking at the answer choices?"
+          },
+          {
+            "number": "4-3",
+            "title": "Bipolar transistor fundamentals",
+            "plain_language": "Transistors control a larger current using a smaller input signal. BJTs use base current; FETs use gate voltage.",
+            "memorize": "Memorize each component's job, terminals, and control method.",
+            "example": "BJT terminals: emitter, base, collector. FET terminals: source, gate, drain.",
+            "trap": "The exam often tests terminal names directly.",
+            "check": "Can you explain bipolar transistor fundamentals without looking at the answer choices?"
+          },
+          {
+            "number": "4-4",
+            "title": "Field-effect transistor fundamentals",
+            "plain_language": "Transistors control a larger current using a smaller input signal. BJTs use base current; FETs use gate voltage.",
+            "memorize": "Memorize each component's job, terminals, and control method.",
+            "example": "BJT terminals: emitter, base, collector. FET terminals: source, gate, drain.",
+            "trap": "The exam often tests terminal names directly.",
+            "check": "Can you explain field-effect transistor fundamentals without looking at the answer choices?"
+          },
+          {
+            "number": "4-5",
+            "title": "Triode vacuum tube fundamentals",
+            "plain_language": "This topic focuses on triode vacuum tube fundamentals. For component questions, identify the device, the terminals, the direction or control mechanism, and the normal job of the component in a circuit.",
+            "memorize": "Memorize each component's job, terminals, and control method.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain triode vacuum tube fundamentals without looking at the answer choices?"
+          },
+          {
+            "number": "4-6",
+            "title": "Resistor colour codes, tolerances, temperature coefficient",
+            "plain_language": "Resistor colour codes are a compact way to print resistance value and tolerance on the part.",
+            "memorize": "Memorize each component's job, terminals, and control method.",
+            "example": "Black is 0, brown 1, red 2, orange 3, yellow 4, green 5, blue 6, violet 7, grey 8, white 9.",
+            "trap": "Do not confuse digit bands with multiplier or tolerance bands.",
+            "check": "Can you explain resistor colour codes, tolerances, temperature coefficient without looking at the answer choices?"
+          }
+        ]
+      }
     },
     {
       "id": "theory",
@@ -291,7 +880,134 @@
             "A tuned circuit can select or reject a range of frequencies."
           ]
         }
-      ]
+      ],
+      "lessons": {
+        "fundamentals": {
+          "heading": "How to think about electronics theory",
+          "body": "Theory questions are easiest if you slow down and write the relationship first. Ohm's law is E = I x R. Power is P = E x I, and related formulas can be derived from Ohm's law. Convert units before calculating: milliamps to amps, kilohms to ohms, and megahertz to hertz only when needed. For AC concepts, focus on directional relationships: inductive reactance rises with frequency, capacitive reactance falls with frequency.",
+          "example": "If E = 12 V and R = 6 ohms, I = E / R = 2 A. The units tell you whether the answer is plausible.",
+          "trap": "A correct-looking number can be wrong if you forgot a metric prefix such as milli, kilo, or mega."
+        },
+        "topic_lessons": [
+          {
+            "number": "5-1",
+            "title": "Metric prefixes: pico, micro, milli, centi, kilo, mega, giga",
+            "plain_language": "Metric prefixes move the decimal point. Kilo is thousand, mega is million, milli is thousandth, and micro is millionth.",
+            "memorize": "Memorize formulas, unit prefixes, and how quantities move when frequency or circuit values change.",
+            "example": "4.7 k ohms is 4700 ohms; 500 mA is 0.5 A.",
+            "trap": "Most wrong calculation answers come from prefix conversion errors.",
+            "check": "Can you explain metric prefixes: pico, micro, milli, centi, kilo, mega, giga without looking at the answer choices?"
+          },
+          {
+            "number": "5-2",
+            "title": "Concepts of current, voltage, conductor, insulator, resistance",
+            "plain_language": "Voltage is electrical pressure, current is flow, and resistance opposes flow. Ohm's law connects them: E = I x R.",
+            "memorize": "Memorize formulas, unit prefixes, and how quantities move when frequency or circuit values change.",
+            "example": "If E = 12 V and R = 6 ohms, I = 12 / 6 = 2 A.",
+            "trap": "Convert milliamps to amps before using the formula.",
+            "check": "Can you explain concepts of current, voltage, conductor, insulator, resistance without looking at the answer choices?"
+          },
+          {
+            "number": "5-3",
+            "title": "Concepts of energy and power, open and short circuits",
+            "plain_language": "Power is the rate of using or delivering energy. In DC exam problems, P = E x I is the most direct formula.",
+            "memorize": "Memorize formulas, unit prefixes, and how quantities move when frequency or circuit values change.",
+            "example": "13.8 V at 10 A is 138 W.",
+            "trap": "Power and energy are related but not the same thing.",
+            "check": "Can you explain concepts of energy and power, open and short circuits without looking at the answer choices?"
+          },
+          {
+            "number": "5-4",
+            "title": "Ohm's law: single resistors",
+            "plain_language": "Voltage is electrical pressure, current is flow, and resistance opposes flow. Ohm's law connects them: E = I x R.",
+            "memorize": "Memorize formulas, unit prefixes, and how quantities move when frequency or circuit values change.",
+            "example": "If E = 12 V and R = 6 ohms, I = 12 / 6 = 2 A.",
+            "trap": "Convert milliamps to amps before using the formula.",
+            "check": "Can you explain ohm's law: single resistors without looking at the answer choices?"
+          },
+          {
+            "number": "5-5",
+            "title": "Series and parallel resistors",
+            "plain_language": "Series resistors add directly. Parallel resistance is less than the smallest branch, and equal resistors in parallel divide by the number of branches.",
+            "memorize": "Memorize formulas, unit prefixes, and how quantities move when frequency or circuit values change.",
+            "example": "Two 100 ohm resistors in parallel equal 50 ohms.",
+            "trap": "Do not add parallel resistors as if they were in series.",
+            "check": "Can you explain series and parallel resistors without looking at the answer choices?"
+          },
+          {
+            "number": "5-6",
+            "title": "Power law, resistor power dissipation",
+            "plain_language": "Power is the rate of using or delivering energy. In DC exam problems, P = E x I is the most direct formula.",
+            "memorize": "Memorize formulas, unit prefixes, and how quantities move when frequency or circuit values change.",
+            "example": "13.8 V at 10 A is 138 W.",
+            "trap": "Power and energy are related but not the same thing.",
+            "check": "Can you explain power law, resistor power dissipation without looking at the answer choices?"
+          },
+          {
+            "number": "5-7",
+            "title": "AC, sinewave, frequency, frequency units",
+            "plain_language": "This topic focuses on ac, sinewave, frequency, frequency units. For electronics theory questions, write the relationship first, keep units straight, and check whether the question asks for voltage, current, resistance, power, frequency, ratio, or a measurement concept.",
+            "memorize": "Memorize formulas, unit prefixes, and how quantities move when frequency or circuit values change.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain ac, sinewave, frequency, frequency units without looking at the answer choices?"
+          },
+          {
+            "number": "5-8",
+            "title": "Ratios, logarithms, decibels",
+            "plain_language": "Decibels compare ratios. For power, +3 dB is about double, -3 dB is about half, +10 dB is ten times, and -10 dB is one tenth.",
+            "memorize": "Memorize formulas, unit prefixes, and how quantities move when frequency or circuit values change.",
+            "example": "A 50 W signal increased by 3 dB is about 100 W.",
+            "trap": "dB is a ratio, not a direct watt value by itself.",
+            "check": "Can you explain ratios, logarithms, decibels without looking at the answer choices?"
+          },
+          {
+            "number": "5-9",
+            "title": "Introduction to inductance and capacitance",
+            "plain_language": "Inductors and capacitors oppose AC in frequency-dependent ways. Inductive reactance rises with frequency; capacitive reactance falls with frequency. Resonance occurs when they balance.",
+            "memorize": "Memorize formulas, unit prefixes, and how quantities move when frequency or circuit values change.",
+            "example": "Increasing frequency makes an inductor oppose current more, but a capacitor oppose current less.",
+            "trap": "Inductive and capacitive reactance move in opposite directions.",
+            "check": "Can you explain introduction to inductance and capacitance without looking at the answer choices?"
+          },
+          {
+            "number": "5-10",
+            "title": "Introduction to reactance and impedance",
+            "plain_language": "Inductors and capacitors oppose AC in frequency-dependent ways. Inductive reactance rises with frequency; capacitive reactance falls with frequency. Resonance occurs when they balance.",
+            "memorize": "Memorize formulas, unit prefixes, and how quantities move when frequency or circuit values change.",
+            "example": "Increasing frequency makes an inductor oppose current more, but a capacitor oppose current less.",
+            "trap": "Inductive and capacitive reactance move in opposite directions.",
+            "check": "Can you explain introduction to reactance and impedance without looking at the answer choices?"
+          },
+          {
+            "number": "5-11",
+            "title": "Introduction to magnetics and transformers",
+            "plain_language": "This topic focuses on introduction to magnetics and transformers. For electronics theory questions, write the relationship first, keep units straight, and check whether the question asks for voltage, current, resistance, power, frequency, ratio, or a measurement concept.",
+            "memorize": "Memorize formulas, unit prefixes, and how quantities move when frequency or circuit values change.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain introduction to magnetics and transformers without looking at the answer choices?"
+          },
+          {
+            "number": "5-12",
+            "title": "Introduction to resonance and tuned circuits",
+            "plain_language": "Inductors and capacitors oppose AC in frequency-dependent ways. Inductive reactance rises with frequency; capacitive reactance falls with frequency. Resonance occurs when they balance.",
+            "memorize": "Memorize formulas, unit prefixes, and how quantities move when frequency or circuit values change.",
+            "example": "Increasing frequency makes an inductor oppose current more, but a capacitor oppose current less.",
+            "trap": "Inductive and capacitive reactance move in opposite directions.",
+            "check": "Can you explain introduction to resonance and tuned circuits without looking at the answer choices?"
+          },
+          {
+            "number": "5-13",
+            "title": "Introduction to meters and measurements",
+            "plain_language": "This topic focuses on introduction to meters and measurements. For electronics theory questions, write the relationship first, keep units straight, and check whether the question asks for voltage, current, resistance, power, frequency, ratio, or a measurement concept.",
+            "memorize": "Memorize formulas, unit prefixes, and how quantities move when frequency or circuit values change.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain introduction to meters and measurements without looking at the answer choices?"
+          }
+        ]
+      }
     },
     {
       "id": "antennas",
@@ -309,7 +1025,134 @@
           "title": "Wavelength and antenna length",
           "content": "Wavelength in metres is approximately 300 divided by frequency in MHz. A half-wave dipole is roughly one-half wavelength long overall, and each side is about one-quarter wavelength. Real antennas are shortened by end effects and environment, so exam answers often use approximate textbook relationships."
         }
-      ]
+      ],
+      "lessons": {
+        "fundamentals": {
+          "heading": "How to think about antennas and feedlines",
+          "body": "Antennas and feedlines are about moving RF efficiently from the transmitter into space. Keep the ideas separate: feedline type, characteristic impedance, line loss, SWR, matching, polarization, wavelength, gain, and radiation pattern are related but not identical. SWR describes mismatch; it does not by itself tell you the antenna is good or bad in every way.",
+          "example": "Wavelength in metres is approximately 300 divided by frequency in MHz. A half-wave antenna is about half of that length.",
+          "trap": "A tuner can make the transmitter see a better load, but it does not remove all feedline loss or magically fix the antenna."
+        },
+        "topic_lessons": [
+          {
+            "number": "6-1",
+            "title": "Feed line characteristics, characteristic impedance",
+            "plain_language": "This topic focuses on feed line characteristics, characteristic impedance. For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate.",
+            "memorize": "Keep feedline, matching, wavelength, polarization, gain, and antenna type separate.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain feed line characteristics, characteristic impedance without looking at the answer choices?"
+          },
+          {
+            "number": "6-2",
+            "title": "Balanced and unbalanced feed lines, baluns",
+            "plain_language": "Balanced lines have equal and opposite conductors. Coax is unbalanced. A balun helps connect balanced and unbalanced systems.",
+            "memorize": "Keep feedline, matching, wavelength, polarization, gain, and antenna type separate.",
+            "example": "A dipole fed with coax often uses a balun at the feed point.",
+            "trap": "Do not call every feedline coaxial cable.",
+            "check": "Can you explain balanced and unbalanced feed lines, baluns without looking at the answer choices?"
+          },
+          {
+            "number": "6-3",
+            "title": "Popular antenna feed line and coaxial connector types",
+            "plain_language": "This topic focuses on popular antenna feed line and coaxial connector types. For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate.",
+            "memorize": "Keep feedline, matching, wavelength, polarization, gain, and antenna type separate.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain popular antenna feed line and coaxial connector types without looking at the answer choices?"
+          },
+          {
+            "number": "6-4",
+            "title": "Line losses by line type, length and frequency",
+            "plain_language": "This topic focuses on line losses by line type, length and frequency. For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate.",
+            "memorize": "Keep feedline, matching, wavelength, polarization, gain, and antenna type separate.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain line losses by line type, length and frequency without looking at the answer choices?"
+          },
+          {
+            "number": "6-5",
+            "title": "Standing waves, standing wave ratio meter",
+            "plain_language": "SWR indicates mismatch between feedline and load. Matching makes the transmitter see a suitable impedance.",
+            "memorize": "Keep feedline, matching, wavelength, polarization, gain, and antenna type separate.",
+            "example": "A tuner can reduce the SWR seen by the transmitter.",
+            "trap": "A low SWR reading does not prove the antenna radiates efficiently.",
+            "check": "Can you explain standing waves, standing wave ratio meter without looking at the answer choices?"
+          },
+          {
+            "number": "6-6",
+            "title": "Concept of impedance matching",
+            "plain_language": "SWR indicates mismatch between feedline and load. Matching makes the transmitter see a suitable impedance.",
+            "memorize": "Keep feedline, matching, wavelength, polarization, gain, and antenna type separate.",
+            "example": "A tuner can reduce the SWR seen by the transmitter.",
+            "trap": "A low SWR reading does not prove the antenna radiates efficiently.",
+            "check": "Can you explain concept of impedance matching without looking at the answer choices?"
+          },
+          {
+            "number": "6-7",
+            "title": "Isotropic source, polarization via element orientation",
+            "plain_language": "This topic focuses on isotropic source, polarization via element orientation. For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate.",
+            "memorize": "Keep feedline, matching, wavelength, polarization, gain, and antenna type separate.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain isotropic source, polarization via element orientation without looking at the answer choices?"
+          },
+          {
+            "number": "6-8",
+            "title": "Wavelength vs physical length",
+            "plain_language": "Wavelength is the physical length of one RF cycle. In metres, approximate wavelength is 300 divided by frequency in MHz.",
+            "memorize": "Keep feedline, matching, wavelength, polarization, gain, and antenna type separate.",
+            "example": "At 150 MHz, wavelength is about 300 / 150 = 2 m.",
+            "trap": "A half-wave antenna is half the wavelength overall, not the full wavelength.",
+            "check": "Can you explain wavelength vs physical length without looking at the answer choices?"
+          },
+          {
+            "number": "6-9",
+            "title": "Gain, directivity, radiation pattern, antenna bandwidth",
+            "plain_language": "Gain and directivity describe where energy is concentrated. A directional antenna sends and receives better in some directions.",
+            "memorize": "Keep feedline, matching, wavelength, polarization, gain, and antenna type separate.",
+            "example": "A Yagi has a driven element plus parasitic elements that shape the pattern.",
+            "trap": "Gain does not create power; it concentrates radiation.",
+            "check": "Can you explain gain, directivity, radiation pattern, antenna bandwidth without looking at the answer choices?"
+          },
+          {
+            "number": "6-10",
+            "title": "Vertical antennas: types, dimensions, characteristics",
+            "plain_language": "This topic focuses on vertical antennas: types, dimensions, characteristics. For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate.",
+            "memorize": "Keep feedline, matching, wavelength, polarization, gain, and antenna type separate.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain vertical antennas: types, dimensions, characteristics without looking at the answer choices?"
+          },
+          {
+            "number": "6-11",
+            "title": "Yagi antennas: types, dimensions, characteristics",
+            "plain_language": "Gain and directivity describe where energy is concentrated. A directional antenna sends and receives better in some directions.",
+            "memorize": "Keep feedline, matching, wavelength, polarization, gain, and antenna type separate.",
+            "example": "A Yagi has a driven element plus parasitic elements that shape the pattern.",
+            "trap": "Gain does not create power; it concentrates radiation.",
+            "check": "Can you explain yagi antennas: types, dimensions, characteristics without looking at the answer choices?"
+          },
+          {
+            "number": "6-12",
+            "title": "Wire antennas: types, dimensions, characteristics",
+            "plain_language": "This topic focuses on wire antennas: types, dimensions, characteristics. For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate.",
+            "memorize": "Keep feedline, matching, wavelength, polarization, gain, and antenna type separate.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain wire antennas: types, dimensions, characteristics without looking at the answer choices?"
+          },
+          {
+            "number": "6-13",
+            "title": "Quad/loop antennas: types, dimensions, characteristics",
+            "plain_language": "This topic focuses on quad/loop antennas: types, dimensions, characteristics. For antenna and feedline questions, keep impedance, loss, wavelength, polarization, radiation pattern, matching, and standing-wave behaviour separate.",
+            "memorize": "Keep feedline, matching, wavelength, polarization, gain, and antenna type separate.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain quad/loop antennas: types, dimensions, characteristics without looking at the answer choices?"
+          }
+        ]
+      }
     },
     {
       "id": "propagation",
@@ -334,7 +1177,89 @@
             "Ducting: VHF/UHF propagation through atmospheric layers."
           ]
         }
-      ]
+      ],
+      "lessons": {
+        "fundamentals": {
+          "heading": "How to think about propagation",
+          "body": "Propagation questions ask how a signal gets from one station to another. First identify the frequency range and path. VHF/UHF is usually line-of-sight unless a special mode is named. HF often uses sky wave and the ionosphere. The D layer mainly absorbs, while E and F layers can refract signals. Solar activity, time of day, season, and frequency decide which paths are open.",
+          "example": "A skip zone is the area beyond ground-wave coverage but before the first sky-wave signal returns to earth.",
+          "trap": "Do not use one propagation rule for every band. HF, VHF, and UHF behave differently."
+        },
+        "topic_lessons": [
+          {
+            "number": "7-1",
+            "title": "Line of sight, ground wave, ionospheric wave",
+            "plain_language": "Line-of-sight signals travel mostly directly and are common at VHF/UHF. Ground wave follows the earth and is strongest at lower frequencies.",
+            "memorize": "Identify frequency range, path type, ionospheric layer, and solar condition.",
+            "example": "A local VHF repeater contact is usually line-of-sight or near line-of-sight.",
+            "trap": "Do not expect ordinary VHF/UHF to behave like HF sky wave.",
+            "check": "Can you explain line of sight, ground wave, ionospheric wave without looking at the answer choices?"
+          },
+          {
+            "number": "7-2",
+            "title": "Ionosphere and ionospheric regions",
+            "plain_language": "HF signals can refract from ionospheric layers and return to earth. One return is a hop; the skip zone is the area before the first return.",
+            "memorize": "Identify frequency range, path type, ionospheric layer, and solar condition.",
+            "example": "The D layer tends to absorb HF, especially by day; E and F layers can return signals.",
+            "trap": "Absorption and refraction are different effects.",
+            "check": "Can you explain ionosphere and ionospheric regions without looking at the answer choices?"
+          },
+          {
+            "number": "7-3",
+            "title": "Propagation hops, skip zone, skip distance",
+            "plain_language": "HF signals can refract from ionospheric layers and return to earth. One return is a hop; the skip zone is the area before the first return.",
+            "memorize": "Identify frequency range, path type, ionospheric layer, and solar condition.",
+            "example": "The D layer tends to absorb HF, especially by day; E and F layers can return signals.",
+            "trap": "Absorption and refraction are different effects.",
+            "check": "Can you explain propagation hops, skip zone, skip distance without looking at the answer choices?"
+          },
+          {
+            "number": "7-4",
+            "title": "Ionospheric absorption, causes and variation, fading, phase shift, Faraday rotation",
+            "plain_language": "This topic focuses on ionospheric absorption, causes and variation, fading, phase shift, faraday rotation. For propagation questions, first identify the frequency range and path: line of sight, ground wave, sky wave, ionospheric layer, solar condition, or special VHF/UHF mode.",
+            "memorize": "Identify frequency range, path type, ionospheric layer, and solar condition.",
+            "example": "Before answering, restate the question in your own words and identify the one concept being tested.",
+            "trap": "Distractors often sound familiar but answer a different topic.",
+            "check": "Can you explain ionospheric absorption, causes and variation, fading, phase shift, faraday rotation without looking at the answer choices?"
+          },
+          {
+            "number": "7-5",
+            "title": "Solar activity, sunspots, sunspot cycle",
+            "plain_language": "Solar activity changes ionization, which changes what frequencies can travel by sky wave. MUF is the maximum usable frequency for a path.",
+            "memorize": "Identify frequency range, path type, ionospheric layer, and solar condition.",
+            "example": "Higher solar activity can improve higher-frequency HF propagation.",
+            "trap": "MUF is path-dependent, not a fixed value for everyone everywhere.",
+            "check": "Can you explain solar activity, sunspots, sunspot cycle without looking at the answer choices?"
+          },
+          {
+            "number": "7-6",
+            "title": "MF and HF, critical and maximum usable frequencies, solar flux",
+            "plain_language": "Solar activity changes ionization, which changes what frequencies can travel by sky wave. MUF is the maximum usable frequency for a path.",
+            "memorize": "Identify frequency range, path type, ionospheric layer, and solar condition.",
+            "example": "Higher solar activity can improve higher-frequency HF propagation.",
+            "trap": "MUF is path-dependent, not a fixed value for everyone everywhere.",
+            "check": "Can you explain mf and hf, critical and maximum usable frequencies, solar flux without looking at the answer choices?"
+          },
+          {
+            "number": "7-7",
+            "title": "VHF and UHF, sporadic-E, aurora, ducting",
+            "plain_language": "Special VHF/UHF propagation modes include sporadic-E, aurora, ducting, and scatter. They are exceptions to normal line-of-sight expectations.",
+            "memorize": "Identify frequency range, path type, ionospheric layer, and solar condition.",
+            "example": "Ducting can carry VHF/UHF signals farther than normal through atmospheric layers.",
+            "trap": "The special mode named in the question usually points directly to the answer.",
+            "check": "Can you explain vhf and uhf, sporadic-e, aurora, ducting without looking at the answer choices?"
+          },
+          {
+            "number": "7-8",
+            "title": "Scatter: HF, VHF, UHF",
+            "plain_language": "Special VHF/UHF propagation modes include sporadic-E, aurora, ducting, and scatter. They are exceptions to normal line-of-sight expectations.",
+            "memorize": "Identify frequency range, path type, ionospheric layer, and solar condition.",
+            "example": "Ducting can carry VHF/UHF signals farther than normal through atmospheric layers.",
+            "trap": "The special mode named in the question usually points directly to the answer.",
+            "check": "Can you explain scatter: hf, vhf, uhf without looking at the answer choices?"
+          }
+        ]
+      }
     },
     {
       "id": "interference",
@@ -373,7 +1298,62 @@
             ]
           ]
         }
-      ]
+      ],
+      "lessons": {
+        "fundamentals": {
+          "heading": "How to think about interference",
+          "body": "Interference questions are troubleshooting questions. Decide whether the problem is caused by the transmitter, the receiver, or nearby wiring acting like an antenna. Receiver overload and cross-modulation happen in receivers. Audio rectification happens when RF is detected in audio wiring. Harmonics, spurious emissions, key clicks, and splatter come from transmitter or signal-quality problems.",
+          "example": "A low-pass filter at a transmitter output is a common way to reduce harmonic energy above the desired signal.",
+          "trap": "Do not assume every interference problem is caused by transmitter harmonics. Receiver overload and audio rectification are common exam distinctions."
+        },
+        "topic_lessons": [
+          {
+            "number": "8-1",
+            "title": "Front-end overload, cross-modulation",
+            "plain_language": "Front-end overload happens when strong signals overwhelm receiver input stages. Cross-modulation is unwanted modulation transferred from one signal to another in an overloaded receiver.",
+            "memorize": "Diagnose the source first, then choose the cure: receiver overload, audio rectification, transmitter emissions, or filtering.",
+            "example": "Adding attenuation or filtering before the receiver can help overload.",
+            "trap": "This is a receiver problem, not always a transmitter harmonic problem.",
+            "check": "Can you explain front-end overload, cross-modulation without looking at the answer choices?"
+          },
+          {
+            "number": "8-2",
+            "title": "Audio rectification, bypass capacitors, ferrites",
+            "plain_language": "Audio rectification happens when RF gets into audio wiring and is detected like a crude radio receiver. Bypass capacitors and ferrites can reduce RF on leads.",
+            "memorize": "Diagnose the source first, then choose the cure: receiver overload, audio rectification, transmitter emissions, or filtering.",
+            "example": "A telephone or speaker picking up RF can be an audio rectification symptom.",
+            "trap": "The transmitter may be clean even when nearby audio gear is poorly immune.",
+            "check": "Can you explain audio rectification, bypass capacitors, ferrites without looking at the answer choices?"
+          },
+          {
+            "number": "8-3",
+            "title": "Intermodulation, spurious emissions, key clicks",
+            "plain_language": "These are unwanted transmitter outputs or signal defects. Harmonics are multiples of the wanted frequency. Splatter often comes from overdriving or overmodulation.",
+            "memorize": "Diagnose the source first, then choose the cure: receiver overload, audio rectification, transmitter emissions, or filtering.",
+            "example": "A low-pass filter helps reduce harmonics above the intended signal.",
+            "trap": "Do not use a receiver-overload cure for a dirty transmitter signal.",
+            "check": "Can you explain intermodulation, spurious emissions, key clicks without looking at the answer choices?"
+          },
+          {
+            "number": "8-4",
+            "title": "Harmonics, splatter, transmitter adjustments",
+            "plain_language": "These are unwanted transmitter outputs or signal defects. Harmonics are multiples of the wanted frequency. Splatter often comes from overdriving or overmodulation.",
+            "memorize": "Diagnose the source first, then choose the cure: receiver overload, audio rectification, transmitter emissions, or filtering.",
+            "example": "A low-pass filter helps reduce harmonics above the intended signal.",
+            "trap": "Do not use a receiver-overload cure for a dirty transmitter signal.",
+            "check": "Can you explain harmonics, splatter, transmitter adjustments without looking at the answer choices?"
+          },
+          {
+            "number": "8-5",
+            "title": "Use of filters: low-pass, high-pass, band-pass, band-reject",
+            "plain_language": "Filters pass wanted frequencies and reduce unwanted ones. Low-pass passes low frequencies, high-pass passes high frequencies, band-pass passes a range, and notch rejects a range.",
+            "memorize": "Diagnose the source first, then choose the cure: receiver overload, audio rectification, transmitter emissions, or filtering.",
+            "example": "A band-reject or notch filter can reduce one troublesome frequency range.",
+            "trap": "Pick the filter by what it passes or rejects, not by its name alone.",
+            "check": "Can you explain use of filters: low-pass, high-pass, band-pass, band-reject without looking at the answer choices?"
+          }
+        ]
+      }
     }
   ]
 }

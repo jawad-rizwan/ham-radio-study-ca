@@ -8,14 +8,15 @@ Live site: <https://jawad-rizwan.github.io/ham-radio-study-ca/>
 
 - Official English Basic Qualification question bank from the Government of Canada
 - 984 exact official questions and answer choices
-- Start Here guide with a recommended order for using the course, guide, drills, mocks, and exam-booking tools
+- Guided Study Path split into the 8 official Basic exam chapters
+- Beginner teaching lessons for every official topic area before practice
 - 100-question mock exams, one question from each RIC-3 Basic topic area
 - Pass and honours scoring: 70% pass, 80% Basic with Honours range
 - Detailed wrong-answer explanations tied to the RIC-3 syllabus topics
 - Adaptive study mode for weak, missed, stale, and unseen questions
-- Topic drills, missed-question drills, and searchable question bank
-- 28-unit course path mapped to RIC-3 topic areas, with local resume and time tracking
-- Comprehensive study guide for the 8 major Basic syllabus areas
+- Chapter drills, missed-question drills, and searchable question bank
+- 28-unit course content mapped into the chapter path
+- Advanced area for mock exams, adaptive study, question bank, flashcards, formulas, cram sheets, and resources
 - Resources page with official ISED references and the recommended CLARES training links
 - Exam next-steps checklist for mocks, the official practice exam, and finding an accredited examiner
 - Formula drills for Ohm's law, power, wavelength, dB, batteries, reactance, and metric prefixes

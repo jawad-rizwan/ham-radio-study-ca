@@ -11,14 +11,14 @@ const DATA_PATHS = {
 
 const PROGRESS_KEY = "hamRadioStudyProgress:v1";
 const THEME_KEY = "hamRadioStudyTheme";
-const APP_VERSION = "1.2.0";
+const APP_VERSION = "2.0.0";
 
 const app = document.querySelector("#app");
 const navLinks = [...document.querySelectorAll("[data-view]")];
 
 const state = {
   data: null,
-  view: "dashboard",
+  view: "studyPath",
   session: null,
   reviewSession: null,
   bank: {
@@ -30,6 +30,9 @@ const state = {
   },
   guide: {
     moduleId: "",
+  },
+  chapter: {
+    majorId: "",
   },
   course: {
     unitId: "",
@@ -98,6 +101,10 @@ function defaultProgress() {
     questionStats: {},
     examHistory: [],
     guideCompletions: {},
+    chapterProgress: {
+      currentMajorId: "",
+      chapters: {},
+    },
     courseProgress: {
       currentUnitId: "",
       units: {},
@@ -126,10 +133,18 @@ function normalizeProgress(progress) {
     questionStats: progress?.questionStats && typeof progress.questionStats === "object" ? progress.questionStats : {},
     examHistory: Array.isArray(progress?.examHistory) ? progress.examHistory : [],
     guideCompletions: progress?.guideCompletions && typeof progress.guideCompletions === "object" ? progress.guideCompletions : {},
+    chapterProgress: normalizeChapterProgress(progress?.chapterProgress),
     courseProgress: normalizeCourseProgress(progress?.courseProgress),
     formulaStats: progress?.formulaStats && typeof progress.formulaStats === "object" ? progress.formulaStats : {},
     flashcardStats: progress?.flashcardStats && typeof progress.flashcardStats === "object" ? progress.flashcardStats : {},
     bookmarks: Array.isArray(progress?.bookmarks) ? progress.bookmarks : [],
+  };
+}
+
+function normalizeChapterProgress(progress) {
+  return {
+    currentMajorId: typeof progress?.currentMajorId === "string" ? progress.currentMajorId : "",
+    chapters: progress?.chapters && typeof progress.chapters === "object" ? progress.chapters : {},
   };
 }
 
@@ -210,13 +225,24 @@ function formatDuration(seconds) {
 
 function setView(view) {
   settleCourseTime();
-  state.view = view;
-  if (view !== "guide") state.guide.moduleId = "";
+  const nextView = normalizeView(view);
+  state.view = nextView;
+  if (nextView !== "guide") state.guide.moduleId = "";
+  if (nextView !== "studyPath") state.chapter.majorId = "";
   state.course.unitId = "";
-  navLinks.forEach((link) => link.classList.toggle("active", link.dataset.view === view));
+  navLinks.forEach((link) => link.classList.toggle("active", link.dataset.view === activeNavView(nextView)));
   render();
   app.focus();
-  window.location.hash = view;
+  window.location.hash = nextView;
+}
+
+function normalizeView(view) {
+  if (["", "dashboard", "quickStart", "course"].includes(view)) return "studyPath";
+  return view;
+}
+
+function activeNavView(view) {
+  return ["studyPath", "progress", "advanced", "about"].includes(view) ? view : "advanced";
 }
 
 function getQuestionById(id) {
@@ -279,6 +305,7 @@ function getStats() {
     bestMock: mockExams.length ? Math.max(...mockExams.map((record) => record.scorePercent)) : 0,
     sectionsTouched,
     guideDone: Object.keys(state.progress.guideCompletions).length,
+    chapterDone: state.data.majorTopics.filter((major) => getChapterProgress(major.id).completedAt).length,
     courseDone: state.data.course.units.filter((unit) => getUnitProgress(unit.id).completedAt).length,
   };
 }
@@ -379,6 +406,7 @@ function render() {
   }
 
   const views = {
+    studyPath: renderStudyPath,
     dashboard: renderDashboard,
     quickStart: renderQuickStart,
     course: renderCourse,
@@ -391,10 +419,380 @@ function render() {
     cram: renderCramSheets,
     resources: renderResources,
     nextSteps: renderNextSteps,
+    advanced: renderAdvanced,
     progress: renderProgress,
     about: renderAbout,
   };
-  app.innerHTML = (views[state.view] || renderDashboard)();
+  app.innerHTML = (views[state.view] || renderStudyPath)();
+}
+
+function getChapter(majorId) {
+  return state.data.majorTopics.find((major) => major.id === majorId) || state.data.majorTopics[0];
+}
+
+function getChapterProgress(majorId) {
+  return state.progress.chapterProgress.chapters[majorId] || {
+    completedAt: "",
+    lastOpenedAt: "",
+  };
+}
+
+function chapterQuestions(majorId) {
+  return state.data.questionsByMajor[majorId] || [];
+}
+
+function chapterSections(majorId) {
+  return state.data.sections.filter((section) => section.major_id === majorId);
+}
+
+function chapterGuide(majorId) {
+  return state.data.guide.modules.find((module) => module.major_id === majorId);
+}
+
+function chapterUnits(majorId) {
+  const sectionMajor = (sectionId) => state.data.sectionsById[sectionId]?.major_id;
+  return state.data.course.units.filter((unit) => unit.section_ids.some((sectionId) => sectionMajor(sectionId) === majorId));
+}
+
+function chapterStats(majorId) {
+  const questions = chapterQuestions(majorId);
+  const attempts = questions.reduce((sum, question) => sum + (state.progress.questionStats[question.id]?.attempts || 0), 0);
+  const correct = questions.reduce((sum, question) => sum + (state.progress.questionStats[question.id]?.correct || 0), 0);
+  const seen = questions.filter((question) => state.progress.questionStats[question.id]?.attempts).length;
+  const wrong = questions.filter((question) => {
+    const stats = state.progress.questionStats[question.id];
+    return stats && (stats.wrong || 0) > 0 && (stats.correct || 0) < (stats.attempts || 0);
+  }).length;
+  const complete = Boolean(getChapterProgress(majorId).completedAt);
+  return {
+    attempts,
+    correct,
+    seen,
+    wrong,
+    total: questions.length,
+    accuracy: attempts ? round1((correct / attempts) * 100) : 0,
+    complete,
+  };
+}
+
+function chapterStatus(majorId) {
+  const stats = chapterStats(majorId);
+  if (stats.complete) return "Complete";
+  if (stats.attempts) return "Practicing";
+  if (getChapterProgress(majorId).lastOpenedAt) return "Studying";
+  return "Not started";
+}
+
+function currentChapter() {
+  const saved = state.progress.chapterProgress.currentMajorId;
+  if (saved && getChapter(saved)) return getChapter(saved);
+  return state.data.majorTopics.find((major) => !getChapterProgress(major.id).completedAt) || state.data.majorTopics[0];
+}
+
+function openChapter(majorId) {
+  const chapter = getChapter(majorId);
+  if (!chapter) return;
+  state.chapter.majorId = chapter.id;
+  state.progress.chapterProgress.currentMajorId = chapter.id;
+  state.progress.chapterProgress.chapters[chapter.id] = {
+    ...getChapterProgress(chapter.id),
+    lastOpenedAt: new Date().toISOString(),
+  };
+  saveProgress();
+  state.view = "studyPath";
+  navLinks.forEach((link) => link.classList.toggle("active", link.dataset.view === activeNavView("studyPath")));
+  render();
+  app.focus();
+  window.location.hash = `chapter-${chapter.id}`;
+}
+
+function completeChapter(majorId) {
+  const chapter = getChapter(majorId);
+  if (!chapter) return;
+  state.progress.chapterProgress.chapters[chapter.id] = {
+    ...getChapterProgress(chapter.id),
+    completedAt: new Date().toISOString(),
+    lastOpenedAt: new Date().toISOString(),
+  };
+  const next = state.data.majorTopics.find((major) => !getChapterProgress(major.id).completedAt && major.id !== chapter.id);
+  state.progress.chapterProgress.currentMajorId = next?.id || chapter.id;
+  saveProgress();
+  if (next) {
+    state.chapter.majorId = next.id;
+    window.location.hash = `chapter-${next.id}`;
+  }
+  render();
+}
+
+function startChapterPractice(majorId, onlyMistakes = false) {
+  const chapter = getChapter(majorId);
+  if (!chapter) return;
+  let questions = chapterQuestions(chapter.id);
+  if (onlyMistakes) {
+    questions = questions.filter((question) => {
+      const stats = state.progress.questionStats[question.id];
+      return stats && (stats.wrong || 0) > 0 && (stats.correct || 0) < (stats.attempts || 0);
+    });
+  }
+  startSession({
+    title: `${chapter.short_title} ${onlyMistakes ? "missed questions" : "chapter practice"}`,
+    mode: onlyMistakes ? "chapter-mistakes" : "chapter",
+    questions: shuffle(questions).slice(0, 15),
+    instant: true,
+  });
+}
+
+function renderStudyPath() {
+  if (state.chapter.majorId) return renderChapter();
+  const current = currentChapter();
+  const stats = getStats();
+  const completed = state.data.majorTopics.filter((major) => getChapterProgress(major.id).completedAt).length;
+  return `
+    ${hero("Study Path", "Follow one chapter at a time. Each chapter teaches the topic first, then gives you a short official-question drill and review.", "Guided Course")}
+    <section class="panel start-panel">
+      <div>
+        <p class="eyebrow">Next recommended step</p>
+        <h2>${escapeHtml(current.id)} ${escapeHtml(current.short_title)}</h2>
+        <p class="muted">Start with the lesson, then do a 15-question drill. You can open any chapter, but this is the clean path to follow.</p>
+      </div>
+      <div class="actions">
+        <button class="btn" type="button" data-action="open-chapter" data-major-id="${escapeHtml(current.id)}">Continue</button>
+        <button class="btn secondary" type="button" data-view="advanced">Advanced tools</button>
+      </div>
+    </section>
+    <section class="grid four" style="margin-top: 16px;">
+      ${statCard("Chapters", `${completed}/8`, "Marked complete")}
+      ${statCard("Readiness", `${readinessScore()}%`, readinessLabel(readinessScore()))}
+      ${statCard("Practice", `${stats.attempts}`, `${stats.accuracy}% correct`)}
+      ${statCard("Mocks", stats.mockCount, stats.mockCount ? `Best ${stats.bestMock}%` : "Use later")}
+    </section>
+    <section class="chapter-list">
+      ${state.data.majorTopics.map(renderChapterCard).join("")}
+    </section>
+  `;
+}
+
+function renderChapterCard(chapter) {
+  const stats = chapterStats(chapter.id);
+  const status = chapterStatus(chapter.id);
+  const percent = stats.total ? round1((stats.seen / stats.total) * 100) : 0;
+  return `
+    <article class="chapter-card" style="--accent:${escapeHtml(chapter.color)}">
+      <div class="chapter-index">${escapeHtml(chapter.id.replace("B-00", ""))}</div>
+      <div>
+        <div class="split-head compact">
+          <div>
+            <span class="pill">${escapeHtml(status)}</span>
+            <h2>${escapeHtml(chapter.title)}</h2>
+          </div>
+          <button class="btn small" type="button" data-action="open-chapter" data-major-id="${escapeHtml(chapter.id)}">Open chapter</button>
+        </div>
+        <p class="muted">${escapeHtml(chapter.summary)}</p>
+        <div class="course-meta">
+          <span>${chapterSections(chapter.id).length} official topic areas</span>
+          <span>${stats.total} official questions</span>
+          <span>${stats.attempts ? `${stats.accuracy}% practice accuracy` : "No practice yet"}</span>
+        </div>
+        <div class="progress-line thin"><span style="width:${clamp(percent, 0, 100)}%; background:${escapeHtml(chapter.color)}"></span></div>
+      </div>
+    </article>
+  `;
+}
+
+function renderChapter() {
+  const chapter = getChapter(state.chapter.majorId);
+  const guide = chapterGuide(chapter.id);
+  const stats = chapterStats(chapter.id);
+  const units = chapterUnits(chapter.id);
+  const weak = chapterSections(chapter.id)
+    .map((section) => ({ section, mastery: sectionMastery(section.id) }))
+    .sort((a, b) => a.mastery.percent - b.mastery.percent)
+    .slice(0, 5);
+  return `
+    <section class="chapter-detail" style="--accent:${escapeHtml(chapter.color)}">
+      <div class="panel">
+        <div class="split-head">
+          <div>
+            <p class="eyebrow">${escapeHtml(chapter.id)} | ${escapeHtml(chapterStatus(chapter.id))}</p>
+            <h1>${escapeHtml(chapter.title)}</h1>
+            <p class="muted">${escapeHtml(chapter.summary)}</p>
+          </div>
+          <button class="btn ghost" type="button" data-action="back-study-path">Back to path</button>
+        </div>
+        <div class="course-meta">
+          <span>${stats.seen}/${stats.total} questions seen</span>
+          <span>${stats.attempts ? `${stats.accuracy}% accuracy` : "No practice yet"}</span>
+          <span>${stats.wrong} weak question(s)</span>
+        </div>
+      </div>
+      ${renderChapterLearn(chapter, guide, units)}
+      ${renderChapterPractice(chapter, stats)}
+      ${renderChapterReview(chapter, weak)}
+      <section class="panel finish-panel">
+        <div>
+          <p class="eyebrow">Step 4</p>
+          <h2>Finish this chapter</h2>
+          <p class="muted">Mark it complete when the lesson makes sense and you have done at least one short drill. You can still come back later.</p>
+        </div>
+        <div class="actions">
+          <button class="btn green" type="button" data-action="complete-chapter" data-major-id="${escapeHtml(chapter.id)}">${stats.complete ? "Completed - continue" : "Mark chapter complete"}</button>
+        </div>
+      </section>
+    </section>
+  `;
+}
+
+function renderChapterLearn(chapter, guide, units) {
+  const lessons = guide?.lessons;
+  return `
+    <section class="panel lesson-panel">
+      <p class="eyebrow">Step 1</p>
+      <h2>Learn the chapter before touching the questions</h2>
+      ${lessons ? `
+        <article class="lesson-intro">
+          <h3>${escapeHtml(lessons.fundamentals.heading)}</h3>
+          <p>${escapeHtml(lessons.fundamentals.body)}</p>
+          <p><strong>Example:</strong> ${escapeHtml(lessons.fundamentals.example)}</p>
+          <p><strong>Common trap:</strong> ${escapeHtml(lessons.fundamentals.trap)}</p>
+        </article>
+        <div class="lesson-list">
+          ${lessons.topic_lessons.map((lesson, index) => renderTopicLesson(lesson, index < 2)).join("")}
+        </div>
+      ` : ""}
+      ${units.length ? `
+        <div class="guide-block">
+          <h3>Smaller study chunks in this chapter</h3>
+          <div class="course-meta">${units.map((unit) => `<span>${unit.order}. ${escapeHtml(unit.title)}</span>`).join("")}</div>
+        </div>
+      ` : ""}
+    </section>
+  `;
+}
+
+function renderTopicLesson(lesson, open = false) {
+  return `
+    <details class="topic-lesson" ${open ? "open" : ""}>
+      <summary><span>${escapeHtml(lesson.number)}</span> ${escapeHtml(lesson.title)}</summary>
+      <div class="lesson-body">
+        <p>${escapeHtml(lesson.plain_language)}</p>
+        <div class="lesson-grid">
+          <article><strong>Memorize</strong><p>${escapeHtml(lesson.memorize)}</p></article>
+          <article><strong>Example</strong><p>${escapeHtml(lesson.example)}</p></article>
+          <article><strong>Common trap</strong><p>${escapeHtml(lesson.trap)}</p></article>
+          <article><strong>Quick check</strong><p>${escapeHtml(lesson.check)}</p></article>
+        </div>
+      </div>
+    </details>
+  `;
+}
+
+function renderChapterPractice(chapter, stats) {
+  return `
+    <section class="panel">
+      <p class="eyebrow">Step 2</p>
+      <h2>Practice this chapter</h2>
+      <p class="muted">This starts a short 15-question drill using only official questions from ${escapeHtml(chapter.short_title)}. Explanations appear right after each answer.</p>
+      <div class="actions">
+        <button class="btn" type="button" data-action="practice-chapter" data-major-id="${escapeHtml(chapter.id)}">Start 15-question drill</button>
+        <button class="btn secondary" type="button" data-action="practice-major" data-major-id="${escapeHtml(chapter.id)}">Longer drill</button>
+        <button class="btn red" type="button" data-action="practice-chapter-mistakes" data-major-id="${escapeHtml(chapter.id)}" ${stats.wrong ? "" : "disabled"}>Review ${stats.wrong} weak</button>
+      </div>
+    </section>
+  `;
+}
+
+function renderChapterReview(chapter, weak) {
+  return `
+    <section class="panel">
+      <p class="eyebrow">Step 3</p>
+      <h2>Review what is shaky</h2>
+      <div class="review-columns">
+        <div>
+          <h3>Weak topic areas</h3>
+          <div class="stack">
+            ${weak.map(({ section, mastery }) => `
+              <article class="mini-row">
+                <div>
+                  <strong>${escapeHtml(section.number)} ${escapeHtml(section.title)}</strong>
+                  <small>${mastery.attempts ? `${mastery.percent}% from ${mastery.attempts} attempts` : "Not practiced yet"}</small>
+                </div>
+                <button class="btn small ghost" type="button" data-action="practice-section" data-section-id="${escapeHtml(section.id)}">Drill</button>
+              </article>
+            `).join("")}
+          </div>
+        </div>
+        <div>
+          <h3>Memory helpers</h3>
+          ${renderChapterMemory(chapter.id)}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderChapterMemory(majorId) {
+  const deckIds = {
+    "B-001": ["regulation_must_know"],
+    "B-002": ["operating_signals"],
+    "B-003": ["interference_safety", "formulas"],
+    "B-004": ["formulas"],
+    "B-005": ["formulas"],
+    "B-006": ["antennas_propagation", "formulas"],
+    "B-007": ["antennas_propagation"],
+    "B-008": ["interference_safety"],
+  }[majorId] || [];
+  const formulaTopics = {
+    "B-003": ["batteries"],
+    "B-005": ["ohms_law", "power", "series_parallel", "decibels", "reactance", "prefixes"],
+    "B-006": ["wavelength"],
+  }[majorId] || [];
+  const cards = state.data.flashcards.decks
+    .filter((deck) => deckIds.includes(deck.deck_id))
+    .flatMap((deck) => deck.cards.slice(0, 3));
+  const formulas = state.data.formulas.drills.filter((drill) => formulaTopics.includes(drill.topic)).slice(0, 4);
+  return `
+    <div class="memory-stack">
+      ${cards.map((card) => `
+        <article class="memory-card">
+          <strong>${escapeHtml(card.front)}</strong>
+          <span>${escapeHtml(card.back)}</span>
+        </article>
+      `).join("")}
+      ${formulas.map((drill) => `
+        <article class="memory-card">
+          <strong>${escapeHtml(drill.title)}</strong>
+          <span>${escapeHtml(drill.explanation)}</span>
+        </article>
+      `).join("")}
+      ${!cards.length && !formulas.length ? `<p class="muted">This chapter is best reviewed by re-reading the lesson and drilling weak topics.</p>` : ""}
+    </div>
+  `;
+}
+
+function renderAdvanced() {
+  return `
+    ${hero("Advanced tools", "Use these when you need them. The normal study flow is still the Study Path.", "Advanced")}
+    <section class="tool-grid">
+      ${renderToolCard("Mock exam", "A full 100-question official-style mock exam.", `<button class="btn small" type="button" data-action="start-mock">Start mock</button>`)}
+      ${renderToolCard("Adaptive study", "Weak, missed, stale and unseen questions.", `<button class="btn small secondary" type="button" data-action="start-adaptive">Start adaptive</button>`)}
+      ${renderToolCard("Mistakes", "Only questions you previously missed.", `<button class="btn small red" type="button" data-action="start-mistakes" ${mistakeCount() ? "" : "disabled"}>Drill mistakes</button>`)}
+      ${renderToolCard("Question bank", "Search the exact official bank.", `<button class="btn small secondary" type="button" data-view="bank">Open bank</button>`)}
+      ${renderToolCard("Formula drills", "Calculation practice.", `<button class="btn small secondary" type="button" data-view="formulas">Open formulas</button>`)}
+      ${renderToolCard("Flashcards", "Memory review cards.", `<button class="btn small secondary" type="button" data-view="flashcards">Open flashcards</button>`)}
+      ${renderToolCard("Cram sheets", "Printable last-pass summaries.", `<button class="btn small secondary" type="button" data-view="cram">Open sheets</button>`)}
+      ${renderToolCard("Resources and exam booking", "Official links and next steps.", `<button class="btn small secondary" type="button" data-view="resources">Resources</button><button class="btn small ghost" type="button" data-view="nextSteps">Next steps</button>`)}
+    </section>
+  `;
+}
+
+function renderToolCard(title, body, actions) {
+  return `
+    <article class="tool-card">
+      <h2>${escapeHtml(title)}</h2>
+      <p class="muted">${escapeHtml(body)}</p>
+      <div class="actions">${actions}</div>
+    </article>
+  `;
 }
 
 function renderDashboard() {
@@ -1597,11 +1995,11 @@ function renderProgress() {
   const stats = getStats();
   const readiness = readinessScore();
   return `
-    ${hero("Progress saved on this device", "Your attempts, weak topics, bookmarks, guide progress and flashcard ratings stay local unless you export them.", "Progress")}
+    ${hero("Progress saved on this device", "Your chapter progress, attempts, weak topics and bookmarks stay local unless you export them.", "Progress")}
     <section class="grid four">
       ${statCard("Readiness", `${readiness}%`, readinessLabel(readiness))}
       ${statCard("Attempts", stats.attempts, `${stats.accuracy}% correct`)}
-      ${statCard("Topics touched", `${stats.sectionsTouched}/100`, "RIC-3 areas")}
+      ${statCard("Chapters", `${stats.chapterDone}/8`, "Marked complete")}
       ${statCard("Bookmarks", state.progress.bookmarks.length, "Saved questions")}
     </section>
     <section class="panel" style="margin-top: 16px;">
@@ -1703,6 +2101,15 @@ document.addEventListener("click", (event) => {
   if (action === "start-custom") startCustomPractice();
   if (action === "practice-section") startSectionPractice(actionButton.dataset.sectionId);
   if (action === "practice-major") startMajorPractice(actionButton.dataset.majorId);
+  if (action === "open-chapter") openChapter(actionButton.dataset.majorId);
+  if (action === "back-study-path") {
+    state.chapter.majorId = "";
+    render();
+    window.location.hash = "studyPath";
+  }
+  if (action === "complete-chapter") completeChapter(actionButton.dataset.majorId);
+  if (action === "practice-chapter") startChapterPractice(actionButton.dataset.majorId, false);
+  if (action === "practice-chapter-mistakes") startChapterPractice(actionButton.dataset.majorId, true);
   if (action === "resume-course") {
     const unit = getCurrentCourseUnit();
     if (unit) openCourseUnit(unit.id);
@@ -1893,6 +2300,11 @@ async function init() {
       grouped[question.section_id].push(question);
       return grouped;
     }, {});
+    const questionsByMajor = questions.questions.reduce((grouped, question) => {
+      if (!grouped[question.major_id]) grouped[question.major_id] = [];
+      grouped[question.major_id].push(question);
+      return grouped;
+    }, {});
     state.data = {
       questions: questions.questions,
       majorTopics: topics.major_topics,
@@ -1900,6 +2312,7 @@ async function init() {
       sectionsById,
       majorById,
       questionsBySection,
+      questionsByMajor,
       explanations: explanations.explanations,
       guide,
       course,
@@ -1907,11 +2320,16 @@ async function init() {
       formulas,
       flashcards,
     };
-    const initialView = window.location.hash.replace("#", "");
-    if (initialView && document.querySelector(`[data-view="${CSS.escape(initialView)}"]`)) {
-      state.view = initialView;
-      navLinks.forEach((link) => link.classList.toggle("active", link.dataset.view === initialView));
+    const initialView = normalizeView(window.location.hash.replace("#", ""));
+    const rawHash = window.location.hash.replace("#", "");
+    if (rawHash.startsWith("chapter-")) {
+      const majorId = rawHash.replace("chapter-", "");
+      if (majorById[majorId]) state.chapter.majorId = majorId;
+      state.view = "studyPath";
+    } else {
+      state.view = initialView || "studyPath";
     }
+    navLinks.forEach((link) => link.classList.toggle("active", link.dataset.view === activeNavView(state.view)));
     render();
     registerServiceWorker();
   } catch (error) {
