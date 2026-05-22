@@ -11,7 +11,7 @@ const DATA_PATHS = {
 
 const PROGRESS_KEY = "hamRadioStudyProgress:v1";
 const THEME_KEY = "hamRadioStudyTheme";
-const APP_VERSION = "2.2.1";
+const APP_VERSION = "2.2.2";
 
 const app = document.querySelector("#app");
 const navLinks = [...document.querySelectorAll("[data-view]")];
@@ -275,6 +275,13 @@ function bookmarked(id) {
   return state.progress.bookmarks.includes(id);
 }
 
+function isWeakQuestion(question) {
+  const stats = state.progress.questionStats[question.id];
+  if (!stats || !(stats.wrong || 0)) return false;
+  if (typeof stats.lastCorrect === "boolean") return !stats.lastCorrect;
+  return (stats.correct || 0) < (stats.attempts || 0);
+}
+
 function toggleBookmark(id) {
   state.progress.bookmarks = bookmarked(id)
     ? state.progress.bookmarks.filter((item) => item !== id)
@@ -469,10 +476,7 @@ function chapterStats(majorId) {
   const attempts = questions.reduce((sum, question) => sum + (state.progress.questionStats[question.id]?.attempts || 0), 0);
   const correct = questions.reduce((sum, question) => sum + (state.progress.questionStats[question.id]?.correct || 0), 0);
   const seen = questions.filter((question) => state.progress.questionStats[question.id]?.attempts).length;
-  const wrong = questions.filter((question) => {
-    const stats = state.progress.questionStats[question.id];
-    return stats && (stats.wrong || 0) > 0 && (stats.correct || 0) < (stats.attempts || 0);
-  }).length;
+  const wrong = questions.filter(isWeakQuestion).length;
   const complete = Boolean(getChapterProgress(majorId).completedAt);
   return {
     attempts,
@@ -553,10 +557,7 @@ function startChapterPractice(majorId, mode = "sample") {
   if (!chapter) return;
   let questions = chapterQuestions(chapter.id);
   if (mode === "mistakes") {
-    questions = questions.filter((question) => {
-      const stats = state.progress.questionStats[question.id];
-      return stats && (stats.wrong || 0) > 0 && (stats.correct || 0) < (stats.attempts || 0);
-    });
+    questions = questions.filter(isWeakQuestion);
   }
   if (mode === "unseen") {
     questions = questions.filter((question) => !state.progress.questionStats[question.id]?.attempts);
@@ -1536,10 +1537,7 @@ function startAdaptiveStudy() {
 }
 
 function startMistakeDrill() {
-  const questions = state.data.questions.filter((question) => {
-    const stats = state.progress.questionStats[question.id];
-    return stats && (stats.wrong || 0) > 0 && (stats.correct || 0) < (stats.attempts || 0);
-  });
+  const questions = state.data.questions.filter(isWeakQuestion);
   startSession({
     title: "Missed-question drill",
     mode: "mistakes",
@@ -1649,10 +1647,7 @@ function renderPractice() {
 }
 
 function mistakeCount() {
-  return state.data.questions.filter((question) => {
-    const stats = state.progress.questionStats[question.id];
-    return stats && (stats.wrong || 0) > 0 && (stats.correct || 0) < (stats.attempts || 0);
-  }).length;
+  return state.data.questions.filter(isWeakQuestion).length;
 }
 
 function renderActiveSession() {
@@ -1755,6 +1750,7 @@ function recordQuestionAttempt(question, isCorrect, selectedAnswer) {
     lastSeen: "",
     lastWrongAt: "",
     lastSelectedAnswer: "",
+    lastCorrect: false,
   };
   stats.attempts += 1;
   if (isCorrect) {
@@ -1764,6 +1760,7 @@ function recordQuestionAttempt(question, isCorrect, selectedAnswer) {
     stats.lastWrongAt = new Date().toISOString();
     stats.lastSelectedAnswer = selectedAnswer || "";
   }
+  stats.lastCorrect = Boolean(isCorrect);
   stats.lastSeen = new Date().toISOString();
   state.progress.questionStats[question.id] = stats;
 }
@@ -1829,9 +1826,23 @@ function renderSessionReview(session) {
         <button class="btn secondary" type="button" data-action="review-all">Show all</button>
         <button class="btn red" type="button" data-action="review-wrong">Incorrect only</button>
         <button class="btn" type="button" data-action="start-adaptive">Study weak areas</button>
+        ${renderSessionFollowupActions(session)}
       </div>
       <div data-review-list>${renderReviewQuestions(session, "all")}</div>
     </section>
+  `;
+}
+
+function renderSessionFollowupActions(session) {
+  const majorId = session.questions[0]?.major_id;
+  if (!majorId || !session.record?.mode?.startsWith("chapter")) return "";
+  const stats = chapterStats(majorId);
+  const unseen = Math.max(0, stats.total - stats.seen);
+  const weak = chapterQuestions(majorId).filter(isWeakQuestion).length;
+  return `
+    ${unseen ? `<button class="btn green" type="button" data-action="practice-chapter-unseen" data-major-id="${escapeHtml(majorId)}">Continue next ${Math.min(25, unseen)} unseen</button>` : ""}
+    ${weak ? `<button class="btn red" type="button" data-action="practice-chapter-mistakes" data-major-id="${escapeHtml(majorId)}">Drill ${weak} weak</button>` : ""}
+    <button class="btn ghost" type="button" data-action="open-chapter" data-major-id="${escapeHtml(majorId)}">Back to chapter</button>
   `;
 }
 
